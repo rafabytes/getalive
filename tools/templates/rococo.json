@@ -1,0 +1,52 @@
+{
+  "slug": "rococo",
+  "title": "Rococo",
+  "source": "B:/obs-templates/rococo",
+  "tagline": "Salão de baile rococó: parede de damasco, molduras de ouro entalhado e pétalas de rosa caindo devagar.",
+  "excerpt": "Overlays completos para live no estilo rococó, com damasco, molduras de ouro, cetim rosa, poeira dourada e pétalas animadas. Inclui chat, alertas com selo de cera e som de cravo, e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#d9a441",
+  "featured": true,
+  "styles": ["Elegante", "Romântico", "Clássico"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">Uma noite de gala em plena live: parede de damasco, molduras de ouro entalhado, cetim rosa, feixes de luz de janela, poeira dourada e pétalas de rosa caindo devagar.</p>\n<p>O Rococo é uma coleção de cenas completa para o OBS Studio. Todas as telas dividem o mesmo salão animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem corte no cenário.</p>\n<p>Os alertas chegam num cartão de veludo com moldura de ouro, um selo de cera carimbado na hora, chuva de ouro e pétalas, ao som de uma frase curta de cravo. O chat da Twitch entra direto na tela, sem login, em cartões de pergaminho. Todos os ornamentos são desenhados por código, nítidos em qualquer resolução.</p>\n<p>A instalação ficou ainda mais simples: o instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para ajustar textos, agenda, meta e até a cor da parede (vinho, rosa ou sálvia) no <code>config.js</code>.</p>",
+  "features": [
+    "Salão animado com damasco, molduras douradas, luz de janela, poeira dourada e pétalas",
+    "Instalador que pergunta seu nome e suas redes e já preenche tudo",
+    "Três cores de parede: vinho, rosa ou sálvia",
+    "Contagem regressiva que recomeça sempre que a cena entra no ar",
+    "Cronômetro de \"ausente há\" na cena Já volto",
+    "Chat da Twitch na tela (sem login), com filtro de bots e comandos",
+    "Alertas de seguidor, sub, doação e raid com selo de cera e som de cravo",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "Barra de meta de seguidores e barra com suas redes",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Ornamentos em SVG gerados por código, nítidos em qualquer tamanho",
+    "Modo econômico: menos FPS, fundo parado ou efeitos desligados"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Rococo.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Responda seu nome e seus usuários nas redes (Enter pula as que você não usa).",
+    "Abra o OBS e escolha Coleção de cenas → Rococo.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: contagem regressiva que recomeça sempre que você entra nessa cena." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia com a webcam no canto e uma barra com suas redes e a meta." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande em moldura dourada e chat ao lado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e chat ao lado, com suas redes e a meta embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" e o chat continua na tela." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}
