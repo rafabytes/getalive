@@ -97,19 +97,6 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 	</div>
 </section>
 
-<!-- Faixa ------------------------------------------------------------ -->
-<div class="relative -rotate-1 overflow-hidden border-y border-ink-950 bg-lime py-5 text-ink-950" aria-hidden="true">
-	<div class="marquee">
-		<?php for ( $r = 0; $r < 2; $r++ ) : ?>
-			<?php foreach ( [ 'Overlays animados', 'Chat na tela', 'Alertas com som', 'Painéis para Twitch', 'Instalador em 2 cliques', 'Banner offline', 'Personalização em um arquivo' ] as $word ) : ?>
-				<span class="flex items-center gap-8 whitespace-nowrap pr-8 font-display text-3xl font-semibold tracking-tight md:text-4xl" style="font-variation-settings:'wdth' 80">
-					<?php echo esc_html( $word ); ?> <?php echo ga_icon( 'sparkle', 'size-7' ); ?>
-				</span>
-			<?php endforeach; ?>
-		<?php endfor; ?>
-	</div>
-</div>
-
 <!-- Templates -------------------------------------------------------- -->
 <?php if ( $ga_grid ) : ?>
 <section class="py-24 md:py-36">

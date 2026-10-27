@@ -50,7 +50,6 @@ module.exports = {
         quint: 'cubic-bezier(0.83, 0, 0.17, 1)',
       },
       keyframes: {
-        marquee: { to: { transform: 'translateX(-50%)' } },
         pulse_live: {
           '0%, 100%': { opacity: 1, transform: 'scale(1)' },
           '50%': { opacity: 0.35, transform: 'scale(0.85)' },
@@ -68,7 +67,6 @@ module.exports = {
         },
       },
       animation: {
-        marquee: 'marquee 38s linear infinite',
         live: 'pulse_live 1.4s ease-in-out infinite',
         meter: 'meter 1.1s ease-in-out infinite',
         'spin-slow': 'spin_slow 18s linear infinite',

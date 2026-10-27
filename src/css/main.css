@@ -857,16 +857,6 @@
     @apply max-w-3xl pb-6 text-ink-300;
   }
 
-  /* Marquee ----------------------------------------------------------- */
-
-  .marquee {
-    @apply flex w-max animate-marquee;
-  }
-
-  .marquee:hover {
-    animation-play-state: paused;
-  }
-
   /* Contorno de texto */
   .text-outline {
     color: transparent;
