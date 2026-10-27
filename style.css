@@ -1,0 +1,16 @@
+/*
+Theme Name: get a live
+Theme URI: http://getalive.local/
+Author: rafabytes
+Author URI: https://rafabytes.com
+Description: Layouts de live para o OBS Studio. Catálogo de templates com download para usuários logados, favoritos, solicitações e login com Google. Construído com Parcel, TailwindCSS, React e Swup.
+Version: 1.0.0
+Requires at least: 6.5
+Tested up to: 7.1
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: getalive
+*/
+
+/* Os estilos ficam em src/css e são compilados pelo Parcel para dist/. */

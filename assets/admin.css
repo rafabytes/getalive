@@ -1,0 +1,21 @@
+.ga-fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px 16px; }
+.ga-field { margin: 8px 0; }
+.ga-field--wide { grid-column: 1 / -1; }
+.ga-fields .ga-field:has(textarea[name="ga_requirements"]),
+.ga-fields .ga-field:has(textarea[name="ga_install"]) { grid-column: span 2; }
+.ga-field label, .ga-field legend { display: block; font-weight: 600; margin-bottom: 4px; }
+.ga-field small { font-weight: 400; color: #646970; }
+.ga-field input[type=text], .ga-field textarea { width: 100%; }
+.ga-check { display: inline-flex !important; align-items: center; gap: 6px; margin-right: 16px; font-weight: 400 !important; }
+.ga-scenes { margin: 12px 0; padding: 0; list-style: none; counter-reset: scene; }
+.ga-scene { display: grid; grid-template-columns: 20px 160px 1fr 28px; gap: 12px; align-items: start; padding: 12px; margin: 0 0 8px; background: #f6f7f7; border: 1px solid #dcdcde; border-radius: 6px; }
+.ga-scene__handle { cursor: grab; color: #8c8f94; margin-top: 4px; }
+.ga-scene__image { width: 160px; aspect-ratio: 16 / 9; padding: 0; border: 1px dashed #8c8f94; border-radius: 4px; background: #fff; cursor: pointer; overflow: hidden; color: #646970; }
+.ga-scene__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ga-scene__text { display: grid; gap: 6px; }
+.ga-scene__text input, .ga-scene__text textarea { width: 100%; }
+.ga-scene__remove { color: #b32d2e; }
+.ga-file-current .dashicons { color: #7c3aff; }
+.ga-file-missing { color: #b32d2e; }
+.ga-badge { display: inline-block; padding: 1px 6px; font-size: 11px; border-radius: 3px; background: #7c3aff; color: #fff; }
+@media (max-width: 1200px) { .ga-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

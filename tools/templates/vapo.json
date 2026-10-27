@@ -1,0 +1,50 @@
+{
+  "slug": "vapo",
+  "title": "Vapo",
+  "source": "B:/obs-templates/vapo",
+  "tagline": "Synthwave em pixel art: cidade neon que desliza em camadas e chão quadriculado vindo na sua direção.",
+  "excerpt": "Overlays completos para live no estilo vaporwave/synthwave em pixel art, com cidade neon animada, chat, alertas com jingle 8-bit e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#ff3fd8",
+  "featured": true,
+  "styles": ["Retrô", "Synthwave", "Pixel art"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">Uma cidade neon em pixel art que nunca dorme: três camadas de prédios deslizando em velocidades diferentes, janelas piscando, carros voadores e o chão quadriculado rosa vindo na sua direção.</p>\n<p>O Vapo é uma coleção de cenas completa para o OBS Studio. Todas as telas compartilham o mesmo fundo animado, então a transição entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte no cenário.</p>\n<p>Os alertas aparecem num cartão de pixel com explosão de quadradinhos e tocam um jingle 8-bit gerado na hora. O chat da Twitch entra direto na tela, sem login, escondendo bots e comandos. E o pacote ainda traz oito painéis para a Twitch e um banner offline no mesmo estilo.</p>\n<p>Tudo é personalizado num único arquivo, o <code>config.js</code>: seu nome, suas redes, os textos de cada tela, a agenda, a meta de seguidores e os minutos da contagem regressiva.</p>",
+  "features": [
+    "Cidade em pixel art animada em três camadas, gerada no próprio OBS",
+    "Contagem regressiva que recomeça sempre que a cena entra no ar",
+    "Cronômetro de \"ausente há\" na cena Já volto",
+    "Chat da Twitch na tela (sem login), com filtro de bots e comandos",
+    "Alertas de seguidor, sub, doação e raid com jingle 8-bit",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "Barra de meta de seguidores e frases girando com suas redes",
+    "8 painéis para a Twitch: sobre mim, agenda, regras, Discord e mais",
+    "Banner offline no mesmo estilo",
+    "Modo econômico: menos FPS ou fundo parado para PCs mais simples"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Vapo.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Abra o OBS e escolha Coleção de cenas → Vapo.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera.",
+    "Edite overlays\\config.js com seu nome, suas redes e o canal da Twitch."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: contagem regressiva que recomeça sempre que você entra nessa cena." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia com a webcam no canto e uma barra com suas redes e a meta." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande e chat ao lado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e chat ao lado, e o título do vídeo embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" e o chat continua na tela." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}

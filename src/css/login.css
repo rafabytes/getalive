@@ -1,0 +1,147 @@
+/* wp-login.php (redefinir senha, sair): mesma identidade das telas do tema. */
+@import 'npm:@fontsource-variable/bricolage-grotesque/wdth.css';
+@import 'npm:@fontsource-variable/inter/index.css';
+
+body.login {
+  background: #08080a radial-gradient(60rem 40rem at 85% -10%, rgb(124 58 255 / 0.35), transparent 60%);
+  color: #d9d9e0;
+  font-family: 'Inter Variable', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.login #login {
+  width: min(400px, calc(100% - 2rem));
+  padding: 4vh 0;
+}
+
+.login h1 a {
+  background: none;
+  width: auto;
+  height: auto;
+  text-indent: 0;
+  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-variation-settings: 'wdth' 85;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.5rem;
+}
+
+.login h1 a::before {
+  content: '';
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  border: 3px solid #7c3aff;
+  background: radial-gradient(circle, #ff3b4e 0 32%, transparent 34%);
+}
+
+.login form {
+  background: #131318;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.7);
+  padding: 1.75rem;
+  margin: 0;
+}
+
+.login label {
+  color: #b4b4bf;
+  font-size: 13px;
+}
+
+.login input[type='text'],
+.login input[type='password'],
+.login input[type='email'] {
+  background: rgb(255 255 255 / 0.04);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 0.9rem;
+  color: #fff;
+  font-size: 15px;
+  padding: 0.7rem 0.9rem;
+  box-shadow: none;
+}
+
+.login input:focus {
+  border-color: #9d6bff;
+  box-shadow: 0 0 0 4px rgb(124 58 255 / 0.2);
+}
+
+.login .button.wp-hide-pw {
+  color: #b4b4bf;
+}
+
+.login .button-primary,
+.wp-core-ui .button-primary {
+  background: #d7ff3a;
+  border: 0;
+  border-radius: 999px;
+  color: #08080a;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 1.5rem;
+  text-shadow: none;
+  box-shadow: none;
+  transition: background 0.3s;
+}
+
+.login .button-primary:hover,
+.login .button-primary:focus {
+  background: #fff;
+  color: #08080a;
+}
+
+.login .message,
+.login .notice,
+.login .success,
+.login #login_error {
+  background: #131318;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-left: 3px solid #7c3aff;
+  border-radius: 1rem;
+  color: #d9d9e0;
+  box-shadow: none;
+}
+
+.login #login_error {
+  border-left-color: #ff3b4e;
+}
+
+.login #nav,
+.login #backtoblog,
+.login .privacy-policy-page-link {
+  text-align: center;
+}
+
+.login #nav a,
+.login #backtoblog a,
+.login .privacy-policy-page-link a,
+.login .message a {
+  color: #b4b4bf;
+}
+
+.login #nav a:hover,
+.login #backtoblog a:hover,
+.login .message a:hover {
+  color: #d7ff3a;
+}
+
+.login .language-switcher {
+  display: none;
+}
+
+.login .pw-weak,
+.login .indicator-hint,
+.login .description {
+  color: #8a8a96;
+}
+
+#pass-strength-result {
+  border-radius: 0.6rem;
+}
