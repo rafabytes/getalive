@@ -46,6 +46,9 @@ export async function api(path, data = {}) {
       status: res.status,
     });
   }
+
+  // Avisa que os dados do usuário mudaram (o main.js limpa o cache de páginas do Swup).
+  document.dispatchEvent(new CustomEvent('ga:changed', { detail: { path } }));
   return json;
 }
 

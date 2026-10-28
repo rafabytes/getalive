@@ -78,8 +78,16 @@ initHeader();
 initConsent();
 initFavorites((url) => swup.navigate(url));
 
+// O Swup guarda em memória as páginas visitadas e as pré-carregadas no hover. Depois de
+// favoritar, baixar, pedir um template ou editar o perfil essas cópias ficam velhas
+// (ex.: /conta mostrando 0 favoritos), então o cache é descartado.
+document.addEventListener('ga:changed', () => swup.cache.clear());
+
 document.addEventListener('click', (e) => {
-  if (e.target.closest('[data-download]')) toast('Seu download está começando…', 'download');
+  if (e.target.closest('[data-download]')) {
+    swup.cache.clear();
+    toast('Seu download está começando…', 'download');
+  }
 });
 
 pageView();
