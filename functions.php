@@ -28,6 +28,7 @@ foreach ( [
 	'settings',
 	'premium',
 	'install',
+	'home',
 ] as $ga_file ) {
 	require GA_DIR . "/inc/{$ga_file}.php";
 }
