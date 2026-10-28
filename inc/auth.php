@@ -146,9 +146,15 @@ function ga_record_consent( int $user_id, string $source ): void {
  * Faz login de um usuário já autenticado por outro meio (cadastro, Google).
  */
 function ga_login_as( int $user_id, bool $remember = true ): void {
+	// Sem isso, wp_create_nonce() nesta mesma requisição ainda usaria a sessão antiga.
+	$use_new_cookie = function ( $cookie ) {
+		$_COOKIE[ LOGGED_IN_COOKIE ] = $cookie;
+	};
+	add_action( 'set_logged_in_cookie', $use_new_cookie );
 	wp_clear_auth_cookie();
 	wp_set_current_user( $user_id );
 	wp_set_auth_cookie( $user_id, $remember, is_ssl() );
+	remove_action( 'set_logged_in_cookie', $use_new_cookie );
 	do_action( 'wp_login', get_userdata( $user_id )->user_login, get_userdata( $user_id ) );
 }
 

@@ -24,6 +24,8 @@ const handlers = {
     const res = await api('account/profile', data);
     form.querySelectorAll('input[type="password"]').forEach((i) => (i.value = ''));
     document.querySelectorAll('[data-user-menu-toggle] .truncate').forEach((el) => (el.textContent = res.name.split(' ')[0]));
+    // Senha trocada = sessão nova: o link de sair precisa do nonce novo.
+    if (res.logout) document.querySelectorAll('a[href*="action=logout"]').forEach((a) => (a.href = res.logout));
     toast(res.message);
     return res.message;
   },

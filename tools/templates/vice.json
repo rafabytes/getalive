@@ -1,6 +1,6 @@
 {
-  "slug": "leonida",
-  "title": "Leonida",
+  "slug": "vice",
+  "title": "Vice",
   "source": "B:/obs-templates/gta6",
   "tagline": "Pôr do sol em Vice City: orla art déco com neon, roda-gigante no píer e coqueiros balançando.",
   "excerpt": "Overlays completos para live inspirados no visual já divulgado de GTA VI: pôr do sol, orla com letreiros de neon, roda-gigante, mar refletindo o céu e alertas no estilo \"missão cumprida\" com estrelas de procurado. Inclui chat e painéis para a Twitch.",
@@ -11,7 +11,7 @@
   "featured": true,
   "styles": ["Games", "Neon", "Tropical"],
   "platforms": ["twitch", "youtube", "kick"],
-  "content": "<p class=\"lead\">Bem-vindo a Vice City: pôr do sol dourado-rosa-roxo, orla art déco com janelas acesas e letreiros de neon, roda-gigante girando no píer, mar refletindo o céu e coqueiros balançando nas laterais.</p>\n<p>O Leonida é uma coleção de cenas completa para o OBS Studio, inspirada no visual já divulgado de GTA VI. Todas as telas dividem o mesmo cenário animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte.</p>\n<p>Na cena Jogo, a webcam fica no lugar do minimapa e a meta vira a barra de vida. Os alertas chegam no estilo \"missão cumprida\": o nome aparece grande no degradê, as estrelas de procurado acendem (1 para seguidor, até 5 para raid), sai confete de neon e toca uma vinheta de sintetizador.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar o céu (entardecer, noite neon ou dia de praia) no <code>config.js</code>.</p>\n<p><small>Tema feito por fã, sem ligação com a Rockstar Games ou a Take-Two. Não usa logos, fontes nem artes oficiais: a cidade, os coqueiros e os ornamentos são desenhados por código.</small></p>",
+  "content": "<p class=\"lead\">Bem-vindo a Vice City: pôr do sol dourado-rosa-roxo, orla art déco com janelas acesas e letreiros de neon, roda-gigante girando no píer, mar refletindo o céu e coqueiros balançando nas laterais.</p>\n<p>O Vice é uma coleção de cenas completa para o OBS Studio, inspirada no visual já divulgado de GTA VI. Todas as telas dividem o mesmo cenário animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte.</p>\n<p>Na cena Jogo, a webcam fica no lugar do minimapa e a meta vira a barra de vida. Os alertas chegam no estilo \"missão cumprida\": o nome aparece grande no degradê, as estrelas de procurado acendem (1 para seguidor, até 5 para raid), sai confete de neon e toca uma vinheta de sintetizador.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar o céu (entardecer, noite neon ou dia de praia) no <code>config.js</code>.</p>\n<p><small>Tema feito por fã, sem ligação com a Rockstar Games ou a Take-Two. Não usa logos, fontes nem artes oficiais: a cidade, os coqueiros e os ornamentos são desenhados por código.</small></p>",
   "features": [
     "Cenário animado: orla com neon, roda-gigante, mar com reflexo, coqueiros, pássaros e avião",
     "Três céus: entardecer, noite neon ou dia de praia",

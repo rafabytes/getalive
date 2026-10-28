@@ -1,0 +1,50 @@
+{
+  "slug": "liquid",
+  "title": "Liquid",
+  "source": "B:/obs-templates/liquid",
+  "tagline": "Vidro líquido: cápsulas translúcidas com brilho nas bordas e manchas de cor se movendo devagar, com bolhas subindo.",
+  "excerpt": "Overlays completos para live no estilo vidro líquido: cápsulas e janelas translúcidas com brilho nas bordas, um celular de vidro para o chat, tipografia limpa e um fundo de cores em movimento com bolhas de vidro. Inclui chat e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#7b6cff",
+  "featured": true,
+  "styles": ["Minimalista", "Moderno", "Vidro"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">Tudo de vidro: cápsulas e janelas translúcidas com brilho nas bordas, tipografia limpa e um fundo de manchas de cor que se movem devagar, com bolhas de vidro subindo.</p>\n<p>O Liquid é uma coleção de cenas completa para o OBS Studio. Todas as telas dividem o mesmo fundo animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte. É um visual neutro, que combina com qualquer tipo de live.</p>\n<p>O chat aparece em balões num celular de vidro. Os alertas surgem numa cápsula de vidro no alto da tela: o nome em letras grandes, as estrelas acendendo (1 para seguidor, até 5 para raid), bolinhas de vidro espalhando e uma vinheta curta de sintetizador. Como o vidro é feito só com CSS, ele funciona por cima de qualquer coisa, inclusive do jogo.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar a cor do fundo (aurora, coral ou grafite) no <code>config.js</code>.</p>",
+  "features": [
+    "Fundo animado: manchas de cor em movimento e bolhas de vidro subindo",
+    "Três fundos: aurora (azul e roxo), coral (rosa e laranja) ou grafite (cinza neutro)",
+    "Instalador que pergunta seu nome e suas redes e já preenche tudo",
+    "Contagem regressiva que recomeça sempre que a cena entra no ar, com frases girando",
+    "Cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos",
+    "Chat da Twitch em balões num celular de vidro (sem login), com filtro de bots e comandos",
+    "Alertas numa cápsula de vidro, com estrelas, bolinhas espalhando e vinheta de sintetizador",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Modo econômico: menos FPS, fundo parado ou efeitos desligados"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Liquid.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Responda seu nome e seus usuários nas redes (Enter pula as que você não usa).",
+    "Abra o OBS e escolha Coleção de cenas → Liquid.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: contagem regressiva num cartão de vidro e frases girando no canto." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia, webcam numa moldura de vidro no canto com a meta logo embaixo, e uma barra com suas redes." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande e o chat num celular de vidro ao lado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e celular de vidro com o chat ao lado, e suas redes e a meta embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos, e o chat." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}

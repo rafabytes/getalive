@@ -257,12 +257,16 @@ function ga_rest_profile( WP_REST_Request $req ) {
 	if ( is_wp_error( $result ) ) {
 		return ga_rest_error( $result );
 	}
+	$response = [ 'ok' => true, 'message' => 'Perfil atualizado.', 'name' => $name ];
 	if ( isset( $update['user_pass'] ) ) {
 		delete_user_meta( $user->ID, 'ga_password_unset' );
-		// Trocar a senha derruba a sessão; renova os cookies.
+		// Trocar a senha derruba a sessão; renova os cookies e entrega o nonce da sessão nova.
 		ga_login_as( $user->ID );
+		$response['nonce'] = wp_create_nonce( 'wp_rest' );
+		// O link "Sair" do cabeçalho (fora do Swup) tem nonce da sessão antiga.
+		$response['logout'] = html_entity_decode( wp_logout_url( home_url( '/' ) ) );
 	}
-	return [ 'ok' => true, 'message' => 'Perfil atualizado.', 'name' => $name ];
+	return $response;
 }
 
 function ga_rest_delete_account( WP_REST_Request $req ) {

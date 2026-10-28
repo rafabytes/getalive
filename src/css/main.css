@@ -32,6 +32,13 @@
     overflow-x: clip;
   }
 
+  /* iOS 15 e outros sem overflow: clip: sem isso os brilhos decorativos fazem a página balançar para o lado. */
+  @supports not (overflow: clip) {
+    body {
+      overflow-x: hidden;
+    }
+  }
+
   ::selection {
     @apply bg-lime text-ink-950;
   }
@@ -250,7 +257,7 @@
   }
 
   .site-header__bar {
-    @apply mx-auto flex h-full max-w-site items-center justify-between gap-6;
+    @apply mx-auto flex h-full max-w-site items-center justify-between gap-3 sm:gap-6;
     padding-inline: var(--gutter);
   }
 
@@ -270,7 +277,7 @@
   }
 
   .logo {
-    @apply relative z-[1] inline-flex items-center gap-2.5 font-display text-[1.35rem] font-medium tracking-tight text-white;
+    @apply relative z-[1] inline-flex shrink-0 items-center gap-2.5 whitespace-nowrap font-display text-[1.35rem] font-medium tracking-tight text-white;
     font-variation-settings: 'wdth' 85;
   }
 
@@ -428,6 +435,22 @@
   .meters span:nth-child(3) { animation-delay: -0.6s; background: theme('colors.signal.400'); }
   .meters span:nth-child(4) { animation-delay: -0.15s; }
   .meters span:nth-child(5) { animation-delay: -0.45s; background: theme('colors.live'); }
+
+  /* Barra de busca dos templates ------------------------------------- */
+
+  .explorer-bar {
+    @apply sticky z-30 -mx-2 mb-4 rounded-[1.75rem] border border-white/10 bg-ink-900 p-2 shadow-2xl transition-transform duration-500 ease-expo;
+    top: calc(var(--header-h) + var(--admin-bar, 0px) + 0.5rem);
+  }
+
+  /* Cabeçalho escondido: a barra sobe para o lugar dele em vez de deixar um vão com os cards aparecendo. */
+  .header-hidden .explorer-bar {
+    transform: translateY(calc(-1 * var(--header-h)));
+  }
+
+  .explorer-bar__sorts {
+    @apply flex items-center gap-0.5 overflow-x-auto rounded-full p-1 [scrollbar-width:none] sm:gap-1;
+  }
 
   /* Card de template -------------------------------------------------- */
 
@@ -749,7 +772,7 @@
   /* Banner de consentimento ------------------------------------------ */
 
   .consent {
-    @apply fixed bottom-4 left-4 right-4 z-[80] sm:left-auto sm:w-[26rem];
+    @apply fixed bottom-4 left-4 right-4 z-[80] sm:left-auto sm:w-[28rem];
     animation: consent-in 0.9s var(--ease-expo) both;
   }
 
@@ -777,7 +800,7 @@
     @apply text-sm leading-relaxed text-ink-300;
   }
 
-  .consent__text a {
+  .consent__text a, .consent__text button {
     @apply text-white underline underline-offset-2;
   }
 
@@ -798,7 +821,21 @@
   }
 
   .consent__actions {
-    @apply mt-4 flex flex-wrap justify-end gap-2;
+    @apply mt-4 flex flex-wrap items-center justify-end gap-2;
+  }
+
+  .consent__actions .btn {
+    @apply grow px-3.5 sm:grow-0;
+  }
+
+  /* Personalizar/Salvar ficam à esquerda, como link, para os três caberem numa linha.
+     No celular não cabem: Personalizar vira link no texto (.consent__more). */
+  .consent__actions .btn--ghost {
+    @apply -ml-2 mr-auto px-2;
+  }
+
+  .consent__actions [data-consent-action='customize'] {
+    @apply max-sm:hidden;
   }
 
   /* Toast ------------------------------------------------------------- */

@@ -1,6 +1,6 @@
 {
-  "slug": "vapo",
-  "title": "Vapo",
+  "slug": "vaporwave",
+  "title": "Vaporwave",
   "source": "B:/obs-templates/vapo",
   "tagline": "Synthwave em pixel art: cidade neon que desliza em camadas e chão quadriculado vindo na sua direção.",
   "excerpt": "Overlays completos para live no estilo vaporwave/synthwave em pixel art, com cidade neon animada, chat, alertas com jingle 8-bit e painéis para a Twitch.",
@@ -11,7 +11,7 @@
   "featured": true,
   "styles": ["Retrô", "Synthwave", "Pixel art"],
   "platforms": ["twitch", "youtube", "kick"],
-  "content": "<p class=\"lead\">Uma cidade neon em pixel art que nunca dorme: três camadas de prédios deslizando em velocidades diferentes, janelas piscando, carros voadores e o chão quadriculado rosa vindo na sua direção.</p>\n<p>O Vapo é uma coleção de cenas completa para o OBS Studio. Todas as telas compartilham o mesmo fundo animado, então a transição entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte no cenário.</p>\n<p>Os alertas aparecem num cartão de pixel com explosão de quadradinhos e tocam um jingle 8-bit gerado na hora. O chat da Twitch entra direto na tela, sem login, escondendo bots e comandos. E o pacote ainda traz oito painéis para a Twitch e um banner offline no mesmo estilo.</p>\n<p>Tudo é personalizado num único arquivo, o <code>config.js</code>: seu nome, suas redes, os textos de cada tela, a agenda, a meta de seguidores e os minutos da contagem regressiva.</p>",
+  "content": "<p class=\"lead\">Uma cidade neon em pixel art que nunca dorme: três camadas de prédios deslizando em velocidades diferentes, janelas piscando, carros voadores e o chão quadriculado rosa vindo na sua direção.</p>\n<p>O Vaporwave é uma coleção de cenas completa para o OBS Studio. Todas as telas compartilham o mesmo fundo animado, então a transição entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte no cenário.</p>\n<p>Os alertas aparecem num cartão de pixel com explosão de quadradinhos e tocam um jingle 8-bit gerado na hora. O chat da Twitch entra direto na tela, sem login, escondendo bots e comandos. E o pacote ainda traz oito painéis para a Twitch e um banner offline no mesmo estilo.</p>\n<p>Tudo é personalizado num único arquivo, o <code>config.js</code>: seu nome, suas redes, os textos de cada tela, a agenda, a meta de seguidores e os minutos da contagem regressiva.</p>",
   "features": [
     "Cidade em pixel art animada em três camadas, gerada no próprio OBS",
     "Contagem regressiva que recomeça sempre que a cena entra no ar",

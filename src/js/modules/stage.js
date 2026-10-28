@@ -26,7 +26,17 @@ function initStage(stage) {
     images.forEach((img, n) => img.classList.toggle('is-active', n === index));
     tabs.forEach((tab, n) => tab.setAttribute('aria-selected', String(n === index)));
     if (label) label.textContent = images[index]?.dataset.title || tabs[index]?.textContent || '';
-    tabs[index]?.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+    centerTab(tabs[index]);
+  };
+
+  // Rola só a faixa de abas, na horizontal. scrollIntoView também rolaria a página, e a troca
+  // automática puxava a tela de quem estava lendo mais abaixo (visível no celular).
+  const centerTab = (tab) => {
+    const dock = tab?.parentElement;
+    if (!dock || dock.scrollWidth <= dock.clientWidth) return;
+    const t = tab.getBoundingClientRect();
+    const d = dock.getBoundingClientRect();
+    dock.scrollTo({ left: dock.scrollLeft + t.left - d.left - (d.width - t.width) / 2, behavior: reduced ? 'auto' : 'smooth' });
   };
 
   const tick = () => {

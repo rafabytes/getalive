@@ -47,6 +47,9 @@ export async function api(path, data = {}) {
     });
   }
 
+  // A sessão foi renovada (ex.: troca de senha): as próximas chamadas usam o nonce novo.
+  if (json.nonce) config.nonce = json.nonce;
+
   // Avisa que os dados do usuário mudaram (o main.js limpa o cache de páginas do Swup).
   document.dispatchEvent(new CustomEvent('ga:changed', { detail: { path } }));
   return json;

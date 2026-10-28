@@ -1,0 +1,50 @@
+{
+  "slug": "metro",
+  "title": "Metro",
+  "source": "B:/obs-templates/metro",
+  "tagline": "Design plano do Windows Phone: fundo preto, uma cor de destaque e uma parede de blocos vivos que viram sozinhos.",
+  "excerpt": "Overlays completos para live no design plano do Windows Phone: fundo preto, cor de destaque sólida, blocos vivos virando, títulos finos em letra minúscula e notificações que caem do alto. Inclui chat e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#0050ef",
+  "featured": true,
+  "styles": ["Minimalista", "Retrô", "Tecnologia"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">De volta ao Windows Phone: fundo preto, uma cor de destaque sólida, uma parede de blocos vivos que viram sozinhos para mostrar frases no verso e títulos finos em letra minúscula.</p>\n<p>O Metro é uma coleção de cenas completa para o OBS Studio. Todas as telas dividem o mesmo fundo animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte. É um visual neutro, que combina com qualquer tipo de live.</p>\n<p>O chat fica num Windows Phone na tela, em balões quadrados com \"rabinho\". Os alertas caem do alto como uma notificação: uma faixa inteira na cor de destaque com o nome em letras finas e grandes, as estrelas acendendo (1 para seguidor, até 5 para raid), quadradinhos voando e uma vinheta curta de sintetizador.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar a cor de destaque (cobalto, lima, magenta ou laranja) no <code>config.js</code>.</p>\n<p><small>Tema inspirado num estilo de interface, sem ligação com a Microsoft e sem logos ou artes oficiais.</small></p>",
+  "features": [
+    "Fundo animado: parede de blocos vivos que viram e um título de panorama passando devagar",
+    "Quatro cores de destaque: cobalto, lima, magenta ou laranja",
+    "Instalador que pergunta seu nome e suas redes e já preenche tudo",
+    "Contagem regressiva num bloco colorido que recomeça sempre que a cena entra no ar, com frases girando",
+    "Cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos",
+    "Chat da Twitch num Windows Phone na tela (sem login), com filtro de bots e comandos",
+    "Alertas que caem do alto como notificação, com estrelas, quadradinhos voando e vinheta de sintetizador",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Modo econômico: menos FPS, fundo parado ou efeitos desligados"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Metro.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Responda seu nome e seus usuários nas redes (Enter pula as que você não usa).",
+    "Abra o OBS e escolha Coleção de cenas → Metro.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: contagem regressiva num bloco colorido e frases girando no canto." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia, webcam com borda na cor de destaque no canto e a meta logo embaixo, e uma barra com suas redes." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande e o chat num Windows Phone ao lado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e o chat num Windows Phone ao lado, e suas redes e a meta embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos, e o chat." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}

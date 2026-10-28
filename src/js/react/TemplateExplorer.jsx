@@ -3,7 +3,7 @@ import Icon from './Icon';
 import TemplateCard from './TemplateCard';
 
 const SORTS = [
-  { key: 'recent', label: 'Recentes' },
+  { key: 'order', label: 'Destaques' },
   { key: 'popular', label: 'Populares' },
   { key: 'az', label: 'A–Z' },
 ];
@@ -17,10 +17,11 @@ const normalize = (s) =>
     .toLowerCase();
 
 export default function TemplateExplorer({ items: initial = [], styles = [], style: initialStyle = '', request, loggedIn, loginUrl }) {
-  const [items, setItems] = useState(initial);
+  // rank guarda a ordem em que o servidor mandou: a definida arrastando no painel.
+  const [items, setItems] = useState(() => initial.map((it, rank) => ({ ...it, rank })));
   const [query, setQuery] = useState('');
   const [style, setStyle] = useState(initialStyle);
-  const [sort, setSort] = useState('recent');
+  const [sort, setSort] = useState('order');
   const [onlyFavs, setOnlyFavs] = useState(false);
   const deferredQuery = useDeferredValue(query);
   const searchRef = useRef(null);
@@ -53,7 +54,7 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
       return normalize([it.title, it.tagline, ...it.styles.map((s) => s.name), ...it.platforms].join(' ')).includes(q);
     });
     const sorters = {
-      recent: (a, b) => b.date - a.date,
+      order: (a, b) => a.rank - b.rank,
       popular: (a, b) => b.downloads - a.downloads,
       az: (a, b) => a.title.localeCompare(b.title, 'pt-BR'),
     };
@@ -72,7 +73,7 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
 
   return (
     <div>
-      <div className="sticky top-[calc(var(--header-h)+var(--admin-bar,0px)+0.5rem)] z-30 -mx-2 mb-12 rounded-[1.75rem] border border-white/10 bg-ink-900/80 p-2 shadow-2xl backdrop-blur-xl">
+      <div className="explorer-bar">
         <div className="flex flex-col gap-2 lg:flex-row lg:items-center">
           <label className="relative flex-1">
             <span className="sr-only">Buscar templates</span>
@@ -99,14 +100,14 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
             )}
           </label>
 
-          <div className="flex items-center gap-1 overflow-x-auto rounded-full p-1 [scrollbar-width:none]" role="group" aria-label="Ordenar">
+          <div className="explorer-bar__sorts" role="group" aria-label="Ordenar">
             {SORTS.map((s) => (
               <button
                 key={s.key}
                 type="button"
                 aria-pressed={sort === s.key}
                 onClick={() => setSort(s.key)}
-                className={`h-10 shrink-0 rounded-full px-4 text-sm transition ${sort === s.key ? 'bg-white text-ink-950' : 'text-ink-300 hover:text-white'}`}
+                className={`h-10 shrink-0 rounded-full px-3 text-[13px] transition sm:px-4 sm:text-sm ${sort === s.key ? 'bg-white text-ink-950' : 'text-ink-300 hover:text-white'}`}
               >
                 {s.label}
               </button>
@@ -116,29 +117,29 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
                 type="button"
                 aria-pressed={onlyFavs}
                 onClick={() => setOnlyFavs((v) => !v)}
-                className={`ml-1 inline-flex h-10 shrink-0 items-center gap-2 rounded-full px-4 text-sm transition ${onlyFavs ? 'bg-live text-white' : 'text-ink-300 hover:text-white'}`}
+                className={`ml-auto inline-flex h-10 shrink-0 items-center gap-2 rounded-full px-3 text-[13px] transition sm:px-4 sm:text-sm lg:ml-1 ${onlyFavs ? 'bg-live text-white' : 'text-ink-300 hover:text-white'}`}
               >
                 <Icon name="heart" className="size-4" fill={onlyFavs ? 'currentColor' : 'none'} />
-                Favoritos
+                <span className="max-sm:sr-only">Favoritos</span>
                 <span className="font-mono text-xs opacity-70">{favCount}</span>
               </button>
             )}
           </div>
         </div>
-
-        {styles.length > 0 && (
-          <div className="mt-2 flex gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none]" role="group" aria-label="Estilos">
-            <button type="button" className="chip shrink-0" aria-pressed={!style} onClick={() => setStyle('')}>
-              Todos
-            </button>
-            {styles.map((s) => (
-              <button key={s.slug} type="button" className="chip shrink-0" aria-pressed={style === s.slug} onClick={() => setStyle(style === s.slug ? '' : s.slug)}>
-                {s.name}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
+
+      {styles.length > 0 && (
+        <div className="-mx-1 mb-6 flex gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none]" role="group" aria-label="Estilos">
+          <button type="button" className="chip shrink-0" aria-pressed={!style} onClick={() => setStyle('')}>
+            Todos
+          </button>
+          {styles.map((s) => (
+            <button key={s.slug} type="button" className="chip shrink-0" aria-pressed={style === s.slug} onClick={() => setStyle(style === s.slug ? '' : s.slug)}>
+              {s.name}
+            </button>
+          ))}
+        </div>
+      )}
 
       <p className="mb-8 font-mono text-xs uppercase tracking-[0.16em] text-ink-500" aria-live="polite">
         {results.length} {results.length === 1 ? 'template' : 'templates'}

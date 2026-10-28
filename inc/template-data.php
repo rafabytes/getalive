@@ -49,10 +49,10 @@ function ga_template( $post = null ): array {
 		'file_size'    => (int) get_post_meta( $id, '_ga_file_size', true ),
 		'premium'      => (bool) get_post_meta( $id, '_ga_premium', true ),
 		'product_id'   => (int) get_post_meta( $id, '_ga_product_id', true ),
-		'styles'       => array_map(
+		'styles'       => array_values( array_map(
 			fn( $t ) => [ 'slug' => $t->slug, 'name' => $t->name ],
 			get_the_terms( $id, 'ga_style' ) ?: []
-		),
+		) ),
 		'thumbnail'    => get_the_post_thumbnail_url( $post, 'ga-card' ) ?: ( $scenes[0]['thumb'] ?? '' ),
 		'updated'      => get_the_modified_date( 'U', $post ),
 	];
@@ -145,6 +145,7 @@ function ga_query_templates( array $args = [] ): array {
 		'post_type'        => 'ga_template',
 		'posts_per_page'   => -1,
 		'post_status'      => 'publish',
+		'orderby'          => GA_TEMPLATE_ORDER,
 		'suppress_filters' => false,
 	], $args ) );
 }

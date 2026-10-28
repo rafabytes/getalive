@@ -58,7 +58,7 @@ function ga_consent_banner(): void {
 			</div>
 			<p id="consent-desc" class="consent__text">
 				Usamos cookies necessários para o site funcionar e, com a sua permissão, cookies de estatística e marketing.
-				Você pode mudar isso quando quiser. <a href="<?php echo esc_url( $privacy ); ?>#cookies">Saiba mais</a>.
+				Você pode mudar isso quando quiser. <a href="<?php echo esc_url( $privacy ); ?>#cookies">Saiba mais</a><span class="sm:hidden"> ou <button type="button" data-consent-open>personalize</button></span>.
 			</p>
 
 			<form class="consent__prefs" data-consent-prefs hidden>

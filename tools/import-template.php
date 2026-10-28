@@ -87,6 +87,8 @@ $post_id  = wp_insert_post( [
 	'post_name'    => $m['slug'],
 	'post_content' => $m['content'] ?? '',
 	'post_excerpt' => $m['excerpt'] ?? '',
+	// Mantém a posição definida arrastando na lista do painel.
+	'menu_order'   => $existing->menu_order ?? 0,
 ], true );
 if ( is_wp_error( $post_id ) ) {
 	fwrite( STDERR, $post_id->get_error_message() . "\n" );

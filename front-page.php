@@ -6,7 +6,7 @@
 defined( 'ABSPATH' ) || exit;
 get_header();
 
-$ga_all      = ga_query_templates( [ 'orderby' => 'date', 'order' => 'DESC' ] );
+$ga_all      = ga_query_templates();
 $ga_featured = array_values( array_filter( $ga_all, fn( $p ) => get_post_meta( $p->ID, '_ga_featured', true ) ) );
 $ga_hero     = $ga_featured[0] ?? ( $ga_all[0] ?? null );
 $ga_hero_t   = $ga_hero ? ga_template( $ga_hero ) : null;
@@ -104,15 +104,12 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 <?php if ( $ga_grid ) : ?>
 <section class="py-24 md:py-36">
 	<div class="wrap">
-		<div class="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
-			<div>
-				<p class="eyebrow eyebrow--dot mb-5" data-reveal>[01] Catálogo</p>
-				<h2 class="text-display-lg text-white" data-split>
-					<span class="split-line"><span><?php echo ga_home_line( 'catalog_title_1', 'class="not-italic text-ink-500"' ); ?></span></span>
-					<span class="split-line"><span><?php echo ga_home_line( 'catalog_title_2', 'class="not-italic text-ink-500"' ); ?></span></span>
-				</h2>
-			</div>
-			<a href="<?php echo esc_url( ga_page_url( 'templates' ) ); ?>" class="btn btn--outline" data-reveal><span><?php echo esc_html( ga_home( 'catalog_cta' ) ); ?></span><?php echo ga_icon( 'arrow-right', 'btn__arrow' ); ?></a>
+		<div class="mb-14">
+			<p class="eyebrow eyebrow--dot mb-5" data-reveal>[01] Catálogo</p>
+			<h2 class="text-display-lg text-white" data-split>
+				<span class="split-line"><span><?php echo ga_home_line( 'catalog_title_1', 'class="not-italic text-ink-500"' ); ?></span></span>
+				<span class="split-line"><span><?php echo ga_home_line( 'catalog_title_2', 'class="not-italic text-ink-500"' ); ?></span></span>
+			</h2>
 		</div>
 
 		<div class="grid gap-x-8 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
@@ -122,6 +119,10 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 			<?php if ( count( $ga_grid ) < 3 ) : ?>
 				<?php get_template_part( 'template-parts/card-soon' ); ?>
 			<?php endif; ?>
+		</div>
+
+		<div class="mt-16 flex justify-center md:mt-20">
+			<a href="<?php echo esc_url( ga_page_url( 'templates' ) ); ?>" class="btn btn--outline" data-reveal><span><?php echo esc_html( ga_home( 'catalog_cta' ) ); ?></span><?php echo ga_icon( 'arrow-right', 'btn__arrow' ); ?></a>
 		</div>
 	</div>
 </section>

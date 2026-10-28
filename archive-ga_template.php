@@ -14,7 +14,8 @@ $ga_styles = get_terms( [ 'taxonomy' => 'ga_style', 'hide_empty' => true ] );
 $ga_active = is_tax( 'ga_style' ) ? get_queried_object()->slug : '';
 $ga_data   = [
 	'items'    => array_map( 'ga_template_card_data', $ga_all ),
-	'styles'   => array_map( fn( $t ) => [ 'slug' => $t->slug, 'name' => $t->name ], is_wp_error( $ga_styles ) ? [] : $ga_styles ),
+	// array_values: get_terms() deixa buracos nos índices ao esconder estilos vazios, e aí o JSON vira objeto.
+	'styles'   => array_values( array_map( fn( $t ) => [ 'slug' => $t->slug, 'name' => $t->name ], is_wp_error( $ga_styles ) ? [] : $ga_styles ) ),
 	'style'    => $ga_active,
 	'archive'  => ga_page_url( 'templates' ),
 	'request'  => ga_page_url( 'request' ),

@@ -1,0 +1,51 @@
+{
+  "slug": "ratimbum",
+  "title": "Ratimbum",
+  "source": "B:/obs-templates/ratimbum",
+  "tagline": "A TV educativa dos anos 90: papel recortado, letras coloridas, vinheta geométrica e webcam dentro de uma TV de tubo.",
+  "excerpt": "Overlays completos para live com a cara da TV educativa dos anos 90: tudo de papel recortado com contorno grosso, títulos com uma letra de cada cor, fundo de vinheta com formas geométricas e as webcams dentro de televisões de tubo com antena. Inclui chat e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#ff2d6f",
+  "featured": true,
+  "styles": ["Brasil", "Retrô", "Colorido"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">Senta que lá vem a live: tudo de papel recortado com contorno grosso, títulos com uma letra de cada cor e um fundo de vinheta de TV com um relógio em anéis, arcos de cores, faixa xadrez, zigue-zagues e confetes flutuando.</p>\n<p>O Ratimbum é uma coleção de cenas completa para o OBS Studio, para matar a saudade das tardes em frente à TV. Todas as telas dividem o mesmo fundo animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte.</p>\n<p>As webcams ficam dentro de televisões de tubo com antena e o chat aparece numa janelinha com toldo listrado. Os alertas pulam no alto da tela como um cartaz de papel recortado: raios amarelos girando atrás, o nome com uma letra de cada cor, as estrelinhas acendendo (1 para seguidor, até 5 para raid), confetes voando e uma vinheta curta de sintetizador.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar o visual (dia, noite ou VHS, como fita gravada da TV) no <code>config.js</code>.</p>\n<p><small>Tema de fã, uma homenagem à estética dos programas infantis da TV brasileira dos anos 90. Não tem ligação com nenhuma emissora ou programa e não usa personagens, logos ou artes oficiais.</small></p>",
+  "features": [
+    "Fundo animado de vinheta: relógio em anéis com ponteiros andando, arcos de cores, faixa xadrez e confetes",
+    "Três visuais: dia, noite (fundo escuro) ou VHS, com linhas de tela e \"▶ PLAY\" de 1994",
+    "Instalador que pergunta seu nome e suas redes e já preenche tudo",
+    "Webcams dentro de televisões de tubo com antena",
+    "Contagem regressiva num cartaz que recomeça sempre que a cena entra no ar, com \"dicas\" girando",
+    "Cronômetro de \"ausente há\" que ganha uma estrelinha a cada 2 minutos",
+    "Chat da Twitch numa janelinha com toldo listrado (sem login), com filtro de bots e comandos",
+    "Alertas em cartaz de papel recortado, com estrelinhas, confetes e vinheta de sintetizador",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Modo econômico: menos FPS, fundo parado ou efeitos desligados"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Ratimbum.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Responda seu nome e seus usuários nas redes (Enter pula as que você não usa).",
+    "Abra o OBS e escolha Coleção de cenas → Ratimbum.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: cartaz com contagem regressiva, um redemoinho girando e \"dicas\" no canto." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia, webcam numa televisãozinha no canto com a meta logo embaixo, e uma barra com suas redes." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande numa TV de tubo e o chat numa janelinha com toldo listrado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam numa TV e o chat na janelinha ao lado, e suas redes e a meta embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" que ganha uma estrelinha a cada 2 minutos, e o chat." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}

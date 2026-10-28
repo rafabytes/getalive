@@ -20,7 +20,7 @@ export function initHeader() {
       const y = window.scrollY;
       header.classList.toggle('is-scrolled', y > 20);
       const hide = y > 160 && y > lastY && !html.classList.contains('menu-open');
-      header.classList.toggle('is-hidden', hide);
+      setHidden(header, hide);
       if (hide) closeUserMenu();
       lastY = y;
       ticking = false;
@@ -54,7 +54,7 @@ export function initHeader() {
     html.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    header.classList.remove('is-hidden');
+    setHidden(header, false);
   });
 
   document.addEventListener('keydown', (e) => {
@@ -97,5 +97,12 @@ export function updateHeaderForPage() {
     });
   }
 
-  document.querySelector('[data-header]')?.classList.remove('is-hidden');
+  const header = document.querySelector('[data-header]');
+  if (header) setHidden(header, false);
+}
+
+/** A barra de busca dos templates sobe junto com o cabeçalho (via classe no <html>). */
+function setHidden(header, hide) {
+  header.classList.toggle('is-hidden', hide);
+  html.classList.toggle('header-hidden', hide);
 }

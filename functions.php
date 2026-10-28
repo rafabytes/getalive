@@ -16,6 +16,7 @@ foreach ( [
 	'assets',
 	'post-types',
 	'template-data',
+	'template-order',
 	'admin-meta',
 	'requests',
 	'downloads',

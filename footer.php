@@ -35,7 +35,7 @@ $ga_socials = ga_socials();
 						<?php foreach ( ga_menu_items( 'footer' ) as $item ) : ?>
 							<li><a class="ulink text-ink-200 hover:text-white" href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $item['label'] ); ?></a></li>
 						<?php endforeach; ?>
-						<li><button type="button" class="ulink text-ink-200 hover:text-white" data-consent-open>Preferências de cookies</button></li>
+						<li><button type="button" class="ulink text-left text-ink-200 hover:text-white" data-consent-open>Preferências de cookies</button></li>
 					</ul>
 				</div>
 				<div>

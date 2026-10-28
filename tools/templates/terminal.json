@@ -1,0 +1,50 @@
+{
+  "slug": "terminal",
+  "title": "Terminal",
+  "source": "B:/obs-templates/linux",
+  "tagline": "Design aberto do Linux: janelas no estilo GNOME, chat num terminal e o log de inicialização rolando no fundo.",
+  "excerpt": "Overlays completos para live no visual dos ambientes Linux: janelas com barra de cabeçalho, chat num terminal com apelidos no estilo IRC, títulos em letra monoespaçada com cursor piscando e alertas que vão sendo digitados. Inclui chat e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#3584e4",
+  "featured": true,
+  "styles": ["Tecnologia", "Minimalista", "Terminal"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">Sua live dentro de uma área de trabalho Linux: janelas no estilo GNOME com barra de cabeçalho, a barra do topo com o relógio, títulos em letra monoespaçada com cursor piscando e, no fundo, o registro de inicialização do sistema rolando devagar.</p>\n<p>O Terminal é uma coleção de cenas completa para o OBS Studio. Todas as telas dividem o mesmo fundo animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte. É um visual neutro, que combina com qualquer tipo de live.</p>\n<p>O chat fica num terminal, com apelidos no estilo IRC (<code>&lt;apelido&gt; mensagem</code>). Os alertas abrem uma janela de terminal no alto da tela que vai sendo \"digitada\": o comando, o nome grande, a linha <code>[  OK  ]</code> com o detalhe e as estrelas acendendo (1 para seguidor, até 5 para raid), com uma vinheta curta de sintetizador.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar o visual (Adwaita, terminal de fósforo verde ou berinjela e laranja) no <code>config.js</code>.</p>\n<p><small>Tema inspirado no visual dos ambientes Linux, sem ligação com nenhum projeto e sem logos oficiais.</small></p>",
+  "features": [
+    "Fundo animado: papel de parede, barra do topo com relógio e registro de inicialização rolando",
+    "Três visuais: Adwaita (cinza e azul), terminal de fósforo verde ou berinjela e laranja",
+    "Instalador que pergunta seu nome e suas redes e já preenche tudo",
+    "Contagem regressiva que recomeça sempre que a cena entra no ar, com frases girando",
+    "Cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos",
+    "Chat da Twitch num terminal (sem login), com apelidos no estilo IRC, filtro de bots e comandos",
+    "Alertas digitados num terminal, com estrelas, bloquinhos voando e vinheta de sintetizador",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Modo econômico: menos FPS, fundo parado ou efeitos desligados"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Linux.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Responda seu nome e seus usuários nas redes (Enter pula as que você não usa).",
+    "Abra o OBS e escolha Coleção de cenas → Linux.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: janela de terminal com contagem regressiva e frases girando no canto." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia, webcam numa janela no canto com a meta logo embaixo, e uma barra com suas redes." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande e o chat num terminal ao lado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e o chat num terminal ao lado, e suas redes e a meta embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos, e o chat." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}
