@@ -1,0 +1,51 @@
+{
+  "slug": "banana",
+  "title": "Banana",
+  "source": "B:/obs-templates/banana",
+  "tagline": "O futuro é verde e amarelo: Pão de Açúcar com bondinho, cidade conectada e folhas de bananeira balançando.",
+  "excerpt": "Overlays completos para live com o clima tropical do Brasil e a tecnologia nacional em destaque: amanhecer verde e amarelo, bondinho, placa de circuito com pulsos de dados, satélite e araras. Inclui chat, alertas com estrelas e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#f5d40f",
+  "featured": true,
+  "styles": ["Brasil", "Tropical", "Tecnologia"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">O Brasil tropical e tecnológico numa live só: amanhecer verde e amarelo, Pão de Açúcar com o bondinho indo e voltando, uma cidade conectada e folhas de bananeira (com cacho e tudo) balançando nos cantos.</p>\n<p>O Banana é uma coleção de cenas completa para o OBS Studio. Todas as telas dividem o mesmo cenário animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte.</p>\n<p>O chão é uma placa de circuito com pulsos de dados correndo até a cidade, o satélite brasileiro cruza o céu, araras passam voando e vaga-lumes acendem no escuro. Nada é imagem: tudo é desenhado por código. Os alertas atravessam a tela numa faixa com filetes verde e amarelo, acendem estrelas, soltam confete (e chuva de dinheiro nas doações) e tocam uma vinheta de sintetizador.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar o horário do céu (amanhecer, dia ou noite com o Cruzeiro do Sul) e ajustar textos, agenda e meta no <code>config.js</code>.</p>",
+  "features": [
+    "Cenário animado: bondinho, cidade conectada, satélite, araras, vaga-lumes e folhas de bananeira",
+    "Chão de placa de circuito com pulsos de dados correndo até a cidade",
+    "Três céus: amanhecer, dia ou noite com o Cruzeiro do Sul",
+    "Instalador que pergunta seu nome e suas redes e já preenche tudo",
+    "Contagem regressiva que recomeça sempre que a cena entra no ar, com dicas girando",
+    "Cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos",
+    "Chat da Twitch num celular na tela (sem login), com filtro de bots e comandos",
+    "Alertas de seguidor, sub, doação e raid com estrelas, confete e vinheta de sintetizador",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Modo econômico: menos FPS, fundo parado ou efeitos desligados"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Banana.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Responda seu nome e seus usuários nas redes (Enter pula as que você não usa).",
+    "Abra o OBS e escolha Coleção de cenas → Banana.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: tela de carregamento com contagem regressiva e dicas girando no canto." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia, webcam no canto com a meta logo embaixo e uma barra com suas redes." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande e o chat num celular ao lado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e celular com o chat ao lado, e suas redes e a meta embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" que ganha uma estrela a cada 2 minutos, e o chat." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}

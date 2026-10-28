@@ -1,0 +1,50 @@
+{
+  "slug": "aero",
+  "title": "Aero",
+  "source": "B:/obs-templates/aero",
+  "tagline": "Frutiger Aero no melhor estilo Windows Vista: céu de aurora, bolhas de vidro e linhas de luz deslizando.",
+  "excerpt": "Overlays completos para live no estilo Frutiger Aero / Windows Vista, com céu de aurora animado, estrelas, bolhas e painéis de vidro. Inclui chat, alertas com chime e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#3fd6e0",
+  "featured": true,
+  "styles": ["Frutiger Aero", "Retrô"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">A nostalgia do Windows Vista na sua live: céu de aurora em azul-petróleo, estrelas piscando, bolhas de vidro flutuando e linhas de luz que cruzam a tela devagar.</p>\n<p>O Aero é uma coleção de cenas completa para o OBS Studio. Todas as telas dividem o mesmo céu animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte no cenário.</p>\n<p>Molduras, contagem e redes ficam em painéis de vidro com reflexo, do jeitinho que a Microsoft fazia em 2007. Os alertas chegam com um chime suave gerado na hora e o chat da Twitch entra direto na tela, sem login, escondendo bots e comandos.</p>\n<p>Tudo é personalizado num único arquivo, o <code>config.js</code>: seu nome, suas redes, os textos de cada tela, a agenda, a meta de seguidores e os minutos da contagem regressiva.</p>",
+  "features": [
+    "Céu de aurora animado com estrelas, bolhas de vidro e linhas de luz",
+    "Painéis de vidro com reflexo no estilo Windows Vista",
+    "Contagem regressiva que recomeça sempre que a cena entra no ar",
+    "Cronômetro de \"ausente há\" na cena Já volto",
+    "Chat da Twitch na tela (sem login), com filtro de bots e comandos",
+    "Alertas de seguidor, sub, doação e raid com chime suave",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "Barra de meta de seguidores e barra com suas redes",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Modo econômico: menos FPS, fundo parado ou bolhas desligadas"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Aero.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Abra o OBS e escolha Coleção de cenas → Aero.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera.",
+    "Edite overlays\\config.js com seu nome, suas redes e o canal da Twitch."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: contagem regressiva que recomeça sempre que você entra nessa cena." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia com a webcam no canto e uma barra com suas redes e a meta." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande e chat ao lado." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e chat ao lado, e o título do vídeo embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" e o chat continua na tela." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}
