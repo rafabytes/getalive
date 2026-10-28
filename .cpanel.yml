@@ -1,0 +1,10 @@
+---
+# Deploy pelo cPanel (Git Version Control → Deploy HEAD Commit).
+# Copia o tema já compilado (dist/ vai no repositório) para o WordPress do get a live,
+# deixando de fora o que só serve para desenvolvimento.
+deployment:
+  tasks:
+    - export PATH=/usr/local/bin:/usr/bin:/bin
+    - export DEPLOYPATH=/home1/rafaby42/public_html/getalive/wp-content/themes/getalive-theme/
+    - mkdir -p $DEPLOYPATH
+    - rsync -a --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='.postcssrc' --exclude='node_modules' --exclude='.parcel-cache' --exclude='src' --exclude='tools' --exclude='package.json' --exclude='package-lock.json' --exclude='tailwind.config.js' --exclude='README.md' ./ $DEPLOYPATH
