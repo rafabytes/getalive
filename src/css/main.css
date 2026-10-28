@@ -129,7 +129,7 @@
 
   .btn::after {
     content: '';
-    @apply absolute inset-0 z-0 rounded-[inherit] transition-transform duration-500 ease-expo;
+    @apply absolute inset-0 z-[-1] rounded-[inherit] transition-transform duration-500 ease-expo;
     transform: translateY(101%);
   }
 
