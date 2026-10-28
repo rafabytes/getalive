@@ -7,4 +7,5 @@ deployment:
     - export PATH=/usr/local/bin:/usr/bin:/bin
     - export DEPLOYPATH=/home1/rafaby42/public_html/getalive/wp-content/themes/getalive-theme/
     - mkdir -p $DEPLOYPATH
-    - rsync -a --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='.postcssrc' --exclude='node_modules' --exclude='.parcel-cache' --exclude='src' --exclude='tools' --exclude='package.json' --exclude='package-lock.json' --exclude='tailwind.config.js' --exclude='README.md' ./ $DEPLOYPATH
+    # --chmod: a pasta do repositório no cPanel é 700; sem isso o tema herda a permissão e o servidor web responde 403.
+    - rsync -a --delete --chmod=D755,F644 --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='.postcssrc' --exclude='node_modules' --exclude='.parcel-cache' --exclude='src' --exclude='tools' --exclude='package.json' --exclude='package-lock.json' --exclude='tailwind.config.js' --exclude='README.md' ./ $DEPLOYPATH
