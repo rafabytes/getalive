@@ -217,6 +217,7 @@ while ( have_posts() ) :
 						<div class="lg:col-span-4">
 							<p class="eyebrow mb-4 !text-ink-500">Instalação</p>
 							<h2 class="text-display-md">Pronto em <span class="text-signal">minutos</span>.</h2>
+							<a href="<?php echo esc_url( ga_page_url( 'install' ) ); ?>" class="ulink mt-6 inline-flex items-center gap-2 font-medium text-ink-950">Passo a passo com imagens do OBS <?php echo ga_icon( 'arrow-right', 'size-4' ); ?></a>
 						</div>
 						<ol class="grid gap-4 sm:grid-cols-2 lg:col-span-8">
 							<?php foreach ( $install as $i => $step ) : ?>

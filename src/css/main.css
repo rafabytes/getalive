@@ -857,6 +857,208 @@
     @apply max-w-3xl pb-6 text-ink-300;
   }
 
+  /* Guia de instalação ------------------------------------------------ */
+
+  .guide-step {
+    @apply grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16;
+  }
+
+  .guide-step__text {
+    @apply space-y-4 text-lg leading-relaxed text-ink-300 lg:col-span-5;
+  }
+
+  .guide-step__text strong {
+    @apply font-semibold text-white;
+  }
+
+  .guide-step__text code, .faq code {
+    @apply rounded-md bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-ink-100;
+  }
+
+  .guide-step__visual {
+    @apply min-w-0 lg:col-span-7;
+  }
+
+  .guide-step--flip .guide-step__text {
+    @apply lg:order-2 lg:col-start-8;
+  }
+
+  .guide-step--flip .guide-step__visual {
+    @apply lg:order-1 lg:col-start-1;
+  }
+
+  .guide-step__num {
+    @apply mb-2 block font-display text-7xl font-semibold leading-none tracking-tighter text-signal md:text-8xl;
+  }
+
+  .guide-step__title {
+    @apply mb-6 font-display text-display-sm font-semibold text-white;
+  }
+
+  .guide-note {
+    @apply flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-base text-ink-300;
+  }
+
+  /* Janelas do Windows desenhadas (Explorador e terminal) */
+  .win, .term {
+    @apply overflow-hidden rounded-xl border border-white/10 bg-[#191919] text-[13px] text-ink-100 shadow-[0_40px_120px_-30px_rgba(124,58,255,0.45)];
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  .win__bar, .term__bar {
+    @apply flex h-10 items-center justify-between bg-[#202020] pl-4 text-xs;
+  }
+
+  .win__controls {
+    @apply flex h-full text-ink-300;
+  }
+
+  .win__controls span {
+    @apply flex w-11 items-center justify-center;
+  }
+
+  .win__path {
+    @apply mx-3 my-2 rounded-md bg-[#2b2b2b] px-3 py-1.5 text-ink-200;
+  }
+
+  .win__path span {
+    @apply px-1 text-ink-500;
+  }
+
+  .win__head, .win__list li {
+    @apply grid grid-cols-[1.4fr_1fr] gap-4 px-5;
+  }
+
+  .win__head {
+    @apply border-b border-white/[0.06] py-2 text-xs text-ink-400;
+  }
+
+  .win__list {
+    @apply py-2;
+  }
+
+  .win__list li {
+    @apply relative py-[5px];
+  }
+
+  .win__icon {
+    @apply inline-block h-3.5 w-4 shrink-0 rounded-[3px];
+  }
+
+  .win__icon--folder {
+    background: linear-gradient(#f8d775, #e8b43a);
+  }
+
+  .win__icon--file {
+    @apply w-3 rounded-[2px] bg-ink-200;
+  }
+
+  .win__list li.is-hit {
+    @apply bg-signal/25 text-white;
+    animation: guide-hit 3.2s var(--ease-expo) infinite;
+  }
+
+  /* Cursor dando o duplo clique no INSTALAR.bat */
+  .win__list li.is-hit::after {
+    content: '';
+    @apply absolute left-24 top-1/2 size-6 rounded-full border-2 border-lime;
+    animation: guide-click 3.2s ease-out infinite;
+  }
+
+  @keyframes guide-hit {
+    0%, 30% { background: transparent; }
+    34%, 100% { background: theme('colors.signal.DEFAULT / 35%'); }
+  }
+
+  @keyframes guide-click {
+    0%, 28% { opacity: 0; transform: translateY(-50%) scale(0.3); }
+    32% { opacity: 1; transform: translateY(-50%) scale(0.6); }
+    40% { opacity: 0; transform: translateY(-50%) scale(1.6); }
+    44% { opacity: 1; transform: translateY(-50%) scale(0.6); }
+    54%, 100% { opacity: 0; transform: translateY(-50%) scale(1.6); }
+  }
+
+  .term {
+    @apply bg-[#0c0c0c];
+  }
+
+  .term__bar {
+    @apply pl-2;
+  }
+
+  .term__tab {
+    @apply self-end rounded-t-lg bg-[#0c0c0c] px-4 py-2 text-ink-100;
+  }
+
+  .term__body {
+    @apply overflow-x-auto p-4 text-[12px] leading-[1.55] text-[#cccccc] md:text-[13px];
+    font-family: 'Cascadia Mono', Consolas, ui-monospace, monospace;
+  }
+
+  .term--cyan { color: #61d6d6; }
+  .term--green { color: #16c60c; font-weight: 600; }
+  .term--dim { color: #767676; }
+  .term--white { color: #f2f2f2; }
+
+  /* Captura do OBS com o menu aberto desenhado por cima */
+  .shot {
+    @apply relative overflow-hidden rounded-xl ring-1 ring-white/10;
+    container-type: inline-size;
+  }
+
+  .shot img {
+    @apply block h-auto w-full;
+  }
+
+  .obs-menu {
+    @apply absolute flex flex-col rounded-[0.3cqw] border border-[#3c404b] bg-[#272a33] py-[0.5cqw] text-[#e0e2e8] shadow-2xl;
+    left: 33.2%;
+    top: 10.6%;
+    width: 22cqw;
+    font: 1.2cqw/1 'Segoe UI', system-ui, sans-serif;
+  }
+
+  .obs-menu span {
+    @apply relative py-[0.65cqw] pl-[2.6cqw];
+  }
+
+  .obs-menu i {
+    @apply mx-[0.6cqw] my-[0.4cqw] h-px bg-[#3c404b];
+  }
+
+  .obs-menu .is-checked::before {
+    content: '✓';
+    @apply absolute left-[0.9cqw];
+  }
+
+  .obs-menu .is-hover {
+    @apply mx-[0.3cqw] rounded-[0.25cqw] bg-[#284cb8] pl-[2.3cqw] text-white;
+  }
+
+  .shot--menu::after {
+    content: '';
+    @apply pointer-events-none absolute rounded-[0.3cqw] bg-white/10;
+    left: 33.3%;
+    top: 5.4%;
+    width: 11.6%;
+    height: 5%;
+  }
+
+  .shot__pin {
+    @apply absolute rounded-full bg-lime px-[1.1cqw] py-[0.45cqw] font-mono text-[1.15cqw] font-semibold uppercase tracking-wider text-ink-950 shadow-lg;
+    animation: guide-pin 2.4s var(--ease-expo) infinite;
+  }
+
+  @keyframes guide-pin {
+    0%, 100% { transform: translate(0, -50%) scale(1); }
+    50% { transform: translate(0, -50%) scale(1.08); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .win__list li.is-hit, .shot__pin { animation: none; }
+    .win__list li.is-hit::after { display: none; }
+  }
+
   /* Contorno de texto */
   .text-outline {
     color: transparent;

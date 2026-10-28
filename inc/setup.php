@@ -112,6 +112,7 @@ function ga_default_menu_items( string $location ): array {
 	}
 	return [
 		[ 'label' => 'Templates', 'url' => ga_page_url( 'templates' ) ],
+		[ 'label' => 'Como instalar', 'url' => ga_page_url( 'install' ) ],
 		[ 'label' => 'Solicitar', 'url' => ga_page_url( 'request' ) ],
 		[ 'label' => 'Sobre', 'url' => ga_page_url( 'about' ) ],
 	];

@@ -135,6 +135,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 					<span class="split-line"><span>ao <span class="italic text-signal" style="font-variation-settings:'wdth' 100">ao vivo</span>.</span></span>
 				</h2>
 				<p class="mt-8 max-w-md text-lg text-ink-600" data-reveal>Sem arrastar PNG, sem montar cena por cena. Cada template vem com a coleção de cenas inteira configurada.</p>
+				<a href="<?php echo esc_url( ga_page_url( 'install' ) ); ?>" class="btn btn--light mt-8" data-reveal><span>Ver o passo a passo com imagens</span><?php echo ga_icon( 'arrow-right', 'btn__arrow' ); ?></a>
 			</div>
 
 			<ol class="space-y-4 lg:col-span-7">

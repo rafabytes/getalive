@@ -15,7 +15,7 @@ function ga_option( string $key, $default = '' ) {
 
 /**
  * Páginas criadas pelo tema na ativação, guardadas em ga_pages.
- * Chaves: login, register, account, request, about, privacy, templates.
+ * Chaves: login, register, account, request, install, about, privacy, templates.
  */
 function ga_page_id( string $key ): int {
 	$pages = get_option( 'ga_pages', [] );
