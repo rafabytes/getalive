@@ -37,7 +37,10 @@ function ga_is_page( string $key ): bool {
 
 function ga_current_url(): string {
 	$uri = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '/';
-	return home_url( $uri );
+	// REQUEST_URI já inclui a subpasta do WordPress (ex.: /getalive/...); home_url() a repetiria.
+	$home = wp_parse_url( home_url() );
+	$base = $home['scheme'] . '://' . $home['host'] . ( isset( $home['port'] ) ? ':' . $home['port'] : '' );
+	return esc_url_raw( $base . $uri );
 }
 
 /**
