@@ -17,21 +17,22 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 ?>
 
 <!-- Hero ------------------------------------------------------------- -->
-<section class="relative overflow-hidden pb-20 pt-[calc(var(--header-h)+3rem)] md:pb-28 md:pt-[calc(var(--header-h)+5rem)]">
+<section class="relative overflow-hidden pb-20 pt-[calc(var(--header-h)+3rem)] md:pb-28 md:pt-[calc(var(--header-h)+5rem)] lg:flex lg:min-h-[100svh] lg:items-center lg:pb-16 lg:pt-[calc(var(--header-h)+2rem)]">
 	<div class="pointer-events-none absolute -right-40 -top-40 size-[44rem] rounded-full bg-signal/30 blur-[140px]" aria-hidden="true"></div>
 	<div class="pointer-events-none absolute -left-60 top-1/2 size-[30rem] rounded-full bg-live/10 blur-[120px]" aria-hidden="true"></div>
 
-	<div class="wrap relative">
-		<p class="eyebrow mb-8" data-reveal><span class="live-dot"></span> <?php echo esc_html( ga_home( 'hero_eyebrow' ) ); ?></p>
+	<!-- Empilhado até lg; a partir dele, texto à esquerda e monitor à direita, cabendo na altura da tela. -->
+	<div class="wrap relative grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
+		<div class="lg:col-span-5">
+			<p class="eyebrow mb-8 lg:mb-6" data-reveal><span class="live-dot"></span> <?php echo esc_html( ga_home( 'hero_eyebrow' ) ); ?></p>
 
-		<h1 class="text-display-xl font-semibold text-white" style="font-variation-settings:'wdth' 80" data-split>
-			<span class="split-line"><span><?php echo ga_home_line( 'hero_title_1', 'class="not-italic text-lime"' ); ?></span></span>
-			<span class="split-line"><span><?php echo ga_home_line( 'hero_title_2', 'class="not-italic text-lime"' ); ?></span></span>
-			<span class="split-line"><span class="text-outline text-white"><?php echo ga_home_line( 'hero_title_3', 'class="not-italic text-lime"' ); ?></span></span>
-		</h1>
+			<h1 class="text-display-xl font-semibold text-white lg:text-[clamp(3.5rem,min(6.5vw,14svh),6.75rem)]" style="font-variation-settings:'wdth' 80" data-split>
+				<span class="split-line"><span><?php echo ga_home_line( 'hero_title_1', 'class="not-italic text-lime"' ); ?></span></span>
+				<span class="split-line"><span><?php echo ga_home_line( 'hero_title_2', 'class="not-italic text-lime"' ); ?></span></span>
+				<span class="split-line"><span class="text-outline text-white"><?php echo ga_home_line( 'hero_title_3', 'class="not-italic text-lime"' ); ?></span></span>
+			</h1>
 
-		<div class="mt-12 grid items-end gap-12 lg:mt-16 lg:grid-cols-12">
-			<div class="lg:col-span-4" data-reveal style="--delay:.3s">
+			<div class="mt-12 lg:mt-8" data-reveal style="--delay:.3s">
 				<p class="max-w-md text-lg leading-relaxed text-ink-300">
 					<?php echo esc_html( ga_home( 'hero_text' ) ); ?>
 				</p>
@@ -42,6 +43,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 					<?php endif; ?>
 				</div>
 
+				<?php if ( ga_home( 'hero_stats' ) ) : ?>
 				<dl class="mt-12 grid grid-cols-3 gap-6 border-t border-white/10 pt-6">
 					<div>
 						<dt class="eyebrow">Templates</dt>
@@ -63,9 +65,11 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 						</div>
 					<?php endif; ?>
 				</dl>
+				<?php endif; ?>
 			</div>
+		</div>
 
-			<div class="lg:col-span-8 lg:-mt-40" data-reveal style="--delay:.15s">
+		<div class="lg:col-span-7" data-reveal style="--delay:.15s">
 				<?php if ( $ga_hero_t && $ga_hero_t['scenes'] ) : ?>
 					<div class="monitor" data-stage>
 						<div class="monitor__bar">
@@ -93,7 +97,6 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 					</div>
 				<?php endif; ?>
 			</div>
-		</div>
 	</div>
 </section>
 

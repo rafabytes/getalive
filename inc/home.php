@@ -18,6 +18,7 @@ function ga_home_sections(): array {
 			'hero_title_3' => [ 'Título: linha 3 (contorno)', 'text', 'cliques.' ],
 			'hero_text'    => [ 'Texto', 'textarea', 'Coleções de cenas completas e animadas: começando, jogo, conversa, react, já volto e encerrando. Com chat, alertas e painéis. Baixe, rode o instalador e o OBS abre pronto.' ],
 			'hero_cta'     => [ 'Botão principal', 'text', 'Explorar templates' ],
+			'hero_stats'   => [ 'Mostrar números (templates, cenas e preço)', 'checkbox', '' ],
 			'hero_price'   => [ 'Preço', 'text', 'R$0' ],
 		] ],
 		'catalog' => [ 'Catálogo', [
@@ -74,9 +75,13 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp_customize 
 		] );
 
 		foreach ( $fields as $key => [ $label, $type, $default ] ) {
+			$sanitize = [
+				'textarea' => 'sanitize_textarea_field',
+				'checkbox' => fn( $v ) => $v ? '1' : '',
+			];
 			$wp_customize->add_setting( "ga_home_{$key}", [
 				'default'           => $default,
-				'sanitize_callback' => 'textarea' === $type ? 'sanitize_textarea_field' : 'sanitize_text_field',
+				'sanitize_callback' => $sanitize[ $type ] ?? 'sanitize_text_field',
 			] );
 
 			$description = '';
