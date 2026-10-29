@@ -26,6 +26,18 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_dequeue_style( 'classic-theme-styles' );
 }, 20 );
 
+/**
+ * LiteSpeed Cache não pode juntar nem atrasar o bundle: o Parcel carrega os chunks
+ * (React, AuthApp...) por caminho relativo ao main.js, que quebra se ele for movido
+ * para wp-content/litespeed/js/. O $tag inclui a config window.GA, que vai junto.
+ */
+add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+	if ( 'getalive' !== $handle ) {
+		return $tag;
+	}
+	return str_replace( '<script ', '<script data-no-optimize="1" data-no-defer="1" ', $tag );
+}, 10, 2 );
+
 function ga_js_config(): array {
 	$user = wp_get_current_user();
 	return [
