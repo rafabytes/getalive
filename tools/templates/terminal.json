@@ -1,7 +1,7 @@
 {
   "slug": "terminal",
   "title": "Terminal",
-  "source": "B:/obs-templates/linux",
+  "source": "B:/obs-templates/terminal",
   "tagline": "Design aberto do Linux: janelas no estilo GNOME, chat num terminal e o log de inicialização rolando no fundo.",
   "excerpt": "Overlays completos para live no visual dos ambientes Linux: janelas com barra de cabeçalho, chat num terminal com apelidos no estilo IRC, títulos em letra monoespaçada com cursor piscando e alertas que vão sendo digitados. Inclui chat e painéis para a Twitch.",
   "version": "1.0",
