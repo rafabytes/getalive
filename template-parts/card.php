@@ -13,8 +13,8 @@ $index  = (int) ( $args['index'] ?? 0 );
 	<span class="tcard__glow" aria-hidden="true"></span>
 	<div class="relative">
 		<a href="<?php echo esc_url( $t['url'] ); ?>" class="tcard__media block" data-card-cycle tabindex="-1" aria-hidden="true">
-			<?php foreach ( $images as $i => $src ) : ?>
-				<img src="<?php echo esc_url( $src ); ?>" alt="" loading="<?php echo $i ? 'lazy' : 'eager'; ?>" decoding="async" class="<?php echo 0 === $i ? 'is-active' : ''; ?>">
+			<?php foreach ( $images as $i => $image ) : ?>
+				<?php echo ga_image( $image, 'ga-card', 'card', [ 'loading' => $i ? 'lazy' : 'eager', 'decoding' => 'async', 'class' => 0 === $i ? 'is-active' : '' ] ); ?>
 			<?php endforeach; ?>
 			<?php if ( count( $images ) > 1 ) : ?>
 				<span class="tcard__progress"><?php echo str_repeat( '<span></span>', count( $images ) ); ?></span>

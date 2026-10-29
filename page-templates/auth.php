@@ -19,8 +19,8 @@ $ga_redirect = ga_safe_redirect_target( wp_unslash( $_GET['redirect_to'] ?? '' )
 $ga_scenes = [];
 foreach ( ga_query_templates( [ 'posts_per_page' => 4 ] ) as $p ) {
 	foreach ( ga_template( $p )['scenes'] as $scene ) {
-		if ( $scene['src'] ) {
-			$ga_scenes[] = [ 'src' => $scene['src'], 'title' => $scene['title'], 'template' => get_the_title( $p ) ];
+		if ( $scene['image'] ) {
+			$ga_scenes[] = [ 'image' => $scene['image'], 'title' => $scene['title'], 'template' => get_the_title( $p ) ];
 		}
 	}
 }
@@ -60,7 +60,7 @@ $ga_props = [
 					<div class="monitor__screen">
 						<?php if ( $ga_scenes ) : ?>
 							<?php foreach ( $ga_scenes as $i => $scene ) : ?>
-								<img src="<?php echo esc_url( $scene['src'] ); ?>" alt="" class="<?php echo 0 === $i ? 'is-active' : ''; ?>" data-title="<?php echo esc_attr( $scene['title'] ); ?>" <?php echo $i ? 'loading="lazy"' : ''; ?>>
+								<?php echo ga_image( $scene['image'], 'ga-hd', 'auth', [ 'class' => 0 === $i ? 'is-active' : '', 'data-title' => $scene['title'], 'loading' => $i ? 'lazy' : false ] ); ?>
 							<?php endforeach; ?>
 						<?php else : ?>
 							<div class="absolute inset-0 bg-gradient-to-br from-signal-700 to-ink-950"></div>

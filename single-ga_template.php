@@ -10,7 +10,7 @@ while ( have_posts() ) :
 	the_post();
 	$t        = ga_template();
 	$scenes   = $t['scenes'];
-	$stage    = $scenes ?: ( $t['thumbnail'] ? [ [ 'title' => $t['title'], 'desc' => '', 'src' => get_the_post_thumbnail_url( null, 'ga-stage' ), 'thumb' => $t['thumbnail'] ] ] : [] );
+	$stage    = $scenes ?: ( $t['thumbnail'] ? [ [ 'title' => $t['title'], 'desc' => '', 'image' => $t['thumbnail_id'] ] ] : [] );
 	$logged   = is_user_logged_in();
 	$premium  = ga_premium_enabled() && $t['premium'];
 	$can      = $logged && ga_user_can_download( $t['id'] );
@@ -73,7 +73,13 @@ while ( have_posts() ) :
 							</div>
 							<button type="button" class="monitor__screen group block w-full cursor-zoom-in" data-lightbox aria-label="Ampliar cena">
 								<?php foreach ( $stage as $i => $scene ) : ?>
-									<img src="<?php echo esc_url( $scene['src'] ); ?>" alt="Cena <?php echo esc_attr( $scene['title'] ); ?>" class="<?php echo 0 === $i ? 'is-active' : ''; ?>" <?php echo $i ? 'loading="lazy"' : 'fetchpriority="high"'; ?> data-title="<?php echo esc_attr( $scene['title'] ); ?>">
+									<?php
+									echo ga_image( $scene['image'], 'ga-stage', 'stage', [
+										'alt'        => 'Cena ' . $scene['title'],
+										'class'      => 0 === $i ? 'is-active' : '',
+										'data-title' => $scene['title'],
+									] + ( $i ? [ 'loading' => 'lazy' ] : [ 'loading' => false, 'fetchpriority' => 'high' ] ) );
+									?>
 								<?php endforeach; ?>
 								<span class="absolute bottom-4 right-4 inline-flex size-11 items-center justify-center rounded-full bg-ink-950/70 text-white opacity-0 backdrop-blur transition group-hover:opacity-100"><?php echo ga_icon( 'expand', 'size-4' ); ?></span>
 							</button>
@@ -169,7 +175,7 @@ while ( have_posts() ) :
 						<?php foreach ( $scenes as $i => $scene ) : ?>
 							<figure class="group" data-reveal style="--delay:<?php echo esc_attr( ( $i % 3 ) * 0.08 ); ?>s">
 								<button type="button" class="relative block aspect-video w-full cursor-zoom-in overflow-hidden rounded-2xl bg-ink-800 ring-1 ring-inset ring-white/10" data-lightbox-src="<?php echo esc_url( $scene['src'] ); ?>" aria-label="Ampliar cena <?php echo esc_attr( $scene['title'] ); ?>">
-									<img src="<?php echo esc_url( $scene['thumb'] ); ?>" alt="" loading="lazy" class="size-full object-cover transition duration-700 ease-expo group-hover:scale-105">
+									<?php echo ga_image( $scene['image'], 'ga-card', 'scene', [ 'loading' => 'lazy', 'class' => 'size-full object-cover transition duration-700 ease-expo group-hover:scale-105' ] ); ?>
 									<span class="absolute left-3 top-3 font-mono text-[11px] text-white/80">0<?php echo (int) $i + 1; ?></span>
 								</button>
 								<figcaption class="mt-4">

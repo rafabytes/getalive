@@ -72,7 +72,7 @@ $ga_reqs = ga_user_requests();
 						?>
 						<li class="flex flex-col gap-4 p-4 sm:flex-row sm:items-center md:p-5">
 							<a href="<?php echo esc_url( $t['url'] ); ?>" class="block aspect-video w-full shrink-0 overflow-hidden rounded-xl bg-ink-800 sm:w-40">
-								<?php if ( $t['thumbnail'] ) : ?><img src="<?php echo esc_url( $t['thumbnail'] ); ?>" alt="" class="size-full object-cover" loading="lazy"><?php endif; ?>
+								<?php echo ga_image( $t['thumbnail_id'], 'ga-thumb', 'row', [ 'class' => 'size-full object-cover', 'loading' => 'lazy' ] ); ?>
 							</a>
 							<div class="min-w-0 flex-1">
 								<a href="<?php echo esc_url( $t['url'] ); ?>" class="font-display text-xl font-semibold tracking-tight text-white hover:text-lime"><?php echo esc_html( $t['title'] ); ?></a>

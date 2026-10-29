@@ -4,6 +4,8 @@ import { toggleFavorite, burst } from '../modules/favorites';
 import { GA } from '../lib/api';
 
 const STEP = 1200;
+// Igual a GA_IMAGE_SIZES['card'] em inc/template-data.php.
+const SIZES = '(min-width: 1280px) 432px, (min-width: 768px) 50vw, 100vw';
 
 function FavoriteButton({ id, on, loginUrl }) {
   const ref = useRef(null);
@@ -58,10 +60,14 @@ export default function TemplateCard({ item, index = 0, loginUrl }) {
       <span className="tcard__glow" aria-hidden="true" />
       <div className="relative">
         <a href={item.url} className="tcard__media block" tabIndex={-1} aria-hidden="true">
-          {images.map((src, i) => (
+          {images.map((img, i) => (
             <img
-              key={src}
-              src={src}
+              key={img.src}
+              src={img.src}
+              srcSet={img.srcset || undefined}
+              sizes={img.srcset ? SIZES : undefined}
+              width={960}
+              height={540}
               alt=""
               loading={i === 0 || hover ? 'eager' : 'lazy'}
               decoding="async"
@@ -70,8 +76,8 @@ export default function TemplateCard({ item, index = 0, loginUrl }) {
           ))}
           {images.length > 1 && (
             <span className="tcard__progress">
-              {images.map((src, i) => (
-                <span key={src + active} className={hover && i === active ? 'is-active' : hover && i < active ? 'is-done' : ''} />
+              {images.map((img, i) => (
+                <span key={img.src + active} className={hover && i === active ? 'is-active' : hover && i < active ? 'is-done' : ''} />
               ))}
             </span>
           )}

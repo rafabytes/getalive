@@ -54,16 +54,41 @@ function ga_template( $post = null ): array {
 			get_the_terms( $id, 'ga_style' ) ?: []
 		) ),
 		'thumbnail'    => get_the_post_thumbnail_url( $post, 'ga-card' ) ?: ( $scenes[0]['thumb'] ?? '' ),
+		'thumbnail_id' => get_post_thumbnail_id( $post ) ?: ( $scenes[0]['image'] ?? 0 ),
 		'updated'      => get_the_modified_date( 'U', $post ),
 	];
 }
 
 /**
- * Imagens para o hover dos cards: capa + cenas, sem repetição.
+ * Imagens para o hover dos cards: capa + cenas, sem repetição (IDs de anexo).
  */
-function ga_template_images( array $t, string $key = 'thumb' ): array {
-	$images = array_filter( array_merge( [ $t['thumbnail'] ], array_column( $t['scenes'], $key ) ) );
-	return array_values( array_unique( $images ) );
+function ga_template_images( array $t ): array {
+	$ids = array_filter( array_merge( [ $t['thumbnail_id'] ], array_column( $t['scenes'], 'image' ) ) );
+	return array_values( array_unique( $ids ) );
+}
+
+/**
+ * Largura exibida de cada layout, para o atributo sizes do srcset.
+ * O card também é usado no React (TemplateCard.jsx): mantenha os dois iguais.
+ */
+const GA_IMAGE_SIZES = [
+	'hero'  => '(min-width: 1440px) 800px, (min-width: 1024px) 56vw, 100vw',
+	'stage' => '(min-width: 1440px) 900px, (min-width: 1024px) 64vw, 100vw',
+	'scene' => '(min-width: 1440px) 440px, (min-width: 1024px) 31vw, (min-width: 640px) 48vw, 100vw',
+	'card'  => '(min-width: 1280px) 432px, (min-width: 768px) 50vw, 100vw',
+	'auth'  => '(min-width: 1850px) 720px, (min-width: 1024px) 39vw, 1px',
+	'row'   => '(min-width: 640px) 160px, 100vw',
+];
+
+/**
+ * <img> de um anexo com srcset, montado pelo WordPress.
+ * $size é a imagem de fallback (src); $layout escolhe o sizes em GA_IMAGE_SIZES.
+ */
+function ga_image( int $id, string $size, string $layout, array $attr = [] ): string {
+	if ( ! $id ) {
+		return '';
+	}
+	return wp_get_attachment_image( $id, $size, false, array_merge( [ 'alt' => '', 'sizes' => GA_IMAGE_SIZES[ $layout ] ], $attr ) );
 }
 
 /**
@@ -76,7 +101,10 @@ function ga_template_card_data( $post ): array {
 		'title'     => $t['title'],
 		'url'       => $t['url'],
 		'tagline'   => $t['tagline'],
-		'images'    => ga_template_images( $t ),
+		'images'    => array_map( fn( $img ) => [
+			'src'    => wp_get_attachment_image_url( $img, 'ga-card' ),
+			'srcset' => wp_get_attachment_image_srcset( $img, 'ga-card' ) ?: '',
+		], ga_template_images( $t ) ),
 		'styles'    => $t['styles'],
 		'scenes'    => count( $t['scenes'] ),
 		'platforms' => $t['platforms'],

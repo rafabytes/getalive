@@ -21,7 +21,10 @@ add_action( 'after_setup_theme', function () {
 		'footer'  => 'Menu do rodapé',
 	] );
 
+	// Degraus 16:9 do srcset: do card no celular até o palco em tela retina.
+	add_image_size( 'ga-thumb', 640, 360, true );
 	add_image_size( 'ga-card', 960, 540, true );
+	add_image_size( 'ga-hd', 1280, 720, true );
 	add_image_size( 'ga-stage', 1920, 1080, true );
 } );
 

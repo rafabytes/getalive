@@ -79,7 +79,12 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 						</div>
 						<a href="<?php echo esc_url( $ga_hero_t['url'] ); ?>" class="monitor__screen block" aria-label="Ver o template <?php echo esc_attr( $ga_hero_t['title'] ); ?>">
 							<?php foreach ( $ga_hero_t['scenes'] as $i => $scene ) : ?>
-								<img src="<?php echo esc_url( $scene['src'] ); ?>" alt="Cena <?php echo esc_attr( $scene['title'] ); ?> do template <?php echo esc_attr( $ga_hero_t['title'] ); ?>" class="<?php echo 0 === $i ? 'is-active' : ''; ?>" <?php echo $i ? 'loading="lazy"' : 'fetchpriority="high"'; ?>>
+								<?php
+								echo ga_image( $scene['image'], 'ga-stage', 'hero', [
+									'alt'   => 'Cena ' . $scene['title'] . ' do template ' . $ga_hero_t['title'],
+									'class' => 0 === $i ? 'is-active' : '',
+								] + ( $i ? [ 'loading' => 'lazy' ] : [ 'loading' => false, 'fetchpriority' => 'high' ] ) );
+								?>
 							<?php endforeach; ?>
 						</a>
 						<div class="scene-dock" role="tablist" aria-label="Cenas">
