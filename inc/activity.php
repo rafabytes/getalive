@@ -265,12 +265,35 @@ add_action( 'ga_activity_prune', function () {
 } );
 
 /* ---------------------------------------------------------------------------
- * Página de perfil (author.php): só administradores
+ * Página de perfil (author.php, em /user/<login>/): só administradores
  * ------------------------------------------------------------------------- */
+
+const GA_AUTHOR_BASE = 'user';
+
+/**
+ * O arquivo de autor do WordPress vira /user/<login>/. As regras de URL são
+ * regravadas uma vez quando a base muda.
+ */
+add_action( 'init', function () {
+	global $wp_rewrite;
+	$wp_rewrite->author_base = GA_AUTHOR_BASE;
+	// A estrutura pode já ter sido montada (e guardada) com a base antiga.
+	$wp_rewrite->author_structure = null;
+}, 5 );
+
+// O Rank Math troca a base no init (prioridade 4) pela da configuração dele.
+add_filter( 'rank_math/author_base', fn() => GA_AUTHOR_BASE );
+
+add_action( 'init', function () {
+	if ( get_option( 'ga_author_base' ) !== GA_AUTHOR_BASE ) {
+		flush_rewrite_rules( false );
+		update_option( 'ga_author_base', GA_AUTHOR_BASE );
+	}
+}, 99 );
 
 /**
  * Para os outros é 404. Roda antes do redirect_canonical, que transformaria
- * ?author=1 em /author/<login>/ e revelaria o nome de usuário.
+ * ?author=1 em /user/<login>/ e revelaria o nome de usuário.
  */
 add_action( 'template_redirect', function () {
 	if ( is_author() && ! current_user_can( 'list_users' ) ) {
