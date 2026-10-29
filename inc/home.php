@@ -62,11 +62,65 @@ function ga_home_fields(): array {
 	return array_merge( ...array_values( array_map( fn( $s ) => $s[1], ga_home_sections() ) ) );
 }
 
+/** Quantas telas o slider do topo aceita. */
+const GA_HOME_SLIDES = 10;
+
+/** Ordem padrão do slider (slugs), até alguém mudar no Personalizar. */
+const GA_HOME_SLIDES_DEFAULT = [ 'ratimbum', 'rococo', 'vaporwave', 'liquid', 'vice', 'terminal' ];
+
+/**
+ * Templates do slider do topo, na ordem escolhida em Personalizar → Página inicial → Slider do topo.
+ * Guardamos o slug (vale igual no local e em produção). Com todas as telas em branco, entram todos na ordem do catálogo.
+ *
+ * @return WP_Post[]
+ */
+function ga_home_slides(): array {
+	$slugs = [];
+	for ( $n = 1; $n <= GA_HOME_SLIDES; $n++ ) {
+		$slug = (string) get_theme_mod( "ga_home_slide_{$n}", GA_HOME_SLIDES_DEFAULT[ $n - 1 ] ?? '' );
+		if ( '' !== $slug && ! in_array( $slug, $slugs, true ) ) {
+			$slugs[] = $slug;
+		}
+	}
+	if ( ! $slugs ) {
+		return ga_query_templates();
+	}
+
+	$by_slug = [];
+	foreach ( ga_query_templates( [ 'post_name__in' => $slugs ] ) as $p ) {
+		$by_slug[ $p->post_name ] = $p;
+	}
+	return array_values( array_filter( array_map( fn( $s ) => $by_slug[ $s ] ?? null, $slugs ) ) );
+}
+
 add_action( 'customize_register', function ( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->add_panel( 'ga_home', [
 		'title'    => 'Página inicial',
 		'priority' => 30,
 	] );
+
+	$wp_customize->add_section( 'ga_home_slider', [
+		'title'       => 'Slider do topo',
+		'description' => 'Cada tela mostra um template, nesta ordem. Deixe todas em branco para mostrar todos os templates na ordem do catálogo.',
+		'panel'       => 'ga_home',
+		'priority'    => 5,
+	] );
+	$choices = [ '' => '—' ];
+	foreach ( ga_query_templates() as $p ) {
+		$choices[ $p->post_name ] = get_the_title( $p );
+	}
+	for ( $n = 1; $n <= GA_HOME_SLIDES; $n++ ) {
+		$wp_customize->add_setting( "ga_home_slide_{$n}", [
+			'default'           => GA_HOME_SLIDES_DEFAULT[ $n - 1 ] ?? '',
+			'sanitize_callback' => 'sanitize_title',
+		] );
+		$wp_customize->add_control( "ga_home_slide_{$n}", [
+			'label'   => "Tela {$n}",
+			'section' => 'ga_home_slider',
+			'type'    => 'select',
+			'choices' => $choices,
+		] );
+	}
 
 	foreach ( ga_home_sections() as $section => [ $title, $fields ] ) {
 		$wp_customize->add_section( "ga_home_{$section}", [

@@ -8,9 +8,17 @@ get_header();
 
 $ga_all      = ga_query_templates();
 $ga_featured = array_values( array_filter( $ga_all, fn( $p ) => get_post_meta( $p->ID, '_ga_featured', true ) ) );
-$ga_hero     = $ga_featured[0] ?? ( $ga_all[0] ?? null );
-$ga_hero_t   = $ga_hero ? ga_template( $ga_hero ) : null;
 $ga_grid     = array_slice( $ga_featured ?: $ga_all, 0, 6 );
+
+// Slider do topo: uma tela por template, com a primeira cena (começando) de cada um.
+$ga_slides = [];
+foreach ( ga_home_slides() as $p ) {
+	$t     = ga_template( $p );
+	$image = $t['scenes'][0]['image'] ?? $t['thumbnail_id'];
+	if ( $image ) {
+		$ga_slides[] = $t + [ 'image' => $image ];
+	}
+}
 
 $ga_scene_count = array_sum( array_map( fn( $p ) => count( (array) get_post_meta( $p->ID, '_ga_scenes', true ) ), $ga_all ) );
 $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID, '_ga_downloads', true ), $ga_all ) );
@@ -70,26 +78,28 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 		</div>
 
 		<div class="lg:col-span-7" data-reveal style="--delay:.15s">
-				<?php if ( $ga_hero_t && $ga_hero_t['scenes'] ) : ?>
+				<?php if ( $ga_slides ) : ?>
 					<div class="monitor" data-stage>
 						<div class="monitor__bar">
 							<span class="flex items-center gap-2"><span class="live-dot"></span> REC <span class="text-white" data-timecode>00:00:00</span></span>
-							<span class="hidden sm:block"><?php echo esc_html( $ga_hero_t['title'] ); ?> · <?php echo esc_html( $ga_hero_t['resolution'] ); ?></span>
+							<span class="hidden sm:block" data-stage-label><?php echo esc_html( $ga_slides[0]['title'] . ' · ' . $ga_slides[0]['resolution'] ); ?></span>
 							<span class="meters" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
 						</div>
-						<a href="<?php echo esc_url( $ga_hero_t['url'] ); ?>" class="monitor__screen block" aria-label="Ver o template <?php echo esc_attr( $ga_hero_t['title'] ); ?>">
-							<?php foreach ( $ga_hero_t['scenes'] as $i => $scene ) : ?>
+						<a href="<?php echo esc_url( $ga_slides[0]['url'] ); ?>" class="monitor__screen block" aria-label="Ver o template <?php echo esc_attr( $ga_slides[0]['title'] ); ?>">
+							<?php foreach ( $ga_slides as $i => $slide ) : ?>
 								<?php
-								echo ga_image( $scene['image'], 'ga-stage', 'hero', [
-									'alt'   => 'Cena ' . $scene['title'] . ' do template ' . $ga_hero_t['title'],
-									'class' => 0 === $i ? 'is-active' : '',
+								echo ga_image( $slide['image'], 'ga-stage', 'hero', [
+									'alt'        => 'Template ' . $slide['title'],
+									'class'      => 0 === $i ? 'is-active' : '',
+									'data-title' => $slide['title'] . ' · ' . $slide['resolution'],
+									'data-href'  => $slide['url'],
 								] + ( $i ? [ 'loading' => 'lazy' ] : [ 'loading' => false, 'fetchpriority' => 'high' ] ) );
 								?>
 							<?php endforeach; ?>
 						</a>
-						<div class="scene-dock" role="tablist" aria-label="Cenas">
-							<?php foreach ( $ga_hero_t['scenes'] as $i => $scene ) : ?>
-								<button type="button" role="tab" aria-selected="<?php echo 0 === $i ? 'true' : 'false'; ?>" data-scene="<?php echo (int) $i; ?>"><?php echo esc_html( $scene['title'] ); ?></button>
+						<div class="scene-dock" role="tablist" aria-label="Templates">
+							<?php foreach ( $ga_slides as $i => $slide ) : ?>
+								<button type="button" role="tab" aria-selected="<?php echo 0 === $i ? 'true' : 'false'; ?>" data-scene="<?php echo (int) $i; ?>"><?php echo esc_html( $slide['title'] ); ?></button>
 							<?php endforeach; ?>
 						</div>
 					</div>

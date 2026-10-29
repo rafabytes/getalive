@@ -14,6 +14,7 @@ function initStage(stage) {
   const tabs = [...stage.querySelectorAll('[data-scene]')];
   const label = stage.querySelector('[data-stage-label]');
   const timecode = stage.querySelector('[data-timecode]');
+  const link = stage.querySelector('a.monitor__screen');
   const interval = Number(stage.dataset.stageInterval) || 3200;
   let autoplay = stage.dataset.stageAutoplay !== 'false' && images.length > 1 && !reduced;
   let index = 0;
@@ -26,6 +27,11 @@ function initStage(stage) {
     images.forEach((img, n) => img.classList.toggle('is-active', n === index));
     tabs.forEach((tab, n) => tab.setAttribute('aria-selected', String(n === index)));
     if (label) label.textContent = images[index]?.dataset.title || tabs[index]?.textContent || '';
+    // Slider da home: cada tela é um template, então o link segue a tela visível.
+    if (link && images[index]?.dataset.href) {
+      link.href = images[index].dataset.href;
+      link.setAttribute('aria-label', `Ver o template ${tabs[index]?.textContent || ''}`);
+    }
     centerTab(tabs[index]);
   };
 
