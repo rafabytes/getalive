@@ -83,12 +83,14 @@ const GA_IMAGE_SIZES = [
 /**
  * <img> de um anexo com srcset, montado pelo WordPress.
  * $size é a imagem de fallback (src); $layout escolhe o sizes em GA_IMAGE_SIZES.
+ * data-no-lazy tira do lazy load do LiteSpeed, que troca o src por um placeholder e
+ * só carrega pelo JS dele: o lazy fica com o loading nativo que o WordPress já põe.
  */
 function ga_image( int $id, string $size, string $layout, array $attr = [] ): string {
 	if ( ! $id ) {
 		return '';
 	}
-	return wp_get_attachment_image( $id, $size, false, array_merge( [ 'alt' => '', 'sizes' => GA_IMAGE_SIZES[ $layout ] ], $attr ) );
+	return wp_get_attachment_image( $id, $size, false, array_merge( [ 'alt' => '', 'sizes' => GA_IMAGE_SIZES[ $layout ], 'data-no-lazy' => '1' ], $attr ) );
 }
 
 /**
