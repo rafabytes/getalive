@@ -10,9 +10,18 @@ function ga_asset_version( string $file ): string {
 	return file_exists( $path ) ? (string) filemtime( $path ) : GA_VERSION;
 }
 
+/**
+ * URL de um arquivo do dist/. O _litespeed_rm_qs=0 impede o LiteSpeed de tirar o
+ * ?ver=: main.js e main.css não têm hash no nome e o servidor manda guardar por um
+ * ano, então sem o ver o navegador seguiria com a versão antiga depois de um deploy.
+ */
+function ga_asset_url( string $file ): string {
+	return add_query_arg( '_litespeed_rm_qs', '0', GA_URI . '/dist/' . $file );
+}
+
 add_action( 'wp_enqueue_scripts', function () {
-	wp_enqueue_style( 'getalive', GA_URI . '/dist/js/main.css', [], ga_asset_version( 'js/main.css' ) );
-	wp_enqueue_script( 'getalive', GA_URI . '/dist/js/main.js', [], ga_asset_version( 'js/main.js' ), [
+	wp_enqueue_style( 'getalive', ga_asset_url( 'js/main.css' ), [], ga_asset_version( 'js/main.css' ) );
+	wp_enqueue_script( 'getalive', ga_asset_url( 'js/main.js' ), [], ga_asset_version( 'js/main.js' ), [
 		'in_footer' => true,
 		'strategy'  => 'defer',
 	] );
@@ -36,6 +45,19 @@ add_filter( 'script_loader_tag', function ( $tag, $handle ) {
 		return $tag;
 	}
 	return str_replace( '<script ', '<script data-no-optimize="1" data-no-defer="1" ', $tag );
+}, 10, 2 );
+
+/**
+ * O CSS do tema também fica de fora: o Parcel já entrega um arquivo único e
+ * minificado. Otimizado pelo LiteSpeed, ele passava a depender do CSS crítico e do
+ * UCSS gerados por página, que ficam velhos a cada deploy (primeira visita sem
+ * estilo) e não enxergam as classes usadas só pelo JS e pelo React.
+ */
+add_filter( 'style_loader_tag', function ( $tag, $handle ) {
+	if ( 'getalive' !== $handle ) {
+		return $tag;
+	}
+	return str_replace( '<link ', '<link data-no-optimize="1" data-no-async="1" ', $tag );
 }, 10, 2 );
 
 function ga_js_config(): array {
