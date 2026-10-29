@@ -22,11 +22,15 @@ function ga_is_favorite( int $post_id, int $user_id = 0 ): bool {
  */
 function ga_set_favorite( int $post_id, bool $on, int $user_id = 0 ): bool {
 	$user_id = $user_id ?: get_current_user_id();
+	$was     = ga_is_favorite( $post_id, $user_id );
 	$favs    = array_diff( ga_user_favorites( $user_id ), [ $post_id ] );
 	if ( $on ) {
 		array_unshift( $favs, $post_id );
 	}
 	update_user_meta( $user_id, 'ga_favorites', array_values( $favs ) );
+	if ( $was !== $on ) {
+		ga_log_activity( $user_id, $on ? 'favorite_add' : 'favorite_remove', [ 'object_id' => $post_id, 'detail' => [ 'title' => get_the_title( $post_id ) ] ] );
+	}
 	return $on;
 }
 

@@ -1116,6 +1116,52 @@
     @apply bg-white text-ink-950;
   }
 
+  /* Linha do tempo de atividade (perfil do usuário, só admin) */
+  .activity {
+    @apply relative grid gap-1;
+  }
+
+  .activity::before {
+    content: '';
+    @apply absolute bottom-4 left-[4.25rem] top-4 w-px bg-white/10;
+  }
+
+  .activity__item {
+    @apply relative grid grid-cols-[3rem_2rem_1fr] items-start gap-3 rounded-2xl px-1 py-2.5;
+  }
+
+  .activity__time {
+    @apply pt-1.5 text-right font-mono text-xs text-ink-500;
+  }
+
+  .activity__icon {
+    @apply relative inline-flex size-8 items-center justify-center rounded-full border border-white/10 bg-ink-900 text-ink-300;
+  }
+
+  .activity__text {
+    @apply pt-1 text-ink-200;
+  }
+
+  .activity__text a {
+    @apply text-white underline decoration-white/20 underline-offset-4 transition hover:decoration-lime;
+  }
+
+  .activity__meta {
+    @apply mt-1 font-mono text-[11px] text-ink-500;
+  }
+
+  .activity__item--muted .activity__text {
+    @apply text-ink-400;
+  }
+
+  .activity__item--muted .activity__text a {
+    @apply text-ink-300;
+  }
+
+  .activity__item--alert .activity__icon {
+    @apply border-live/40 bg-live/10 text-live;
+  }
+
   .status {
     @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
   }

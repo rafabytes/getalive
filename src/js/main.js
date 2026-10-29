@@ -20,6 +20,7 @@ import { initConsent } from './modules/consent';
 import { initAccount } from './modules/account';
 import { initToc } from './modules/toc';
 import { toast } from './modules/toast';
+import { trackView } from './modules/activity';
 import { mountReact, unmountReact } from './react/mount';
 
 const pageModules = [initReveal, initStages, initCards, initAccount, initToc];
@@ -30,6 +31,7 @@ function pageView() {
   cleanups = pageModules.map((init) => init(container));
   mountReact(container);
   updateHeaderForPage();
+  trackView();
 }
 
 function pageLeave() {

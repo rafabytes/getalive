@@ -161,9 +161,96 @@ function ga_log_download( int $post_id, int $user_id ): void {
 	$history[ $post_id ] = time();
 	arsort( $history );
 	update_user_meta( $user_id, 'ga_downloads', $history );
+
+	ga_log_activity( $user_id, 'download', [
+		'object_id' => $post_id,
+		'ip'        => true,
+		'detail'    => [ 'title' => get_the_title( $post_id ), 'version' => (string) get_post_meta( $post_id, '_ga_version', true ) ],
+	] );
 }
 
 function ga_user_downloads( int $user_id = 0 ): array {
 	$user_id = $user_id ?: get_current_user_id();
 	return array_filter( (array) get_user_meta( $user_id, 'ga_downloads', true ) );
+}
+
+/**
+ * Quem baixou um template, do download mais recente ao mais antigo: [ 'user' => WP_User, 'time' => int ].
+ * O histórico é um array serializado: o LIKE só pré-filtra, a confirmação é feita no PHP.
+ */
+function ga_template_downloaders( int $post_id ): array {
+	$users = get_users( [
+		'meta_key'     => 'ga_downloads',
+		'meta_value'   => 'i:' . $post_id . ';',
+		'meta_compare' => 'LIKE',
+	] );
+	$list = [];
+	foreach ( $users as $user ) {
+		$time = (int) ( ga_user_downloads( $user->ID )[ $post_id ] ?? 0 );
+		if ( $time ) {
+			$list[] = [ 'user' => $user, 'time' => $time ];
+		}
+	}
+	usort( $list, fn( $a, $b ) => $b['time'] <=> $a['time'] );
+	return $list;
+}
+
+function ga_downloaders_admin_url( int $post_id ): string {
+	return admin_url( 'edit.php?post_type=ga_template&page=ga-downloaders&template=' . $post_id );
+}
+
+/**
+ * Página "Quem baixou", aberta pelo número na coluna Downloads (fica fora do menu).
+ */
+add_action( 'admin_menu', function () {
+	$hook = add_submenu_page( 'edit.php?post_type=ga_template', 'Quem baixou', 'Quem baixou', 'list_users', 'ga-downloaders', 'ga_downloaders_page' );
+	add_action( "load-$hook", function () {
+		add_action( 'admin_enqueue_scripts', fn() => wp_enqueue_style( 'ga-admin', GA_URI . '/assets/admin.css', [], filemtime( GA_DIR . '/assets/admin.css' ) ) );
+	} );
+} );
+
+add_action( 'admin_head', function () {
+	remove_submenu_page( 'edit.php?post_type=ga_template', 'ga-downloaders' );
+} );
+
+function ga_downloaders_page(): void {
+	$post_id = absint( $_GET['template'] ?? 0 );
+	if ( 'ga_template' !== get_post_type( $post_id ) ) {
+		wp_die( 'Template não encontrado.' );
+	}
+	$rows  = ga_template_downloaders( $post_id );
+	$total = (int) get_post_meta( $post_id, '_ga_downloads', true );
+	?>
+	<div class="wrap">
+		<h1 class="wp-heading-inline">Quem baixou o <?php echo esc_html( get_the_title( $post_id ) ); ?></h1>
+		<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=ga_template' ) ); ?>" class="page-title-action">Voltar aos templates</a>
+		<hr class="wp-header-end">
+		<p>
+			<?php echo esc_html( ga_plural( $total, 'download', 'downloads' ) . ' de ' . ga_plural( count( $rows ), 'usuário', 'usuários' ) ); ?>.
+			O contador soma cada download; aqui cada usuário aparece uma vez, com a data do último.
+		</p>
+		<table class="wp-list-table widefat fixed striped">
+			<thead>
+				<tr><th>Usuário</th><th>E-mail</th><th>Último download</th><th>Conta criada em</th></tr>
+			</thead>
+			<tbody>
+				<?php if ( ! $rows ) : ?>
+					<tr><td colspan="4">Ninguém baixou este template ainda.</td></tr>
+				<?php endif; ?>
+				<?php foreach ( $rows as $row ) : ?>
+					<?php $user = $row['user']; ?>
+					<tr>
+						<td class="ga-downloader">
+							<?php echo get_avatar( $user, 32 ); ?>
+							<a href="<?php echo esc_url( ga_user_activity_url( $user->ID ) ); ?>" title="Ver atividade"><strong><?php echo esc_html( $user->display_name ); ?></strong></a>
+						</td>
+						<td><a href="mailto:<?php echo esc_attr( $user->user_email ); ?>"><?php echo esc_html( $user->user_email ); ?></a></td>
+						<td><?php echo esc_html( wp_date( 'j \d\e F \d\e Y, H:i', $row['time'] ) ); ?></td>
+						<td><?php echo esc_html( wp_date( 'j \d\e F \d\e Y', strtotime( $user->user_registered . ' UTC' ) ) ); ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	</div>
+	<?php
 }

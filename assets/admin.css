@@ -26,3 +26,5 @@
 #the-list .ui-sortable-placeholder { visibility: visible !important; background: #f0f0f1; }
 .ga-order--saving { opacity: .6; pointer-events: none; }
 .ga-order-notice .dashicons { font-size: 16px; width: 16px; height: 16px; vertical-align: text-bottom; }
+.ga-downloader { display: flex; align-items: center; gap: 10px; }
+.ga-downloader img { border-radius: 50%; }

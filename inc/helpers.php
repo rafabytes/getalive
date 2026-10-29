@@ -125,8 +125,8 @@ function ga_user_avatar_url( ?WP_User $user = null ): string {
 	return esc_url_raw( (string) get_user_meta( $user->ID, 'ga_google_picture', true ) );
 }
 
-function ga_avatar_html( string $class = '' ): string {
-	$user = wp_get_current_user();
+function ga_avatar_html( string $class = '', ?WP_User $user = null ): string {
+	$user = $user ?: wp_get_current_user();
 	$url  = ga_user_avatar_url( $user );
 	$out  = '<span class="ga-avatar ' . esc_attr( $class ) . '" aria-hidden="true">';
 	$out .= $url

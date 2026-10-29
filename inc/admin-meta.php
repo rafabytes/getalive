@@ -242,7 +242,10 @@ add_action( 'manage_ga_template_posts_custom_column', function ( $col, $post_id 
 	if ( 'ga_thumb' === $col ) {
 		echo get_the_post_thumbnail( $post_id, [ 96, 54 ], [ 'style' => 'width:96px;height:54px;object-fit:cover;border-radius:4px' ] );
 	} elseif ( 'ga_downloads' === $col ) {
-		echo esc_html( number_format_i18n( (int) get_post_meta( $post_id, '_ga_downloads', true ) ) );
+		$count = (int) get_post_meta( $post_id, '_ga_downloads', true );
+		echo $count && current_user_can( 'list_users' )
+			? '<a href="' . esc_url( ga_downloaders_admin_url( $post_id ) ) . '" title="Ver quem baixou">' . esc_html( number_format_i18n( $count ) ) . '</a>'
+			: esc_html( number_format_i18n( $count ) );
 		if ( get_post_meta( $post_id, '_ga_premium', true ) ) {
 			echo ' <span class="ga-badge">pago</span>';
 		}

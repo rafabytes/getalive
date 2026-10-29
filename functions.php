@@ -25,6 +25,7 @@ foreach ( [
 	'google',
 	'rest',
 	'account',
+	'activity',
 	'consent',
 	'settings',
 	'premium',

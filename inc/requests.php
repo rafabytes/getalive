@@ -45,6 +45,7 @@ function ga_create_request( int $user_id, array $data ) {
 	update_post_meta( $id, '_ga_platforms', $data['platforms'] );
 	update_post_meta( $id, '_ga_references', $data['references'] );
 
+	ga_log_activity( $user_id, 'request', [ 'object_id' => $id, 'detail' => [ 'title' => $data['title'] ] ] );
 	ga_notify_request( $id );
 	return $id;
 }
@@ -122,7 +123,14 @@ add_action( 'save_post_ga_request', function ( $post_id ) {
 	}
 	$status = sanitize_key( $_POST['ga_status'] ?? '' );
 	if ( isset( ga_request_statuses()[ $status ] ) ) {
+		$old = get_post_meta( $post_id, '_ga_status', true );
 		update_post_meta( $post_id, '_ga_status', $status );
+		if ( $old && $old !== $status ) {
+			ga_log_activity( (int) get_post_field( 'post_author', $post_id ), 'request_status', [
+				'object_id' => $post_id,
+				'detail'    => [ 'title' => get_the_title( $post_id ), 'status' => ga_request_statuses()[ $status ], 'by' => wp_get_current_user()->display_name ],
+			] );
+		}
 	}
 } );
 
