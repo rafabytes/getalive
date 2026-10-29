@@ -4,11 +4,18 @@
 # deixando de fora o que só serve para desenvolvimento.
 # A pasta do repositório no cPanel é 700: sem os chmod no fim, o tema herda a permissão e o
 # servidor web responde 403. Não usar rsync --chmod: com ele o deploy falha no servidor.
+# Os scripts de tools/ não vão para o tema: rodam daqui, com WP_PATH apontando para o WordPress.
+# No fim, limpa o cache NGINX do cPanel (X-Proxy-Cache): ele guarda as páginas para visitantes
+# e, sem limpar, continua servindo HTML antigo, que aponta para arquivos que já não existem.
 deployment:
   tasks:
     - export PATH=/usr/local/bin:/usr/bin:/bin
     - export DEPLOYPATH=/home1/rafaby42/public_html/getalive/wp-content/themes/getalive-theme/
+    - export WP_PATH=/home1/rafaby42/public_html/getalive
+    - export WP_HOME=https://rafabytes.com
     - mkdir -p $DEPLOYPATH
     - rsync -a --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='.postcssrc' --exclude='node_modules' --exclude='.parcel-cache' --exclude='src' --exclude='tools' --exclude='package.json' --exclude='package-lock.json' --exclude='tailwind.config.js' --exclude='README.md' ./ $DEPLOYPATH
     - find $DEPLOYPATH -type d -exec chmod 755 {} +
     - find $DEPLOYPATH -type f -exec chmod 644 {} +
+    - php tools/regenerate-images.php || true
+    - uapi NginxCaching clear_cache || true

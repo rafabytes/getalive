@@ -24,10 +24,11 @@ if ( ! $m ) {
 	exit( 1 );
 }
 
-// Carrega o WordPress (o tema fica em wp-content/themes/<tema>/tools).
+// Carrega o WordPress (localmente o tema fica em wp-content/themes/<tema>/tools).
 $_SERVER['HTTP_HOST']   = parse_url( getenv( 'WP_HOME' ) ?: 'http://getalive.local', PHP_URL_HOST );
 $_SERVER['REQUEST_URI'] = '/';
-require dirname( __DIR__, 4 ) . '/wp-load.php';
+// No servidor os scripts rodam da cópia do repositório (fora do WordPress): WP_PATH aponta para ele.
+require ( getenv( 'WP_PATH' ) ?: dirname( __DIR__, 4 ) ) . '/wp-load.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
 require_once ABSPATH . 'wp-admin/includes/file.php';
 require_once ABSPATH . 'wp-admin/includes/media.php';
