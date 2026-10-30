@@ -4,6 +4,7 @@
  */
 
 import { GA } from '../lib/api';
+import { __ } from '../lib/i18n';
 
 const html = document.documentElement;
 
@@ -53,13 +54,31 @@ export function initHeader() {
     const open = !html.classList.contains('menu-open');
     html.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    burger.setAttribute('aria-label', open ? __('Fechar menu') : __('Abrir menu'));
     setHidden(header, false);
+  });
+
+  // Seletor de idioma (cabeçalho e tela de login): delegação, porque o da tela de login chega pelo Swup.
+  const closeLangMenus = (except) =>
+    document.querySelectorAll('[data-lang-menu].is-open').forEach((m) => {
+      if (m === except) return;
+      m.classList.remove('is-open');
+      m.querySelector('[data-lang-menu-toggle]')?.setAttribute('aria-expanded', 'false');
+    });
+  document.addEventListener('click', (e) => {
+    const langToggle = e.target.closest('[data-lang-menu-toggle]');
+    const langMenu = langToggle?.closest('[data-lang-menu]');
+    closeLangMenus(langMenu);
+    if (!langMenu) return;
+    const open = !langMenu.classList.contains('is-open');
+    langMenu.classList.toggle('is-open', open);
+    langToggle.setAttribute('aria-expanded', String(open));
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     closeUserMenu();
+    closeLangMenus();
     closeMobileMenu();
   });
 
@@ -70,7 +89,19 @@ export function closeMobileMenu() {
   html.classList.remove('menu-open');
   const burger = document.querySelector('[data-burger]');
   burger?.setAttribute('aria-expanded', 'false');
-  burger?.setAttribute('aria-label', 'Abrir menu');
+  burger?.setAttribute('aria-label', __('Abrir menu'));
+}
+
+/**
+ * Links do seletor de idioma apontam para esta mesma página nos outros idiomas,
+ * lidos do <link rel="alternate" hreflang> do <head> (o Swup troca o <head> a cada página).
+ * Sem versão alternativa (404, busca), vão para a página inicial do idioma.
+ */
+function updateLangLinks() {
+  document.querySelectorAll('[data-lang-link]').forEach((link) => {
+    const alt = document.head.querySelector(`link[rel="alternate"][hreflang="${link.getAttribute('hreflang')}"]`);
+    link.href = alt?.href || GA.langHomes?.[link.dataset.langLink] || link.href;
+  });
 }
 
 /**
@@ -96,6 +127,8 @@ export function updateHeaderForPage() {
       link.href = url.toString();
     });
   }
+
+  updateLangLinks();
 
   const header = document.querySelector('[data-header]');
   if (header) setHidden(header, false);

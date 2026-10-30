@@ -18,16 +18,23 @@ $ga_props = [
 	<div class="wrap relative grid gap-16 lg:grid-cols-12">
 		<div class="lg:col-span-5">
 			<div class="lg:sticky lg:top-[calc(var(--header-h)+var(--admin-bar,0px)+2rem)]">
-				<p class="eyebrow eyebrow--dot mb-6" data-reveal>Pedidos abertos</p>
+				<p class="eyebrow eyebrow--dot mb-6" data-reveal><?php esc_html_e( 'Pedidos abertos', 'getalive' ); ?></p>
 				<h1 class="text-display-lg font-semibold text-white" style="font-variation-settings:'wdth' 80" data-split>
-					<span class="split-line"><span>Qual live</span></span>
-					<span class="split-line"><span>você quer</span></span>
-					<span class="split-line"><span class="text-lime">ver no ar?</span></span>
+					<span class="split-line"><span><?php esc_html_e( 'Qual live', 'getalive' ); ?></span></span>
+					<span class="split-line"><span><?php esc_html_e( 'você quer', 'getalive' ); ?></span></span>
+					<span class="split-line"><span class="text-lime"><?php esc_html_e( 'ver no ar?', 'getalive' ); ?></span></span>
 				</h1>
-				<p class="mt-8 max-w-md text-lg text-ink-300" data-reveal>Conte a vibe, as cenas que você usa e mande referências. As ideias mais pedidas viram os próximos templates.</p>
+				<p class="mt-8 max-w-md text-lg text-ink-300" data-reveal><?php esc_html_e( 'Conte a vibe, as cenas que você usa e mande referências. As ideias mais pedidas viram os próximos templates.', 'getalive' ); ?></p>
 
 				<ol class="mt-12 space-y-5 border-t border-white/10 pt-8" data-reveal>
-					<?php foreach ( [ [ 'Você manda a ideia', 'Leva uns 2 minutos.' ], [ 'A gente analisa', 'O status aparece em Minha conta.' ], [ 'Vira template', 'Você recebe aviso quando publicar.' ] ] as $i => [ $title, $text ] ) : ?>
+					<?php
+					$ga_steps = [
+						[ __( 'Você manda a ideia', 'getalive' ), __( 'Leva uns 2 minutos.', 'getalive' ) ],
+						[ __( 'A gente analisa', 'getalive' ), __( 'O status aparece em Minha conta.', 'getalive' ) ],
+						[ __( 'Vira template', 'getalive' ), __( 'Você recebe aviso quando publicar.', 'getalive' ) ],
+					];
+					foreach ( $ga_steps as $i => [ $title, $text ] ) :
+						?>
 						<li class="flex gap-4">
 							<span class="font-mono text-xs text-ink-500">0<?php echo (int) $i + 1; ?></span>
 							<div><p class="font-medium text-white"><?php echo esc_html( $title ); ?></p><p class="text-sm text-ink-400"><?php echo esc_html( $text ); ?></p></div>
@@ -52,11 +59,11 @@ $ga_props = [
 					</div>
 					<div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-ink-950 via-ink-950/80 to-ink-950/40 p-8 text-center">
 						<span class="inline-flex size-14 items-center justify-center rounded-full bg-lime text-ink-950"><?php echo ga_icon( 'lock', 'size-6' ); ?></span>
-						<h2 class="mt-6 font-display text-3xl font-semibold tracking-tight text-white">Entre para fazer seu pedido</h2>
-						<p class="mt-2 max-w-sm text-ink-300">Com a conta você acompanha o status da solicitação e recebe aviso quando o template sair.</p>
+						<h2 class="mt-6 font-display text-3xl font-semibold tracking-tight text-white"><?php esc_html_e( 'Entre para fazer seu pedido', 'getalive' ); ?></h2>
+						<p class="mt-2 max-w-sm text-ink-300"><?php esc_html_e( 'Com a conta você acompanha o status da solicitação e recebe aviso quando o template sair.', 'getalive' ); ?></p>
 						<div class="mt-8 flex flex-wrap justify-center gap-3">
-							<a href="<?php echo esc_url( ga_login_url( '', 'register' ) ); ?>" class="btn btn--primary" data-login-link><span>Criar conta grátis</span></a>
-							<a href="<?php echo esc_url( ga_login_url() ); ?>" class="btn btn--outline" data-login-link><span>Já tenho conta</span></a>
+							<a href="<?php echo esc_url( ga_login_url( '', 'register' ) ); ?>" class="btn btn--primary" data-login-link><span><?php esc_html_e( 'Criar conta grátis', 'getalive' ); ?></span></a>
+							<a href="<?php echo esc_url( ga_login_url() ); ?>" class="btn btn--outline" data-login-link><span><?php esc_html_e( 'Já tenho conta', 'getalive' ); ?></span></a>
 						</div>
 					</div>
 				</div>

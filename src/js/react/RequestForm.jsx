@@ -1,6 +1,7 @@
 import { useId, useState } from 'react';
 import Icon from './Icon';
 import { api } from '../lib/api';
+import { __ } from '../lib/i18n';
 
 const EMPTY = { title: '', description: '', vibes: [], scenes: [], platforms: [], references: '', website: '' };
 const MIN_DESC = 20;
@@ -58,8 +59,8 @@ export default function RequestForm({ options, accountUrl, name }) {
   const submit = async (e) => {
     e.preventDefault();
     const found = {};
-    if (values.title.trim().length < 3) found.title = 'Dê um nome para a sua ideia.';
-    if (values.description.trim().length < MIN_DESC) found.description = `Conte um pouco mais (pelo menos ${MIN_DESC} caracteres).`;
+    if (values.title.trim().length < 3) found.title = __('Dê um nome para a sua ideia.');
+    if (values.description.trim().length < MIN_DESC) found.description = __('Conte um pouco mais (pelo menos %d caracteres).', MIN_DESC);
     setErrors(found);
     setMessage('');
     if (Object.keys(found).length) {
@@ -86,13 +87,13 @@ export default function RequestForm({ options, accountUrl, name }) {
           <span className="absolute inset-0 animate-ping rounded-full bg-lime/40" />
           <Icon name="check" className="relative size-9" strokeWidth="2.5" />
         </span>
-        <h2 className="mt-8 font-display text-4xl font-semibold tracking-tight text-white">Pedido enviado{name ? `, ${name}` : ''}!</h2>
+        <h2 className="mt-8 font-display text-4xl font-semibold tracking-tight text-white">{name ? __('Pedido enviado, %s!', name) : __('Pedido enviado!')}</h2>
         <p className="mt-3 max-w-md text-ink-300">
-          Recebemos “{values.title}”. Você acompanha o status em Minha conta e fica sabendo quando virar template.
+          {__('Recebemos “%s”. Você acompanha o status em Minha conta e fica sabendo quando virar template.', values.title)}
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <a href={accountUrl} className="btn btn--primary">
-            <span>Ver minhas solicitações</span>
+            <span>{__('Ver minhas solicitações')}</span>
             <Icon name="arrow-right" className="btn__arrow" />
           </a>
           <button
@@ -103,7 +104,7 @@ export default function RequestForm({ options, accountUrl, name }) {
               setSent(false);
             }}
           >
-            <span>Mandar outra ideia</span>
+            <span>{__('Mandar outra ideia')}</span>
           </button>
         </div>
       </div>
@@ -114,28 +115,28 @@ export default function RequestForm({ options, accountUrl, name }) {
 
   return (
     <form onSubmit={submit} noValidate className="grid gap-10">
-      <Section n={1} title="A ideia" error={errors.title}>
+      <Section n={1} title={__('A ideia')} error={errors.title}>
         <div className={`field${errors.title ? ' has-error' : ''}`}>
           <input id={titleId} name="title" className="field__input" placeholder=" " maxLength={120} value={values.title} onChange={set('title')} />
           <label htmlFor={titleId} className="field__label">
-            Dê um nome (ex.: “Café lo-fi chuvoso”)
+            {__('Dê um nome (ex.: “Café lo-fi chuvoso”)')}
           </label>
         </div>
       </Section>
 
-      <Section n={2} title="Estilo" hint="Escolha quantos quiser.">
+      <Section n={2} title={__('Estilo')} hint={__('Escolha quantos quiser.')}>
         <Chips options={options.vibes} value={values.vibes} onChange={set('vibes')} />
       </Section>
 
-      <Section n={3} title="Cenas que você usa" hint="Assim o template já vem com tudo que a sua live precisa.">
+      <Section n={3} title={__('Cenas que você usa')} hint={__('Assim o template já vem com tudo que a sua live precisa.')}>
         <Chips options={options.scenes} value={values.scenes} onChange={set('scenes')} />
       </Section>
 
-      <Section n={4} title="Onde você faz live">
+      <Section n={4} title={__('Onde você faz live')}>
         <Chips options={options.platforms} value={values.platforms} onChange={set('platforms')} />
       </Section>
 
-      <Section n={5} title="Descreva" error={errors.description}>
+      <Section n={5} title={__('Descreva')} error={errors.description}>
         <div className={`field${errors.description ? ' has-error' : ''}`}>
           <textarea
             id={descId}
@@ -148,7 +149,7 @@ export default function RequestForm({ options, accountUrl, name }) {
             onChange={set('description')}
           />
           <label htmlFor={descId} className="field__label">
-            Cores, clima, elementos, o tipo de conteúdo da live…
+            {__('Cores, clima, elementos, o tipo de conteúdo da live…')}
           </label>
           <span className={`pointer-events-none absolute bottom-3 right-4 font-mono text-[11px] ${descLen >= MIN_DESC ? 'text-lime' : 'text-ink-500'}`}>
             {descLen < MIN_DESC ? `${descLen}/${MIN_DESC}` : <Icon name="check" className="size-4" />}
@@ -156,7 +157,7 @@ export default function RequestForm({ options, accountUrl, name }) {
         </div>
       </Section>
 
-      <Section n={6} title="Referências" hint="Opcional. Links de lives, imagens ou vídeos que mostram o que você imagina (um por linha).">
+      <Section n={6} title={__('Referências')} hint={__('Opcional. Links de lives, imagens ou vídeos que mostram o que você imagina (um por linha).')}>
         <div className="field">
           <textarea id={refsId} name="references" className="field__input !min-h-[6rem]" placeholder=" " rows={3} value={values.references} onChange={set('references')} />
           <label htmlFor={refsId} className="field__label">
@@ -175,9 +176,9 @@ export default function RequestForm({ options, accountUrl, name }) {
       )}
 
       <div className="flex flex-col items-start gap-4 border-t border-white/[0.07] pt-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-ink-400">Você recebe atualizações do pedido em Minha conta.</p>
+        <p className="text-sm text-ink-400">{__('Você recebe atualizações do pedido em Minha conta.')}</p>
         <button type="submit" className="btn btn--primary btn--lg" disabled={busy}>
-          {busy ? <span className="spinner" /> : <span>Enviar pedido</span>}
+          {busy ? <span className="spinner" /> : <span>{__('Enviar pedido')}</span>}
           {!busy && <Icon name="wand" className="btn__arrow" />}
         </button>
       </div>

@@ -1,0 +1,78 @@
+{
+  "en": {
+    "tagline": "Pixel art synthwave: a neon city gliding in layers and a grid floor rushing toward you.",
+    "excerpt": "Free animated OBS overlay pack in pixel art vaporwave/synthwave style, with an animated neon city, chat, alerts with an 8-bit jingle and Twitch panels.",
+    "content": "<p class='lead'>A pixel art neon city that never sleeps: three layers of buildings gliding at different speeds, flickering windows, flying cars and a pink grid floor rushing toward you.</p>\n<p>Vaporwave is a complete scene collection for OBS Studio. Every screen shares the same animated background, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a single cut in the scenery.</p>\n<p>Alerts show up on a pixel card with an explosion of little squares and play an 8-bit jingle generated on the fly. The Twitch chat goes straight on screen, no login needed, hiding bots and commands. And the pack also includes eight Twitch panels and a matching offline banner.</p>\n<p>Everything is customized in a single file, <code>config.js</code>: your name, your socials, the text on each screen, your schedule, the follower goal and the countdown minutes.</p>",
+    "features": [
+      "Pixel art city animated in three layers, rendered right inside OBS",
+      "Countdown that restarts whenever the scene goes live",
+      "“Away for” timer in the Be Right Back scene",
+      "Twitch chat on screen (no login), filtering out bots and commands",
+      "Follower, sub, donation and raid alerts with an 8-bit jingle",
+      "Works with StreamElements or another service's alerts URL",
+      "Follower goal bar and rotating phrases with your socials",
+      "8 Twitch panels: about me, schedule, rules, Discord and more",
+      "Matching offline banner",
+      "Low-power mode: lower FPS or a still background for simpler PCs"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Vapo.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Open OBS and choose Scene Collection → Vapo.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source.",
+      "Edit overlays\\config.js with your name, socials and Twitch channel."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a countdown that restarts every time you switch to this scene." },
+      { "title": "Game", "desc": "Full-screen game with the webcam in the corner and a bar with your socials and the goal." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam and the chat beside it." },
+      { "title": "React", "desc": "Big video, webcam and chat beside it, and the video title below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer and the chat stays on screen." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "Synthwave en pixel art: una ciudad de neón que se desliza en capas y un suelo cuadriculado que viene hacia ti.",
+    "excerpt": "Pack de overlays animados gratis para OBS al estilo vaporwave/synthwave en pixel art, con una ciudad de neón animada, chat, alertas con jingle 8-bit y paneles para Twitch.",
+    "content": "<p class='lead'>Una ciudad de neón en pixel art que nunca duerme: tres capas de edificios deslizándose a distintas velocidades, ventanas parpadeando, autos voladores y el suelo cuadriculado rosa viniendo hacia ti.</p>\n<p>Vaporwave es una colección de escenas completa para OBS Studio. Todas las pantallas comparten el mismo fondo animado, así que la transición entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin ningún corte en el escenario.</p>\n<p>Las alertas aparecen en una tarjeta de píxeles con una explosión de cuadraditos y suenan con un jingle 8-bit generado al momento. El chat de Twitch entra directo en pantalla, sin iniciar sesión, ocultando bots y comandos. Y el paquete también trae ocho paneles para Twitch y un banner offline en el mismo estilo.</p>\n<p>Todo se personaliza en un solo archivo, <code>config.js</code>: tu nombre, tus redes, los textos de cada pantalla, el horario, la meta de seguidores y los minutos de la cuenta regresiva.</p>",
+    "features": [
+      "Ciudad en pixel art animada en tres capas, generada dentro del propio OBS",
+      "Cuenta regresiva que se reinicia cada vez que la escena sale al aire",
+      "Cronómetro de “ausente hace” en la escena Vuelvo enseguida",
+      "Chat de Twitch en pantalla (sin iniciar sesión), con filtro de bots y comandos",
+      "Alertas de seguidor, sub, donación y raid con jingle 8-bit",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "Barra de meta de seguidores y frases rotando con tus redes",
+      "8 paneles para Twitch: sobre mí, horario, reglas, Discord y más",
+      "Banner offline en el mismo estilo",
+      "Modo ahorro: menos FPS o fondo estático para PCs más modestas"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Vapo.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Abre OBS y elige Colección de escenas → Vapo.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera.",
+      "Edita overlays\\config.js con tu nombre, tus redes y el canal de Twitch."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: cuenta regresiva que se reinicia cada vez que entras en esta escena." },
+      { "title": "Juego", "desc": "Juego a pantalla completa con la webcam en la esquina y una barra con tus redes y la meta." },
+      { "title": "Charla", "desc": "Charla: webcam grande y el chat al lado." },
+      { "title": "React", "desc": "Video grande, webcam y chat al lado, y el título del video abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” y el chat sigue en pantalla." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

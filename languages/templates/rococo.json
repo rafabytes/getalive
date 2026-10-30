@@ -1,0 +1,82 @@
+{
+  "en": {
+    "tagline": "Rococo ballroom: damask walls, carved gold frames and rose petals slowly falling.",
+    "excerpt": "Free animated OBS overlay pack in the rococo style, with damask, gold frames, pink satin, golden dust and animated petals. Includes starting soon, gameplay, BRB and ending screens, Twitch chat, alerts and panels.",
+    "content": "<p class='lead'>A gala night, live on stream: damask walls, carved gold frames, pink satin, beams of window light, golden dust and rose petals slowly falling.</p>\n<p>Rococo is a complete scene collection for OBS Studio. Every screen shares the same animated ballroom, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a cut in the scenery.</p>\n<p>Alerts arrive on a velvet card with a gold frame, a wax seal stamped on the spot and a shower of gold and petals, to a short harpsichord phrase. The Twitch chat goes straight on screen, no login needed, on parchment cards. Every ornament is drawn in code, crisp at any resolution.</p>\n<p>Installing got even simpler: the installer asks for <strong>your name and your username on each network</strong> and fills everything in. Afterwards, you can tweak the text, schedule, goal and even the wall color (wine, pink or sage) in <code>config.js</code>.</p>",
+    "features": [
+      "Animated ballroom with damask, gold frames, window light, golden dust and petals",
+      "Installer that asks for your name and socials and fills everything in",
+      "Three wall colors: wine, pink or sage",
+      "Countdown that restarts whenever the scene goes live",
+      "“Away for” timer in the Be Right Back scene",
+      "Twitch chat on screen (no login), filtering out bots and commands",
+      "Follower, sub, donation and raid alerts with a wax seal and harpsichord sound",
+      "Works with StreamElements or another service's alerts URL",
+      "Follower goal bar and a bar with your socials",
+      "8 Twitch panels and a matching offline banner",
+      "SVG ornaments generated in code, crisp at any size",
+      "Low-power mode: lower FPS, still background or effects off"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Rococo.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Enter your name and your usernames on each network (Enter skips the ones you don't use).",
+      "Open OBS and choose Scene Collection → Rococo.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a countdown that restarts every time you switch to this scene." },
+      { "title": "Game", "desc": "Full-screen game with the webcam in the corner and a bar with your socials and the goal." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam in a gold frame and the chat beside it." },
+      { "title": "React", "desc": "Big video, webcam and chat beside it, with your socials and the goal below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer and the chat stays on screen." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "Salón de baile rococó: pared de damasco, marcos de oro tallado y pétalos de rosa cayendo despacio.",
+    "excerpt": "Pack de overlays animados gratis para OBS al estilo rococó, con damasco, marcos de oro, satén rosa, polvo dorado y pétalos animados. Incluye pantallas de inicio, juego, pausa y final, chat de Twitch, alertas y paneles.",
+    "content": "<p class='lead'>Una noche de gala en pleno stream: pared de damasco, marcos de oro tallado, satén rosa, haces de luz de ventana, polvo dorado y pétalos de rosa cayendo despacio.</p>\n<p>Rococo es una colección de escenas completa para OBS Studio. Todas las pantallas comparten el mismo salón animado, así que el paso entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin corte en el escenario.</p>\n<p>Las alertas llegan en una tarjeta de terciopelo con marco de oro, un sello de cera estampado al momento y una lluvia de oro y pétalos, al son de una frase corta de clavecín. El chat de Twitch entra directo en pantalla, sin iniciar sesión, en tarjetas de pergamino. Todos los adornos están dibujados con código, nítidos en cualquier resolución.</p>\n<p>La instalación es aún más simple: el instalador pregunta <strong>tu nombre y tu usuario en cada red</strong> y lo deja todo listo. Después puedes ajustar textos, horario, meta y hasta el color de la pared (vino, rosa o salvia) en <code>config.js</code>.</p>",
+    "features": [
+      "Salón animado con damasco, marcos dorados, luz de ventana, polvo dorado y pétalos",
+      "Instalador que pregunta tu nombre y tus redes y lo deja todo listo",
+      "Tres colores de pared: vino, rosa o salvia",
+      "Cuenta regresiva que se reinicia cada vez que la escena sale al aire",
+      "Cronómetro de “ausente hace” en la escena Vuelvo enseguida",
+      "Chat de Twitch en pantalla (sin iniciar sesión), con filtro de bots y comandos",
+      "Alertas de seguidor, sub, donación y raid con sello de cera y sonido de clavecín",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "Barra de meta de seguidores y barra con tus redes",
+      "8 paneles para Twitch y banner offline en el mismo estilo",
+      "Adornos en SVG generados con código, nítidos a cualquier tamaño",
+      "Modo ahorro: menos FPS, fondo estático o efectos desactivados"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Rococo.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Responde tu nombre y tus usuarios en las redes (Enter salta las que no usas).",
+      "Abre OBS y elige Colección de escenas → Rococo.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: cuenta regresiva que se reinicia cada vez que entras en esta escena." },
+      { "title": "Juego", "desc": "Juego a pantalla completa con la webcam en la esquina y una barra con tus redes y la meta." },
+      { "title": "Charla", "desc": "Charla: webcam grande en un marco dorado y el chat al lado." },
+      { "title": "React", "desc": "Video grande, webcam y chat al lado, con tus redes y la meta abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” y el chat sigue en pantalla." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

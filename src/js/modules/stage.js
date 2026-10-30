@@ -3,6 +3,8 @@
  * inclinação 3D na tela de login e lightbox.
  */
 
+import { __ } from '../lib/i18n';
+
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function pad(n) {
@@ -30,7 +32,7 @@ function initStage(stage) {
     // Slider da home: cada tela é um template, então o link segue a tela visível.
     if (link && images[index]?.dataset.href) {
       link.href = images[index].dataset.href;
-      link.setAttribute('aria-label', `Ver o template ${tabs[index]?.textContent || ''}`);
+      link.setAttribute('aria-label', __('Ver o template %s', tabs[index]?.textContent || ''));
     }
     centerTab(tabs[index]);
   };
@@ -92,8 +94,8 @@ function openLightbox(src, alt = '') {
   box.className = 'lightbox';
   box.setAttribute('role', 'dialog');
   box.setAttribute('aria-modal', 'true');
-  box.setAttribute('aria-label', 'Imagem ampliada');
-  box.innerHTML = `<button type="button" class="icon-btn absolute right-4 top-4 bg-ink-900" aria-label="Fechar">
+  box.setAttribute('aria-label', __('Imagem ampliada'));
+  box.innerHTML = `<button type="button" class="icon-btn absolute right-4 top-4 bg-ink-900" aria-label="${__('Fechar')}">
       <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>`;
   const img = document.createElement('img');

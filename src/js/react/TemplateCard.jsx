@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Icon from './Icon';
 import { toggleFavorite, burst } from '../modules/favorites';
 import { GA } from '../lib/api';
+import { __, _n } from '../lib/i18n';
 
 const STEP = 1200;
 // Igual a GA_IMAGE_SIZES['card'] em inc/template-data.php.
@@ -25,7 +26,7 @@ function FavoriteButton({ id, on, loginUrl }) {
       type="button"
       className={`fav-btn fav-btn--icon${on ? ' is-on' : ''}`}
       aria-pressed={on}
-      aria-label={on ? 'Remover dos favoritos' : 'Favoritar'}
+      aria-label={on ? __('Remover dos favoritos') : __('Favoritar')}
       onClick={onClick}
     >
       <Icon name="heart" className="fav-btn__icon" />
@@ -111,7 +112,7 @@ export default function TemplateCard({ item, index = 0, loginUrl }) {
       </div>
       <div className="mt-4 flex flex-wrap gap-1.5">
         <span className="tag">
-          {item.scenes} {item.scenes === 1 ? 'cena' : 'cenas'}
+          {item.scenes} {_n('cena', 'cenas', item.scenes)}
         </span>
         {item.styles.map((s) => (
           <span key={s.slug} className="tag">

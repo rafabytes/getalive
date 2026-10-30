@@ -28,18 +28,27 @@ function ga_template( $post = null ): array {
 
 	$file = (string) get_post_meta( $id, '_ga_file', true );
 
+	// Textos traduzidos (languages/templates/<slug>.json); cenas casam pela posição.
+	$i18n = ga_template_i18n( $post );
+	foreach ( $i18n['scenes'] ?? [] as $n => $translated ) {
+		if ( isset( $scenes[ $n ] ) ) {
+			$scenes[ $n ]['title'] = $translated['title'] ?? $scenes[ $n ]['title'];
+			$scenes[ $n ]['desc']  = $translated['desc'] ?? $scenes[ $n ]['desc'];
+		}
+	}
+
 	return [
 		'id'           => $id,
 		'title'        => get_the_title( $post ),
 		'url'          => get_permalink( $post ),
-		'tagline'      => (string) get_post_meta( $id, '_ga_tagline', true ),
+		'tagline'      => $i18n['tagline'] ?? (string) get_post_meta( $id, '_ga_tagline', true ),
 		'version'      => (string) get_post_meta( $id, '_ga_version', true ),
 		'resolution'   => (string) get_post_meta( $id, '_ga_resolution', true ) ?: '1920×1080',
 		'obs_version'  => (string) get_post_meta( $id, '_ga_obs_version', true ) ?: '30',
 		'platforms'    => array_values( (array) get_post_meta( $id, '_ga_platforms', true ) ),
-		'features'     => ga_lines( get_post_meta( $id, '_ga_features', true ) ),
-		'requirements' => ga_lines( get_post_meta( $id, '_ga_requirements', true ) ),
-		'install'      => ga_lines( get_post_meta( $id, '_ga_install', true ) ),
+		'features'     => $i18n['features'] ?? ga_lines( get_post_meta( $id, '_ga_features', true ) ),
+		'requirements' => $i18n['requirements'] ?? ga_lines( get_post_meta( $id, '_ga_requirements', true ) ),
+		'install'      => $i18n['install'] ?? ga_lines( get_post_meta( $id, '_ga_install', true ) ),
 		'scenes'       => $scenes,
 		'accent'       => sanitize_hex_color( get_post_meta( $id, '_ga_accent', true ) ) ?: '#7c3aff',
 		'featured'     => (bool) get_post_meta( $id, '_ga_featured', true ),

@@ -29,6 +29,7 @@ function ga_icon_paths(): array {
 		'clock'          => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
 		'file'           => '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/>',
 		'chevron-down'   => '<path d="m6 9 6 6 6-6"/>',
+		'globe'          => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/>',
 		'expand'         => '<path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>',
 		'message'        => '<path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12Z"/>',
 		'wand'           => '<path d="m15 4 5 5L8 21l-5-5L15 4Z"/><path d="m12 7 5 5"/><path d="M5 3v4M3 5h4M19 15v4M17 17h4"/>',

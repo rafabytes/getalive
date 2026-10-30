@@ -20,18 +20,18 @@ $ga_reqs = ga_user_requests();
 			<div class="flex items-center gap-6">
 				<?php echo ga_avatar_html( 'ga-avatar--lg' ); ?>
 				<div>
-					<p class="eyebrow eyebrow--dot mb-2">Minha conta</p>
-					<h1 class="text-display-md text-white">Oi, <?php echo esc_html( ga_user_first_name( $ga_user ) ); ?>.</h1>
+					<p class="eyebrow eyebrow--dot mb-2"><?php esc_html_e( 'Minha conta', 'getalive' ); ?></p>
+					<h1 class="text-display-md text-white"><?php echo esc_html( sprintf( /* translators: %s: primeiro nome */ __( 'Oi, %s.', 'getalive' ), ga_user_first_name( $ga_user ) ) ); ?></h1>
 				</div>
 			</div>
 			<dl class="flex gap-10">
-				<div><dt class="eyebrow">Favoritos</dt><dd class="font-display text-3xl font-semibold text-white" data-fav-count><?php echo count( $ga_favs ); ?></dd></div>
-				<div><dt class="eyebrow">Downloads</dt><dd class="font-display text-3xl font-semibold text-white"><?php echo count( $ga_dls ); ?></dd></div>
-				<div><dt class="eyebrow">Pedidos</dt><dd class="font-display text-3xl font-semibold text-white"><?php echo count( $ga_reqs ); ?></dd></div>
+				<div><dt class="eyebrow"><?php esc_html_e( 'Favoritos', 'getalive' ); ?></dt><dd class="font-display text-3xl font-semibold text-white" data-fav-count><?php echo count( $ga_favs ); ?></dd></div>
+				<div><dt class="eyebrow"><?php esc_html_e( 'Downloads', 'getalive' ); ?></dt><dd class="font-display text-3xl font-semibold text-white"><?php echo count( $ga_dls ); ?></dd></div>
+				<div><dt class="eyebrow"><?php esc_html_e( 'Pedidos', 'getalive' ); ?></dt><dd class="font-display text-3xl font-semibold text-white"><?php echo count( $ga_reqs ); ?></dd></div>
 			</dl>
 		</div>
 
-		<nav class="tabs mt-12 w-fit max-w-full" aria-label="Seções da conta">
+		<nav class="tabs mt-12 w-fit max-w-full" aria-label="<?php esc_attr_e( 'Seções da conta', 'getalive' ); ?>">
 			<?php foreach ( ga_account_tabs() as $key => [ $label, $icon ] ) : ?>
 				<a href="<?php echo esc_url( ga_account_tab_url( $key ) ); ?>" <?php echo $key === $ga_tab ? 'aria-current="page"' : ''; ?> data-swup-preload>
 					<?php echo ga_icon( $icon, 'size-4' ); ?> <?php echo esc_html( $label ); ?>
@@ -54,9 +54,9 @@ $ga_reqs = ga_user_requests();
 			<?php else : ?>
 				<?php get_template_part( 'template-parts/empty', null, [
 					'icon'  => 'heart',
-					'title' => 'Nenhum favorito ainda',
-					'text'  => 'Toque no coração de um template para guardar aqui e achar rápido depois.',
-					'cta'   => [ 'Explorar templates', ga_page_url( 'templates' ) ],
+					'title' => __( 'Nenhum favorito ainda', 'getalive' ),
+					'text'  => __( 'Toque no coração de um template para guardar aqui e achar rápido depois.', 'getalive' ),
+					'cta'   => [ __( 'Explorar templates', 'getalive' ), ga_page_url( 'templates' ) ],
 				] ); ?>
 			<?php endif; ?>
 
@@ -76,13 +76,13 @@ $ga_reqs = ga_user_requests();
 							</a>
 							<div class="min-w-0 flex-1">
 								<a href="<?php echo esc_url( $t['url'] ); ?>" class="font-display text-xl font-semibold tracking-tight text-white hover:text-lime"><?php echo esc_html( $t['title'] ); ?></a>
-								<p class="text-sm text-ink-400">Baixado em <?php echo esc_html( wp_date( 'j \d\e F \d\e Y, H:i', $time ) ); ?><?php echo $t['version'] ? ' · versão atual v' . esc_html( $t['version'] ) : ''; ?></p>
+								<p class="text-sm text-ink-400"><?php echo esc_html( sprintf( /* translators: %s: data */ __( 'Baixado em %s', 'getalive' ), wp_date( ga_date_format( 'long_time' ), $time ) ) ); ?><?php echo $t['version'] ? ' · ' . esc_html( sprintf( /* translators: %s: versão */ __( 'versão atual v%s', 'getalive' ), $t['version'] ) ) : ''; ?></p>
 								<?php if ( $t['updated'] > $time ) : ?>
-									<p class="mt-1 inline-flex items-center gap-1.5 text-sm text-lime"><?php echo ga_icon( 'sparkle', 'size-3.5' ); ?> Atualizado desde o seu download</p>
+									<p class="mt-1 inline-flex items-center gap-1.5 text-sm text-lime"><?php echo ga_icon( 'sparkle', 'size-3.5' ); ?> <?php esc_html_e( 'Atualizado desde o seu download', 'getalive' ); ?></p>
 								<?php endif; ?>
 							</div>
 							<?php if ( $t['has_file'] && ga_user_can_download( $t['id'] ) ) : ?>
-								<a href="<?php echo esc_url( ga_download_url( $t['id'] ) ); ?>" class="btn btn--outline btn--sm" data-no-swup><?php echo ga_icon( 'download', 'size-4' ); ?><span>Baixar de novo</span></a>
+								<a href="<?php echo esc_url( ga_download_url( $t['id'] ) ); ?>" class="btn btn--outline btn--sm" data-no-swup><?php echo ga_icon( 'download', 'size-4' ); ?><span><?php esc_html_e( 'Baixar de novo', 'getalive' ); ?></span></a>
 							<?php endif; ?>
 						</li>
 					<?php endforeach; ?>
@@ -90,16 +90,16 @@ $ga_reqs = ga_user_requests();
 			<?php else : ?>
 				<?php get_template_part( 'template-parts/empty', null, [
 					'icon'  => 'download',
-					'title' => 'Nada baixado por enquanto',
-					'text'  => 'Os templates que você baixar aparecem aqui, com aviso quando ganharem atualização.',
-					'cta'   => [ 'Escolher um template', ga_page_url( 'templates' ) ],
+					'title' => __( 'Nada baixado por enquanto', 'getalive' ),
+					'text'  => __( 'Os templates que você baixar aparecem aqui, com aviso quando ganharem atualização.', 'getalive' ),
+					'cta'   => [ __( 'Escolher um template', 'getalive' ), ga_page_url( 'templates' ) ],
 				] ); ?>
 			<?php endif; ?>
 
 		<?php elseif ( 'solicitacoes' === $ga_tab ) : ?>
 			<div class="mb-8 flex items-center justify-between gap-4">
-				<p class="text-ink-300">Acompanhe o andamento das suas ideias.</p>
-				<a href="<?php echo esc_url( ga_page_url( 'request' ) ); ?>" class="btn btn--primary btn--sm"><?php echo ga_icon( 'plus', 'size-4' ); ?><span>Nova solicitação</span></a>
+				<p class="text-ink-300"><?php esc_html_e( 'Acompanhe o andamento das suas ideias.', 'getalive' ); ?></p>
+				<a href="<?php echo esc_url( ga_page_url( 'request' ) ); ?>" class="btn btn--primary btn--sm"><?php echo ga_icon( 'plus', 'size-4' ); ?><span><?php esc_html_e( 'Nova solicitação', 'getalive' ); ?></span></a>
 			</div>
 			<?php if ( $ga_reqs ) : ?>
 				<ul class="grid gap-4 md:grid-cols-2">
@@ -111,16 +111,16 @@ $ga_reqs = ga_user_requests();
 								<span class="status status--<?php echo esc_attr( $status ); ?> shrink-0"><?php echo esc_html( ga_request_statuses()[ $status ] ?? $status ); ?></span>
 							</div>
 							<p class="mt-2 line-clamp-3 text-sm text-ink-400"><?php echo esc_html( wp_strip_all_tags( $req->post_content ) ); ?></p>
-							<p class="mt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-500">Enviada em <?php echo esc_html( get_the_date( 'j M Y', $req ) ); ?></p>
+							<p class="mt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-500"><?php echo esc_html( sprintf( /* translators: %s: data */ __( 'Enviada em %s', 'getalive' ), get_the_date( ga_date_format( 'short' ), $req ) ) ); ?></p>
 						</li>
 					<?php endforeach; ?>
 				</ul>
 			<?php else : ?>
 				<?php get_template_part( 'template-parts/empty', null, [
 					'icon'  => 'wand',
-					'title' => 'Nenhum pedido ainda',
-					'text'  => 'Tem uma ideia de template? Conte pra gente e acompanhe por aqui.',
-					'cta'   => [ 'Solicitar template', ga_page_url( 'request' ) ],
+					'title' => __( 'Nenhum pedido ainda', 'getalive' ),
+					'text'  => __( 'Tem uma ideia de template? Conte pra gente e acompanhe por aqui.', 'getalive' ),
+					'cta'   => [ __( 'Solicitar template', 'getalive' ), ga_page_url( 'request' ) ],
 				] ); ?>
 			<?php endif; ?>
 
@@ -128,37 +128,37 @@ $ga_reqs = ga_user_requests();
 			<?php $ga_no_password = (bool) get_user_meta( $ga_user->ID, 'ga_password_unset', true ); ?>
 			<form class="grid max-w-3xl gap-10" data-account-form="profile" novalidate>
 				<fieldset class="grid gap-4">
-					<legend class="mb-4 font-display text-2xl font-semibold tracking-tight text-white">Seus dados</legend>
+					<legend class="mb-4 font-display text-2xl font-semibold tracking-tight text-white"><?php esc_html_e( 'Seus dados', 'getalive' ); ?></legend>
 					<label class="field">
 						<input class="field__input" type="text" name="name" value="<?php echo esc_attr( $ga_user->display_name ); ?>" placeholder=" " required autocomplete="name">
-						<span class="field__label">Nome</span>
+						<span class="field__label"><?php esc_html_e( 'Nome', 'getalive' ); ?></span>
 					</label>
 					<label class="field">
 						<input class="field__input cursor-not-allowed opacity-60" type="email" value="<?php echo esc_attr( $ga_user->user_email ); ?>" placeholder=" " disabled>
-						<span class="field__label">E-mail</span>
+						<span class="field__label"><?php esc_html_e( 'E-mail', 'getalive' ); ?></span>
 					</label>
-					<p class="text-sm text-ink-500">Para trocar o e-mail, fale com <?php echo do_shortcode( '[ga_contact_email]' ); ?>.</p>
+					<p class="text-sm text-ink-500"><?php echo sprintf( /* translators: %s: link do e-mail */ esc_html__( 'Para trocar o e-mail, fale com %s.', 'getalive' ), do_shortcode( '[ga_contact_email]' ) ); ?></p>
 				</fieldset>
 
 				<fieldset class="grid gap-4">
-					<legend class="mb-2 font-display text-2xl font-semibold tracking-tight text-white"><?php echo $ga_no_password ? 'Criar uma senha' : 'Trocar senha'; ?></legend>
+					<legend class="mb-2 font-display text-2xl font-semibold tracking-tight text-white"><?php echo $ga_no_password ? esc_html__( 'Criar uma senha', 'getalive' ) : esc_html__( 'Trocar senha', 'getalive' ); ?></legend>
 					<p class="mb-2 text-sm text-ink-400">
-						<?php echo $ga_no_password ? 'Sua conta entra pelo Google. Se quiser, crie uma senha para entrar também com e-mail.' : 'Deixe em branco para manter a senha atual.'; ?>
+						<?php echo $ga_no_password ? esc_html__( 'Sua conta entra pelo Google. Se quiser, crie uma senha para entrar também com e-mail.', 'getalive' ) : esc_html__( 'Deixe em branco para manter a senha atual.', 'getalive' ); ?>
 					</p>
 					<?php if ( ! $ga_no_password ) : ?>
 						<label class="field">
 							<input class="field__input" type="password" name="current_password" placeholder=" " autocomplete="current-password">
-							<span class="field__label">Senha atual</span>
+							<span class="field__label"><?php esc_html_e( 'Senha atual', 'getalive' ); ?></span>
 						</label>
 					<?php endif; ?>
 					<label class="field">
 						<input class="field__input" type="password" name="new_password" placeholder=" " autocomplete="new-password" minlength="8">
-						<span class="field__label">Nova senha (mín. 8 caracteres)</span>
+						<span class="field__label"><?php esc_html_e( 'Nova senha (mín. 8 caracteres)', 'getalive' ); ?></span>
 					</label>
 				</fieldset>
 
 				<div class="flex items-center gap-4">
-					<button type="submit" class="btn btn--primary"><span>Salvar alterações</span></button>
+					<button type="submit" class="btn btn--primary"><span><?php esc_html_e( 'Salvar alterações', 'getalive' ); ?></span></button>
 					<p class="text-sm" data-form-status role="status"></p>
 				</div>
 			</form>
@@ -168,33 +168,39 @@ $ga_reqs = ga_user_requests();
 			<div class="grid max-w-4xl gap-6 md:grid-cols-2">
 				<div class="rounded-3xl border border-white/10 p-6 md:p-8">
 					<?php echo ga_icon( 'shield', 'size-7 text-lime' ); ?>
-					<h2 class="mt-5 font-display text-2xl font-semibold tracking-tight text-white">Seu consentimento</h2>
+					<h2 class="mt-5 font-display text-2xl font-semibold tracking-tight text-white"><?php esc_html_e( 'Seu consentimento', 'getalive' ); ?></h2>
 					<p class="mt-2 text-sm text-ink-400">
 						<?php if ( $ga_consent ) : ?>
-							Você aceitou a Política de Privacidade em <?php echo esc_html( wp_date( 'j \d\e F \d\e Y', $ga_consent['at'] ) ); ?> (<?php echo 'google' === ( $ga_consent['source'] ?? '' ) ? 'pelo Google' : 'no cadastro'; ?>).
+							<?php
+							echo esc_html( sprintf(
+								/* translators: %s: data */
+								'google' === ( $ga_consent['source'] ?? '' ) ? __( 'Você aceitou a Política de Privacidade em %s (pelo Google).', 'getalive' ) : __( 'Você aceitou a Política de Privacidade em %s (no cadastro).', 'getalive' ),
+								wp_date( ga_date_format(), $ga_consent['at'] )
+							) );
+							?>
 						<?php else : ?>
-							Sua conta foi criada antes do registro de consentimento.
+							<?php esc_html_e( 'Sua conta foi criada antes do registro de consentimento.', 'getalive' ); ?>
 						<?php endif; ?>
 					</p>
 					<div class="mt-6 flex flex-wrap gap-2">
-						<a href="<?php echo esc_url( ga_page_url( 'privacy' ) ); ?>" class="btn btn--outline btn--sm"><span>Ler a política</span></a>
+						<a href="<?php echo esc_url( ga_page_url( 'privacy' ) ); ?>" class="btn btn--outline btn--sm"><span><?php esc_html_e( 'Ler a política', 'getalive' ); ?></span></a>
 						<?php echo do_shortcode( '[ga_cookie_preferences]' ); ?>
 					</div>
 				</div>
 
 				<div class="rounded-3xl border border-live/25 bg-live/[0.04] p-6 md:p-8">
 					<?php echo ga_icon( 'trash', 'size-7 text-live' ); ?>
-					<h2 class="mt-5 font-display text-2xl font-semibold tracking-tight text-white">Excluir conta</h2>
-					<p class="mt-2 text-sm text-ink-400">Apaga sua conta, favoritos e histórico de downloads. Suas solicitações ficam anônimas. Não dá para desfazer.</p>
+					<h2 class="mt-5 font-display text-2xl font-semibold tracking-tight text-white"><?php esc_html_e( 'Excluir conta', 'getalive' ); ?></h2>
+					<p class="mt-2 text-sm text-ink-400"><?php esc_html_e( 'Apaga sua conta, favoritos e histórico de downloads. Suas solicitações ficam anônimas. Não dá para desfazer.', 'getalive' ); ?></p>
 					<?php if ( current_user_can( 'edit_posts' ) ) : ?>
-						<p class="mt-6 text-sm text-ink-500">Contas da equipe são removidas pelo painel.</p>
+						<p class="mt-6 text-sm text-ink-500"><?php esc_html_e( 'Contas da equipe são removidas pelo painel.', 'getalive' ); ?></p>
 					<?php else : ?>
 						<form class="mt-6 grid gap-3" data-account-form="delete" novalidate>
 							<label class="field">
 								<input class="field__input" type="text" name="confirm" placeholder=" " autocomplete="off" required>
-								<span class="field__label">Digite EXCLUIR para confirmar</span>
+								<span class="field__label"><?php echo esc_html( sprintf( /* translators: %s: palavra de confirmação */ __( 'Digite %s para confirmar', 'getalive' ), __( 'EXCLUIR', 'getalive' ) ) ); ?></span>
 							</label>
-							<button type="submit" class="btn btn--outline btn--sm !border-live/50 !text-[#ff8f9a]"><span>Excluir minha conta</span></button>
+							<button type="submit" class="btn btn--outline btn--sm !border-live/50 !text-[#ff8f9a]"><span><?php esc_html_e( 'Excluir minha conta', 'getalive' ); ?></span></button>
 							<p class="text-sm" data-form-status role="status"></p>
 						</form>
 					<?php endif; ?>

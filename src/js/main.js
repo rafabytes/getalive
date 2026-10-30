@@ -22,6 +22,7 @@ import { initToc } from './modules/toc';
 import { toast } from './modules/toast';
 import { trackView } from './modules/activity';
 import { mountReact, unmountReact } from './react/mount';
+import { __ } from './lib/i18n';
 
 const pageModules = [initReveal, initStages, initCards, initAccount, initToc];
 let cleanups = [];
@@ -88,7 +89,7 @@ document.addEventListener('ga:changed', () => swup.cache.clear());
 document.addEventListener('click', (e) => {
   if (e.target.closest('[data-download]')) {
     swup.cache.clear();
-    toast('Seu download está começando…', 'download');
+    toast(__('Seu download está começando…'), 'download');
   }
 });
 

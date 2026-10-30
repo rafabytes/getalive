@@ -2,6 +2,8 @@
  * Chamadas à API do tema (getalive/v1) com o nonce do WordPress.
  */
 
+import { __ } from './i18n';
+
 const config = window.GA || {};
 
 export class ApiError extends Error {
@@ -23,7 +25,7 @@ export async function api(path, data = {}) {
       body: JSON.stringify(data),
     });
   } catch {
-    throw new ApiError('Sem conexão. Confira sua internet e tente de novo.');
+    throw new ApiError(__('Sem conexão. Confira sua internet e tente de novo.'));
   }
 
   let json = {};
@@ -40,7 +42,7 @@ export async function api(path, data = {}) {
   }
 
   if (!res.ok) {
-    throw new ApiError(json.message || 'Algo deu errado. Tente de novo em instantes.', {
+    throw new ApiError(json.message || __('Algo deu errado. Tente de novo em instantes.'), {
       field: json.field,
       code: json.code,
       status: res.status,

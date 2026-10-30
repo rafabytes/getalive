@@ -1,6 +1,9 @@
 <?php
 /**
  * Textos da página inicial, editáveis em Aparência → Personalizar → Página inicial.
+ *
+ * Em inglês e espanhol vale o texto de "Página inicial (English/Español)" quando
+ * preenchido; em branco, a tradução do texto em português pelo dicionário do tema.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -12,25 +15,25 @@ defined( 'ABSPATH' ) || exit;
 function ga_home_sections(): array {
 	return [
 		'hero'    => [ 'Topo', [
-			'hero_eyebrow' => [ 'Linha acima do título', 'text', 'Ao vivo · Templates para OBS Studio' ],
-			'hero_title_1' => [ 'Título: linha 1', 'text', 'Sua live' ],
-			'hero_title_2' => [ 'Título: linha 2', 'text', 'no ar em *dois*' ],
-			'hero_title_3' => [ 'Título: linha 3 (contorno)', 'text', 'cliques.' ],
-			'hero_text'    => [ 'Texto', 'textarea', 'Coleções de cenas completas e animadas: começando, jogo, conversa, react, já volto e encerrando. Com chat, alertas e painéis. Baixe, rode o instalador e o OBS abre pronto.' ],
+			'hero_eyebrow' => [ 'Linha acima do título', 'text', 'Overlays grátis para OBS e Twitch' ],
+			'hero_title_1' => [ 'Título: linha 1', 'text', 'entre' ],
+			'hero_title_2' => [ 'Título: linha 2', 'text', '*ao vivo*' ],
+			'hero_title_3' => [ 'Título: linha 3 (contorno)', 'text', 'agora' ],
+			'hero_text'    => [ 'Texto', 'textarea', 'Overlays animados para live com todas as cenas prontas: tela de começando, jogo, conversa, já volto e encerrando, com chat e alertas. Grátis, e instala no OBS Studio em dois cliques.' ],
 			'hero_cta'     => [ 'Botão principal', 'text', 'Explorar templates' ],
 			'hero_stats'   => [ 'Mostrar números (templates, cenas e preço)', 'checkbox', '' ],
 			'hero_price'   => [ 'Preço', 'text', 'R$0' ],
 		] ],
 		'catalog' => [ 'Catálogo', [
-			'catalog_title_1' => [ 'Título: linha 1', 'text', 'Escolha o clima' ],
+			'catalog_title_1' => [ 'Título: linha 1', 'text', 'Escolha o overlay' ],
 			'catalog_title_2' => [ 'Título: linha 2', 'text', '*da sua live.*' ],
-			'catalog_cta'     => [ 'Botão', 'text', 'Ver todos os templates' ],
+			'catalog_cta'     => [ 'Botão', 'text', 'Ver todos os overlays' ],
 		] ],
 		'how'     => [ 'Como funciona', [
 			'how_title_1' => [ 'Título: linha 1', 'text', 'Do download' ],
 			'how_title_2' => [ 'Título: linha 2', 'text', 'ao *ao vivo*.' ],
-			'how_text'    => [ 'Texto', 'textarea', 'Sem arrastar PNG, sem montar cena por cena. Cada template vem com a coleção de cenas inteira configurada.' ],
-			'how_cta'     => [ 'Botão', 'text', 'Ver o passo a passo com imagens' ],
+			'how_text'    => [ 'Texto', 'textarea', 'Sem arrastar PNG, sem montar cena por cena. Cada template é um pacote de overlay completo, com a coleção de cenas do OBS já configurada.' ],
+			'how_cta'     => [ 'Botão', 'text', 'Como colocar o overlay no OBS' ],
 			'step_1_title' => [ 'Passo 1: título', 'text', 'Baixe o template' ],
 			'step_1_text'  => [ 'Passo 1: texto', 'textarea', 'Escolha o seu, entre na sua conta e baixe o ZIP. Extraia numa pasta fixa, como Documentos\\Temas OBS.' ],
 			'step_2_title' => [ 'Passo 2: título', 'text', 'Dê dois cliques no instalador' ],
@@ -40,10 +43,10 @@ function ga_home_sections(): array {
 		] ],
 		'package' => [ 'No pacote', [
 			'package_title'  => [ 'Título', 'text', 'Tudo que uma live precisa, já animado.' ],
-			'package_items'  => [ 'Itens (um por linha)', 'textarea', "Cenas de começando, jogo, conversa, react, já volto e encerrando\nContagem regressiva e cronômetro de pausa\nChat da Twitch na tela, sem login\nAlertas de seguidor, sub, doação e raid com som\nMeta de seguidores e barra de redes\nFontes leves: animações sem pesar o PC" ],
+			'package_items'  => [ 'Itens (um por linha)', 'textarea', "Telas de começando, jogo, conversa, react, já volto e encerrando\nContagem regressiva e cronômetro de pausa\nChat da Twitch na tela, sem login\nAlertas de seguidor, sub, doação e raid com som\nMoldura de webcam, meta de seguidores e barra de redes\nOverlays leves: animações sem pesar o PC" ],
 			'card_1_title'   => [ 'Card roxo: título', 'text', 'Chat ao vivo' ],
 			'card_1_text'    => [ 'Card roxo: texto', 'textarea', 'Conecta direto no canal da Twitch. Esconde bots e comandos.' ],
-			'card_2_title'   => [ 'Card branco: título', 'text', 'Painéis e banner' ],
+			'card_2_title'   => [ 'Card branco: título', 'text', 'Painéis para Twitch' ],
 			'card_2_text'    => [ 'Card branco: texto', 'textarea', 'Sobre mim, agenda, regras, Discord e banner offline combinando.' ],
 		] ],
 		'request' => [ 'Pedidos', [
@@ -53,7 +56,7 @@ function ga_home_sections(): array {
 			'request_cta'     => [ 'Botão', 'text', 'Solicitar um template' ],
 		] ],
 		'faq'     => [ 'Perguntas frequentes', [
-			'faq_items' => [ 'Perguntas', 'textarea', "Os templates são grátis mesmo?\nSim. É só criar uma conta (nome e e-mail, ou com o Google) para baixar. A conta também guarda seus favoritos e seus downloads.\n\nFunciona no meu OBS?\nOs templates são feitos para o OBS Studio 30 ou mais novo no Windows 10 e 11. Cada página de template mostra os requisitos específicos.\n\nPreciso saber programar para personalizar?\nNão. Seu nome, redes sociais, textos e agenda ficam num único arquivo (config.js) que você edita no Bloco de Notas. O passo a passo vem no README de cada template.\n\nFunciona com Twitch, YouTube e Kick?\nAs cenas funcionam em qualquer plataforma. O chat na tela conecta na Twitch; os alertas funcionam com StreamElements e com a URL de alertas de outros serviços.\n\nVai pesar meu PC?\nOs overlays são páginas leves rodando dentro do próprio OBS. Se precisar, dá para baixar os quadros por segundo ou usar o fundo parado no config.js.\n\nPosso pedir um template específico?\nPode e deve! Use a página de solicitações. Você acompanha o status do seu pedido em Minha conta." ],
+			'faq_items' => [ 'Perguntas', 'textarea', "Os overlays são grátis mesmo?\nSim. É só criar uma conta (nome e e-mail, ou com o Google) para baixar os overlays. A conta também guarda seus favoritos e seus downloads.\n\nComo colocar o overlay no OBS?\nBaixe o template, extraia o ZIP numa pasta fixa e, com o OBS fechado, dê dois cliques no INSTALAR.bat. Ele cria a coleção de cenas com overlay, chat e alertas; depois é só escolher em Coleção de cenas. O passo a passo com imagens está na página Como instalar.\n\nFunciona no meu OBS?\nOs templates são feitos para o OBS Studio 30 ou mais novo no Windows 10 e 11. Cada página de template mostra os requisitos específicos.\n\nPreciso saber programar para personalizar?\nNão. Seu nome, redes sociais, textos e agenda ficam num único arquivo (config.js) que você edita no Bloco de Notas. O passo a passo vem no README de cada template.\n\nFunciona com Twitch, YouTube e Kick?\nAs cenas funcionam em qualquer plataforma. O chat na tela conecta na Twitch; os alertas funcionam com StreamElements e com a URL de alertas de outros serviços.\n\nVai pesar meu PC?\nOs overlays são páginas leves rodando dentro do próprio OBS. Se precisar, dá para baixar os quadros por segundo ou usar o fundo parado no config.js.\n\nPosso pedir um template específico?\nPode e deve! Use a página de solicitações. Você acompanha o status do seu pedido em Minha conta." ],
 		] ],
 	];
 }
@@ -122,46 +125,80 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp_customize 
 		] );
 	}
 
-	foreach ( ga_home_sections() as $section => [ $title, $fields ] ) {
-		$wp_customize->add_section( "ga_home_{$section}", [
-			'title' => $title,
-			'panel' => 'ga_home',
-		] );
+	// Português no painel "Página inicial"; os outros idiomas num painel cada, com os mesmos campos.
+	foreach ( GA_LANGS as $lang => $info ) {
+		$default_lang = GA_LANG_DEFAULT === $lang;
+		$panel        = $default_lang ? 'ga_home' : "ga_home_{$lang}";
+		$suffix       = $default_lang ? '' : "_{$lang}";
+		if ( ! $default_lang ) {
+			$wp_customize->add_panel( $panel, [
+				'title'       => "Página inicial ({$info['name']})",
+				'description' => 'Em branco, cada campo usa a tradução do texto em português. Para ver a prévia, navegue até a versão ' . $info['name'] . ' do site (/' . $lang . '/).',
+				'priority'    => 31,
+			] );
+		}
 
-		foreach ( $fields as $key => [ $label, $type, $default ] ) {
-			$sanitize = [
-				'textarea' => 'sanitize_textarea_field',
-				'checkbox' => fn( $v ) => $v ? '1' : '',
-			];
-			$wp_customize->add_setting( "ga_home_{$key}", [
-				'default'           => $default,
-				'sanitize_callback' => $sanitize[ $type ] ?? 'sanitize_text_field',
+		foreach ( ga_home_sections() as $section => [ $title, $fields ] ) {
+			$wp_customize->add_section( "ga_home_{$section}{$suffix}", [
+				'title' => $title,
+				'panel' => $panel,
 			] );
 
-			$description = '';
-			if ( str_contains( $key, '_title_' ) && ! str_starts_with( $key, 'step_' ) ) {
-				$description = 'Coloque entre *asteriscos* o trecho que ganha cor de destaque.';
-			} elseif ( 'faq_items' === $key ) {
-				$description = 'Primeira linha é a pergunta, as seguintes a resposta. Separe as perguntas com uma linha em branco.';
+			foreach ( $fields as $key => [ $label, $type, $default ] ) {
+				if ( ! $default_lang && 'checkbox' === $type ) {
+					continue;
+				}
+				$sanitize = [
+					'textarea' => 'sanitize_textarea_field',
+					'checkbox' => fn( $v ) => $v ? '1' : '',
+				];
+				$wp_customize->add_setting( "ga_home_{$key}{$suffix}", [
+					'default'           => $default_lang ? $default : '',
+					'sanitize_callback' => $sanitize[ $type ] ?? 'sanitize_text_field',
+				] );
+
+				$description = '';
+				if ( str_contains( $key, '_title_' ) && ! str_starts_with( $key, 'step_' ) ) {
+					$description = 'Coloque entre *asteriscos* o trecho que ganha cor de destaque.';
+				} elseif ( 'faq_items' === $key ) {
+					$description = 'Primeira linha é a pergunta, as seguintes a resposta. Separe as perguntas com uma linha em branco.';
+				}
+
+				$wp_customize->add_control( "ga_home_{$key}{$suffix}", [
+					'label'       => $label,
+					'description' => $description,
+					'section'     => "ga_home_{$section}{$suffix}",
+					'type'        => $type,
+				] );
 			}
-
-			$wp_customize->add_control( "ga_home_{$key}", [
-				'label'       => $label,
-				'description' => $description,
-				'section'     => "ga_home_{$section}",
-				'type'        => $type,
-			] );
 		}
 	}
 } );
 
 /**
- * Texto puro de um campo da home; vazio volta ao padrão.
+ * Valor de um campo da home e se ele ainda precisa ser traduzido: o texto do idioma
+ * da página, quando preenchido no Personalizar, ou o em português (vazio volta ao padrão).
+ *
+ * @return array{0:string,1:bool}
+ */
+function ga_home_value( string $key ): array {
+	if ( ! ga_lang_is_default() ) {
+		$own = (string) get_theme_mod( "ga_home_{$key}_" . ga_lang(), '' );
+		if ( '' !== trim( $own ) ) {
+			return [ $own, false ];
+		}
+	}
+	$default = ga_home_fields()[ $key ][2] ?? '';
+	$value   = (string) get_theme_mod( "ga_home_{$key}", $default );
+	return [ '' === trim( $value ) ? $default : $value, ! ga_lang_is_default() ];
+}
+
+/**
+ * Texto puro de um campo da home, no idioma da página.
  */
 function ga_home( string $key ): string {
-	$default = ga_home_fields()[ $key ][2] ?? '';
-	$value   = get_theme_mod( "ga_home_{$key}", $default );
-	return '' === trim( (string) $value ) ? $default : (string) $value;
+	[ $value, $translate ] = ga_home_value( $key );
+	return $translate ? ga_t( $value ) : $value;
 }
 
 /**
@@ -172,21 +209,26 @@ function ga_home_line( string $key, string $attrs = '' ): string {
 }
 
 /**
- * Campo de várias linhas como lista, ignorando linhas vazias.
+ * Campo de várias linhas como lista, ignorando linhas vazias. Traduz item a item.
  */
 function ga_home_list( string $key ): array {
-	return array_values( array_filter( array_map( 'trim', explode( "\n", ga_home( $key ) ) ) ) );
+	[ $value, $translate ] = ga_home_value( $key );
+	$items = array_values( array_filter( array_map( 'trim', explode( "\n", $value ) ) ) );
+	return $translate ? array_map( 'ga_t', $items ) : $items;
 }
 
 /**
  * Perguntas frequentes: blocos separados por linha em branco, a primeira linha é a pergunta.
  */
 function ga_home_faq(): array {
+	[ $value, $translate ] = ga_home_value( 'faq_items' );
 	$faq = [];
-	foreach ( preg_split( "/\n\s*\n/", str_replace( "\r", '', ga_home( 'faq_items' ) ) ) as $block ) {
+	foreach ( preg_split( "/\n\s*\n/", str_replace( "\r", '', $value ) ) as $block ) {
 		$lines = array_values( array_filter( array_map( 'trim', explode( "\n", $block ) ) ) );
 		if ( $lines ) {
-			$faq[] = [ array_shift( $lines ), implode( ' ', $lines ) ];
+			$question = array_shift( $lines );
+			$answer   = implode( ' ', $lines );
+			$faq[]    = $translate ? [ ga_t( $question ), ga_t( $answer ) ] : [ $question, $answer ];
 		}
 	}
 	return $faq;

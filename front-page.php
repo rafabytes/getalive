@@ -47,28 +47,28 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 				<div class="mt-8 flex flex-wrap gap-3">
 					<a href="<?php echo esc_url( ga_page_url( 'templates' ) ); ?>" class="btn btn--primary btn--lg" data-magnetic><span><?php echo esc_html( ga_home( 'hero_cta' ) ); ?></span><?php echo ga_icon( 'arrow-right', 'btn__arrow' ); ?></a>
 					<?php if ( ! is_user_logged_in() ) : ?>
-						<a href="<?php echo esc_url( ga_login_url( '', 'register' ) ); ?>" class="btn btn--outline btn--lg" data-login-link><span>Criar conta grátis</span></a>
+						<a href="<?php echo esc_url( ga_login_url( '', 'register' ) ); ?>" class="btn btn--outline btn--lg" data-login-link><span><?php esc_html_e( 'Criar conta grátis', 'getalive' ); ?></span></a>
 					<?php endif; ?>
 				</div>
 
 				<?php if ( ga_home( 'hero_stats' ) ) : ?>
 				<dl class="mt-12 grid grid-cols-3 gap-6 border-t border-white/10 pt-6">
 					<div>
-						<dt class="eyebrow">Templates</dt>
+						<dt class="eyebrow"><?php esc_html_e( 'Templates', 'getalive' ); ?></dt>
 						<dd class="mt-1 font-display text-4xl font-semibold tracking-tight text-white" data-count="<?php echo esc_attr( count( $ga_all ) ); ?>"><?php echo esc_html( count( $ga_all ) ); ?></dd>
 					</div>
 					<div>
-						<dt class="eyebrow">Cenas</dt>
+						<dt class="eyebrow"><?php esc_html_e( 'Cenas', 'getalive' ); ?></dt>
 						<dd class="mt-1 font-display text-4xl font-semibold tracking-tight text-white" data-count="<?php echo esc_attr( $ga_scene_count ); ?>"><?php echo esc_html( $ga_scene_count ); ?></dd>
 					</div>
 					<?php if ( ga_premium_enabled() ) : ?>
 						<div>
-							<dt class="eyebrow">Downloads</dt>
+							<dt class="eyebrow"><?php esc_html_e( 'Downloads', 'getalive' ); ?></dt>
 							<dd class="mt-1 font-display text-4xl font-semibold tracking-tight text-lime" data-count="<?php echo esc_attr( $ga_downloads ); ?>"><?php echo esc_html( number_format_i18n( $ga_downloads ) ); ?></dd>
 						</div>
 					<?php else : ?>
 						<div>
-							<dt class="eyebrow">Preço</dt>
+							<dt class="eyebrow"><?php esc_html_e( 'Preço', 'getalive' ); ?></dt>
 							<dd class="mt-1 font-display text-4xl font-semibold tracking-tight text-lime"><?php echo esc_html( ga_home( 'hero_price' ) ); ?></dd>
 						</div>
 					<?php endif; ?>
@@ -85,11 +85,12 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 							<span class="hidden sm:block" data-stage-label><?php echo esc_html( $ga_slides[0]['title'] . ' · ' . $ga_slides[0]['resolution'] ); ?></span>
 							<span class="meters" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
 						</div>
-						<a href="<?php echo esc_url( $ga_slides[0]['url'] ); ?>" class="monitor__screen block" aria-label="Ver o template <?php echo esc_attr( $ga_slides[0]['title'] ); ?>">
+						<a href="<?php echo esc_url( $ga_slides[0]['url'] ); ?>" class="monitor__screen block" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: nome do template */ __( 'Ver o template %s', 'getalive' ), $ga_slides[0]['title'] ) ); ?>">
 							<?php foreach ( $ga_slides as $i => $slide ) : ?>
 								<?php
 								echo ga_image( $slide['image'], 'ga-stage', 'hero', [
-									'alt'        => 'Template ' . $slide['title'],
+									/* translators: %s: nome do template */
+									'alt'        => sprintf( __( 'Template %s', 'getalive' ), $slide['title'] ),
 									'class'      => 0 === $i ? 'is-active' : '',
 									'data-title' => $slide['title'] . ' · ' . $slide['resolution'],
 									'data-href'  => $slide['url'],
@@ -97,7 +98,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 								?>
 							<?php endforeach; ?>
 						</a>
-						<div class="scene-dock" role="tablist" aria-label="Templates">
+						<div class="scene-dock" role="tablist" aria-label="<?php esc_attr_e( 'Templates', 'getalive' ); ?>">
 							<?php foreach ( $ga_slides as $i => $slide ) : ?>
 								<button type="button" role="tab" aria-selected="<?php echo 0 === $i ? 'true' : 'false'; ?>" data-scene="<?php echo (int) $i; ?>"><?php echo esc_html( $slide['title'] ); ?></button>
 							<?php endforeach; ?>
@@ -107,7 +108,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 					<div class="monitor">
 						<div class="monitor__bar"><span class="flex items-center gap-2"><span class="live-dot"></span> REC</span><span class="meters"><span></span><span></span><span></span><span></span><span></span></span></div>
 						<div class="monitor__screen flex items-center justify-center bg-gradient-to-br from-signal-700 via-ink-900 to-ink-950">
-							<span class="font-display text-display-md text-white/80">em breve</span>
+							<span class="font-display text-display-md text-white/80"><?php esc_html_e( 'em breve', 'getalive' ); ?></span>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -120,7 +121,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 <section class="py-24 md:py-36">
 	<div class="wrap">
 		<div class="mb-14">
-			<p class="eyebrow eyebrow--dot mb-5" data-reveal>[01] Catálogo</p>
+			<p class="eyebrow eyebrow--dot mb-5" data-reveal>[01] <?php esc_html_e( 'Catálogo', 'getalive' ); ?></p>
 			<h2 class="text-display-lg text-white" data-split>
 				<span class="split-line"><span><?php echo ga_home_line( 'catalog_title_1', 'class="not-italic text-ink-500"' ); ?></span></span>
 				<span class="split-line"><span><?php echo ga_home_line( 'catalog_title_2', 'class="not-italic text-ink-500"' ); ?></span></span>
@@ -148,7 +149,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 	<div class="wrap">
 		<div class="grid gap-12 lg:grid-cols-12">
 			<div class="lg:col-span-5">
-				<p class="eyebrow mb-5 !text-ink-500" data-reveal>[02] Como funciona</p>
+				<p class="eyebrow mb-5 !text-ink-500" data-reveal>[02] <?php esc_html_e( 'Como funciona', 'getalive' ); ?></p>
 				<h2 class="text-display-lg" data-split>
 					<?php $ga_signal = 'class="italic text-signal" style="font-variation-settings:\'wdth\' 100"'; ?>
 					<span class="split-line"><span><?php echo ga_home_line( 'how_title_1', $ga_signal ); ?></span></span>
@@ -178,7 +179,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 		<!-- Bento: o que vem no pacote -->
 		<div class="mt-24 grid auto-rows-[minmax(14rem,auto)] gap-4 md:mt-36 md:grid-cols-6">
 			<div class="relative overflow-hidden rounded-3xl bg-ink-950 p-8 text-white md:col-span-4 md:row-span-2" data-reveal>
-				<p class="eyebrow mb-4">[03] No pacote</p>
+				<p class="eyebrow mb-4">[03] <?php esc_html_e( 'No pacote', 'getalive' ); ?></p>
 				<h3 class="max-w-lg text-display-md"><?php echo esc_html( ga_home( 'package_title' ) ); ?></h3>
 				<ul class="mt-10 grid gap-3 sm:grid-cols-2">
 					<?php foreach ( ga_home_list( 'package_items' ) as $item ) : ?>
@@ -209,7 +210,7 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 <section class="relative overflow-hidden bg-ink-950 py-28 md:py-44">
 	<div class="pointer-events-none absolute left-1/2 top-1/2 size-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/25 blur-[160px]" aria-hidden="true"></div>
 	<div class="wrap relative text-center">
-		<p class="eyebrow eyebrow--dot mb-6 justify-center" data-reveal>[04] Pedidos abertos</p>
+		<p class="eyebrow eyebrow--dot mb-6 justify-center" data-reveal>[04] <?php esc_html_e( 'Pedidos abertos', 'getalive' ); ?></p>
 		<h2 class="mx-auto max-w-5xl text-display-lg text-white" data-split>
 			<span class="split-line"><span><?php echo ga_home_line( 'request_title_1', 'class="not-italic text-lime"' ); ?></span></span>
 			<span class="split-line"><span><?php echo ga_home_line( 'request_title_2', 'class="not-italic text-lime"' ); ?></span></span>
@@ -225,8 +226,8 @@ $ga_downloads   = array_sum( array_map( fn( $p ) => (int) get_post_meta( $p->ID,
 <section class="border-t border-white/[0.06] py-24 md:py-32">
 	<div class="wrap grid gap-12 lg:grid-cols-12">
 		<div class="lg:col-span-4">
-			<p class="eyebrow eyebrow--dot mb-5" data-reveal>[05] Dúvidas</p>
-			<h2 class="text-display-md text-white" data-split><span class="split-line"><span>Perguntas</span></span><span class="split-line"><span>frequentes</span></span></h2>
+			<p class="eyebrow eyebrow--dot mb-5" data-reveal>[05] <?php esc_html_e( 'Dúvidas', 'getalive' ); ?></p>
+			<h2 class="text-display-md text-white" data-split><span class="split-line"><span><?php esc_html_e( 'Perguntas', 'getalive' ); ?></span></span><span class="split-line"><span><?php esc_html_e( 'frequentes', 'getalive' ); ?></span></span></h2>
 		</div>
 		<div class="faq lg:col-span-8" data-reveal>
 			<?php foreach ( ga_home_faq() as $i => [ $q, $a ] ) : ?>

@@ -10,10 +10,10 @@ defined( 'ABSPATH' ) || exit;
 		<span class="inline-flex size-14 items-center justify-center rounded-full border border-white/15 transition duration-500 ease-expo group-hover:rotate-90 group-hover:border-lime group-hover:bg-lime group-hover:text-ink-950">
 			<?php echo ga_icon( 'plus', 'size-6' ); ?>
 		</span>
-		<span class="eyebrow">Próximo template</span>
+		<span class="eyebrow"><?php esc_html_e( 'Próximo template', 'getalive' ); ?></span>
 	</span>
 	<span class="mt-5 block">
-		<span class="tcard__title block">Pode ser o seu</span>
-		<span class="mt-1.5 block text-ink-400">Novos templates saem a partir dos pedidos. Conte a sua ideia.</span>
+		<span class="tcard__title block"><?php esc_html_e( 'Pode ser o seu', 'getalive' ); ?></span>
+		<span class="mt-1.5 block text-ink-400"><?php esc_html_e( 'Novos templates saem a partir dos pedidos. Conte a sua ideia.', 'getalive' ); ?></span>
 	</span>
 </a>

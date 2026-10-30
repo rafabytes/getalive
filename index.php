@@ -11,11 +11,12 @@ get_header();
 		<h1 class="mb-16 text-display-lg font-semibold text-white" style="font-variation-settings:'wdth' 80">
 			<?php
 			if ( is_search() ) {
-				printf( 'Busca: %s', esc_html( get_search_query() ) );
+				/* translators: %s: termo buscado */
+				printf( esc_html__( 'Busca: %s', 'getalive' ), esc_html( get_search_query() ) );
 			} elseif ( is_archive() ) {
 				echo esc_html( wp_strip_all_tags( get_the_archive_title() ) );
 			} else {
-				echo esc_html( get_the_title( (int) get_option( 'page_for_posts' ) ) ?: 'Novidades' );
+				echo esc_html( get_the_title( (int) get_option( 'page_for_posts' ) ) ?: __( 'Novidades', 'getalive' ) );
 			}
 			?>
 		</h1>
@@ -48,9 +49,9 @@ get_header();
 		<?php else : ?>
 			<?php get_template_part( 'template-parts/empty', null, [
 				'icon'  => 'search',
-				'title' => 'Nada por aqui',
-				'text'  => 'Não encontramos conteúdo. Que tal ver os templates?',
-				'cta'   => [ 'Ver templates', ga_page_url( 'templates' ) ],
+				'title' => __( 'Nada por aqui', 'getalive' ),
+				'text'  => __( 'Não encontramos conteúdo. Que tal ver os templates?', 'getalive' ),
+				'cta'   => [ __( 'Ver templates', 'getalive' ), ga_page_url( 'templates' ) ],
 			] ); ?>
 		<?php endif; ?>
 	</div>

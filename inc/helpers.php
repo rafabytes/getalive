@@ -136,8 +136,9 @@ function ga_avatar_html( string $class = '', ?WP_User $user = null ): string {
 }
 
 /**
- * Número de cenas formatado em português.
+ * Número com a palavra no singular ou plural ("1 cena", "6 cenas"), no idioma da página.
+ * As palavras são passadas em português e traduzidas no dicionário.
  */
 function ga_plural( int $n, string $singular, string $plural ): string {
-	return sprintf( '%d %s', $n, 1 === $n ? $singular : $plural );
+	return sprintf( '%d %s', $n, ga_t( 1 === $n ? $singular : $plural ) );
 }

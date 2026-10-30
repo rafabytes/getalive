@@ -127,13 +127,13 @@ add_action( 'template_redirect', function () {
 		exit;
 	}
 	if ( 'ga_template' !== get_post_type( $post_id ) || ! ga_user_can_download( $post_id ) ) {
-		wp_die( 'Você não tem acesso a este download.', 'Download indisponível', [ 'response' => 403, 'back_link' => true ] );
+		wp_die( esc_html__( 'Você não tem acesso a este download.', 'getalive' ), esc_html__( 'Download indisponível', 'getalive' ), [ 'response' => 403, 'back_link' => true ] );
 	}
 
 	$file = (string) get_post_meta( $post_id, '_ga_file', true );
 	$path = ga_private_dir() . '/' . basename( $file );
 	if ( ! $file || ! is_file( $path ) ) {
-		wp_die( 'O arquivo deste template não está disponível no momento.', 'Arquivo não encontrado', [ 'response' => 404, 'back_link' => true ] );
+		wp_die( esc_html__( 'O arquivo deste template não está disponível no momento.', 'getalive' ), esc_html__( 'Arquivo não encontrado', 'getalive' ), [ 'response' => 404, 'back_link' => true ] );
 	}
 
 	ga_log_download( $post_id, get_current_user_id() );

@@ -4,6 +4,7 @@
 
 import { api } from '../lib/api';
 import { toast } from './toast';
+import { __ } from '../lib/i18n';
 
 function setStatus(form, message, ok) {
   const el = form.querySelector('[data-form-status]');
@@ -32,7 +33,7 @@ const handlers = {
   async delete(form) {
     const res = await api('account/delete', Object.fromEntries(new FormData(form)));
     window.location.href = res.redirect;
-    return 'Conta excluída. Até logo!';
+    return __('Conta excluída. Até logo!');
   },
 };
 

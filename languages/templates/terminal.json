@@ -1,0 +1,78 @@
+{
+  "en": {
+    "tagline": "Open Linux design: GNOME-style windows, chat in a terminal and the boot log scrolling in the background.",
+    "excerpt": "Free animated OBS overlay pack with the look of Linux desktops: windows with header bars, chat in a terminal with IRC-style nicknames, monospace titles with a blinking cursor and alerts that get typed out. Includes starting soon, gameplay, BRB and ending screens, Twitch chat, alerts and panels.",
+    "content": "<p class='lead'>Your stream inside a Linux desktop: GNOME-style windows with header bars, the top bar with the clock, monospace titles with a blinking cursor and, in the background, the system boot log scrolling slowly.</p>\n<p>Terminal is a complete scene collection for OBS Studio. Every screen shares the same animated background, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a single cut. It's a neutral look that fits any kind of stream.</p>\n<p>The chat lives in a terminal, with IRC-style nicknames (<code>&lt;nickname&gt; message</code>). Alerts open a terminal window at the top of the screen that gets “typed out”: the command, the name in big letters, the <code>[  OK  ]</code> line with the details and stars lighting up (1 for a follow, up to 5 for a raid), with a short synth jingle.</p>\n<p>The installer asks for <strong>your name and your username on each network</strong> and fills everything in. Afterwards, you can switch the look (Adwaita, green phosphor terminal or aubergine and orange) in <code>config.js</code>.</p>\n<p><small>Theme inspired by the look of Linux desktops, with no connection to any project and no official logos.</small></p>",
+    "features": [
+      "Animated background: wallpaper, top bar with clock and a scrolling boot log",
+      "Three looks: Adwaita (gray and blue), green phosphor terminal or aubergine and orange",
+      "Installer that asks for your name and socials and fills everything in",
+      "Countdown that restarts whenever the scene goes live, with rotating phrases",
+      "“Away for” timer that earns a star every 2 minutes",
+      "Twitch chat in a terminal (no login), with IRC-style nicknames, filtering out bots and commands",
+      "Alerts typed out in a terminal, with stars, flying blocks and a synth jingle",
+      "Works with StreamElements or another service's alerts URL",
+      "8 Twitch panels and a matching offline banner",
+      "Low-power mode: lower FPS, still background or effects off"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Linux.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Enter your name and your usernames on each network (Enter skips the ones you don't use).",
+      "Open OBS and choose Scene Collection → Linux.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a terminal window with a countdown and rotating phrases in the corner." },
+      { "title": "Game", "desc": "Full-screen game, webcam in a window in the corner with the goal right below, and a bar with your socials." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam and the chat in a terminal beside it." },
+      { "title": "React", "desc": "Big video, webcam and the chat in a terminal beside it, with your socials and the goal below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer that earns a star every 2 minutes, plus the chat." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "El diseño abierto de Linux: ventanas al estilo GNOME, chat en una terminal y el registro de arranque desplazándose al fondo.",
+    "excerpt": "Pack de overlays animados gratis para OBS con el estilo de los escritorios Linux: ventanas con barra de encabezado, chat en una terminal con apodos al estilo IRC, títulos en letra monoespaciada con cursor parpadeando y alertas que se van escribiendo. Incluye pantallas de inicio, juego, pausa y final, chat de Twitch, alertas y paneles.",
+    "content": "<p class='lead'>Tu stream dentro de un escritorio Linux: ventanas al estilo GNOME con barra de encabezado, la barra superior con el reloj, títulos en letra monoespaciada con cursor parpadeando y, al fondo, el registro de arranque del sistema desplazándose despacio.</p>\n<p>Terminal es una colección de escenas completa para OBS Studio. Todas las pantallas comparten el mismo fondo animado, así que el paso entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin ningún corte. Es un estilo neutro que combina con cualquier tipo de stream.</p>\n<p>El chat va en una terminal, con apodos al estilo IRC (<code>&lt;apodo&gt; mensaje</code>). Las alertas abren una ventana de terminal en lo alto de la pantalla que se va “escribiendo”: el comando, el nombre en grande, la línea <code>[  OK  ]</code> con el detalle y las estrellas encendiéndose (1 para un seguidor, hasta 5 para un raid), con una cortinilla corta de sintetizador.</p>\n<p>El instalador pregunta <strong>tu nombre y tu usuario en cada red</strong> y lo deja todo listo. Después puedes cambiar el estilo (Adwaita, terminal de fósforo verde o berenjena y naranja) en <code>config.js</code>.</p>\n<p><small>Tema inspirado en el estilo de los escritorios Linux, sin relación con ningún proyecto y sin logos oficiales.</small></p>",
+    "features": [
+      "Fondo animado: fondo de pantalla, barra superior con reloj y registro de arranque desplazándose",
+      "Tres estilos: Adwaita (gris y azul), terminal de fósforo verde o berenjena y naranja",
+      "Instalador que pregunta tu nombre y tus redes y lo deja todo listo",
+      "Cuenta regresiva que se reinicia cada vez que la escena sale al aire, con frases rotando",
+      "Cronómetro de “ausente hace” que suma una estrella cada 2 minutos",
+      "Chat de Twitch en una terminal (sin iniciar sesión), con apodos al estilo IRC y filtro de bots y comandos",
+      "Alertas escritas en una terminal, con estrellas, bloquecitos volando y cortinilla de sintetizador",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "8 paneles para Twitch y banner offline en el mismo estilo",
+      "Modo ahorro: menos FPS, fondo estático o efectos desactivados"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Linux.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Responde tu nombre y tus usuarios en las redes (Enter salta las que no usas).",
+      "Abre OBS y elige Colección de escenas → Linux.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: ventana de terminal con cuenta regresiva y frases rotando en la esquina." },
+      { "title": "Juego", "desc": "Juego a pantalla completa, webcam en una ventana en la esquina con la meta justo debajo, y una barra con tus redes." },
+      { "title": "Charla", "desc": "Charla: webcam grande y el chat en una terminal al lado." },
+      { "title": "React", "desc": "Video grande, webcam y el chat en una terminal al lado, con tus redes y la meta abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” que suma una estrella cada 2 minutos, y el chat." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

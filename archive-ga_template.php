@@ -29,13 +29,13 @@ $ga_data   = [
 	<div class="wrap relative">
 		<div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
 			<div>
-				<p class="eyebrow eyebrow--dot mb-6" data-reveal>Catálogo · <?php echo esc_html( ga_plural( count( $ga_posts ), 'template', 'templates' ) ); ?></p>
+				<p class="eyebrow eyebrow--dot mb-6" data-reveal><?php esc_html_e( 'Overlays grátis para OBS', 'getalive' ); ?> · <?php echo esc_html( ga_plural( count( $ga_posts ), 'template', 'templates' ) ); ?></p>
 				<h1 class="text-display-xl font-semibold text-white" style="font-variation-settings:'wdth' 80" data-split>
-					<span class="split-line"><span><?php echo is_tax( 'ga_style' ) ? esc_html( single_term_title( '', false ) ) : 'Templates'; ?></span></span>
+					<span class="split-line"><span><?php echo is_tax( 'ga_style' ) ? esc_html( ga_t( single_term_title( '', false ) ) ) : esc_html__( 'Templates', 'getalive' ); ?></span></span>
 				</h1>
 			</div>
 			<p class="max-w-sm text-lg text-ink-300" data-reveal style="--delay:.2s">
-				Coleções de cenas completas para o OBS Studio. Passe o mouse para ver todas as cenas de cada template.
+				<?php esc_html_e( 'Overlays para OBS Studio com todas as cenas da live: começando, jogo, conversa, já volto e encerrando. Passe o mouse para ver as cenas de cada template.', 'getalive' ); ?>
 			</p>
 		</div>
 	</div>

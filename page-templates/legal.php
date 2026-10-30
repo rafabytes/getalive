@@ -14,7 +14,7 @@ while ( have_posts() ) :
 	<section class="relative overflow-hidden pb-14 pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+5rem)]">
 		<div class="pointer-events-none absolute -right-60 -top-60 size-[40rem] rounded-full bg-signal/20 blur-[140px]" aria-hidden="true"></div>
 		<div class="wrap relative">
-			<p class="eyebrow eyebrow--dot mb-6" data-reveal>Atualizada em <?php echo esc_html( get_the_modified_date( 'j \d\e F \d\e Y' ) ); ?></p>
+			<p class="eyebrow eyebrow--dot mb-6" data-reveal><?php echo esc_html( sprintf( /* translators: %s: data */ __( 'Atualizada em %s', 'getalive' ), get_the_modified_date( ga_date_format() ) ) ); ?></p>
 			<h1 class="max-w-5xl text-display-lg font-semibold text-white" style="font-variation-settings:'wdth' 80" data-split>
 				<span class="split-line"><span><?php the_title(); ?></span></span>
 			</h1>
@@ -24,9 +24,9 @@ while ( have_posts() ) :
 	<section class="pb-28 md:pb-40">
 		<div class="wrap grid gap-16 lg:grid-cols-12">
 			<?php if ( $ga_toc ) : ?>
-				<nav class="hidden lg:col-span-3 lg:block" aria-label="Nesta página">
+				<nav class="hidden lg:col-span-3 lg:block" aria-label="<?php esc_attr_e( 'Nesta página', 'getalive' ); ?>">
 					<div class="sticky top-[calc(var(--header-h)+var(--admin-bar,0px)+2rem)]">
-						<p class="eyebrow mb-5">Nesta página</p>
+						<p class="eyebrow mb-5"><?php esc_html_e( 'Nesta página', 'getalive' ); ?></p>
 						<ol class="space-y-2.5 border-l border-white/10 text-sm" data-toc>
 							<?php foreach ( $ga_toc as [ , $id, $label ] ) : ?>
 								<li><a href="#<?php echo esc_attr( $id ); ?>" class="-ml-px block border-l border-transparent pl-4 text-ink-400 transition hover:text-white" data-toc-link><?php echo esc_html( wp_strip_all_tags( $label ) ); ?></a></li>

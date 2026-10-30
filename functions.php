@@ -10,6 +10,7 @@ define( 'GA_DIR', get_template_directory() );
 define( 'GA_URI', get_template_directory_uri() );
 
 foreach ( [
+	'i18n',
 	'helpers',
 	'icons',
 	'setup',
@@ -31,6 +32,7 @@ foreach ( [
 	'premium',
 	'install',
 	'home',
+	'seo',
 ] as $ga_file ) {
 	require GA_DIR . "/inc/{$ga_file}.php";
 }

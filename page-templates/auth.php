@@ -53,8 +53,8 @@ $ga_props = [
 			<div class="auth-stage__tilt" data-auth-tilt>
 				<div class="monitor !border-white/20 !shadow-[0_60px_140px_-30px_rgba(10,0,40,0.9)]" data-stage data-stage-interval="2600">
 					<div class="monitor__bar">
-						<span class="flex items-center gap-2"><span class="live-dot"></span> Ao vivo <span class="text-white" data-timecode>00:00:00</span></span>
-						<span class="text-white/80" data-stage-label><?php echo esc_html( $ga_scenes[0]['title'] ?? 'Começando' ); ?></span>
+						<span class="flex items-center gap-2"><span class="live-dot"></span> <?php esc_html_e( 'Ao vivo', 'getalive' ); ?> <span class="text-white" data-timecode>00:00:00</span></span>
+						<span class="text-white/80" data-stage-label><?php echo esc_html( $ga_scenes[0]['title'] ?? __( 'Começando', 'getalive' ) ); ?></span>
 						<span class="meters"><span></span><span></span><span></span><span></span><span></span></span>
 					</div>
 					<div class="monitor__screen">
@@ -70,22 +70,22 @@ $ga_props = [
 
 				<div class="auth-chip -left-10 top-[18%] animate-float" style="transform: translateZ(60px)">
 					<span class="inline-flex size-8 items-center justify-center rounded-full bg-live text-white"><?php echo ga_icon( 'heart', 'size-4' ); ?></span>
-					<span><strong class="block text-[13px]">Favoritos salvos</strong><span class="text-xs text-ink-400">em qualquer aparelho</span></span>
+					<span><strong class="block text-[13px]"><?php esc_html_e( 'Favoritos salvos', 'getalive' ); ?></strong><span class="text-xs text-ink-400"><?php esc_html_e( 'em qualquer aparelho', 'getalive' ); ?></span></span>
 				</div>
 				<div class="auth-chip -right-8 bottom-[20%] animate-float [animation-delay:-3s]" style="transform: translateZ(90px)">
 					<span class="inline-flex size-8 items-center justify-center rounded-full bg-lime text-ink-950"><?php echo ga_icon( 'download', 'size-4' ); ?></span>
-					<span><strong class="block text-[13px]">Download liberado</strong><span class="text-xs text-ink-400">template.zip · grátis</span></span>
+					<span><strong class="block text-[13px]"><?php esc_html_e( 'Download liberado', 'getalive' ); ?></strong><span class="text-xs text-ink-400"><?php esc_html_e( 'template.zip · grátis', 'getalive' ); ?></span></span>
 				</div>
 				<div class="auth-chip -bottom-6 left-[12%] animate-float [animation-delay:-5s]" style="transform: translateZ(40px)">
 					<span class="inline-flex size-8 items-center justify-center rounded-full bg-signal text-white"><?php echo ga_icon( 'wand', 'size-4' ); ?></span>
-					<span><strong class="block text-[13px]">Peça templates</strong><span class="text-xs text-ink-400">e acompanhe o status</span></span>
+					<span><strong class="block text-[13px]"><?php esc_html_e( 'Peça templates', 'getalive' ); ?></strong><span class="text-xs text-ink-400"><?php esc_html_e( 'e acompanhe o status', 'getalive' ); ?></span></span>
 				</div>
 			</div>
 		</div>
 
 		<div class="absolute inset-x-0 bottom-0 flex items-end justify-between p-10">
 			<p class="max-w-xs font-display text-2xl font-medium leading-tight tracking-tight text-white" style="font-variation-settings:'wdth' 88">
-				Uma conta. Todos os templates, favoritos e pedidos num lugar só.
+				<?php esc_html_e( 'Uma conta. Todos os templates, favoritos e pedidos num lugar só.', 'getalive' ); ?>
 			</p>
 			<p class="font-mono text-[11px] uppercase tracking-[0.18em] text-white/60">OBS Studio · 1080p</p>
 		</div>
@@ -100,18 +100,26 @@ $ga_props = [
 				<span class="logo__mark" aria-hidden="true"></span>
 				<span><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 			</a>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn--ghost btn--sm"><?php echo ga_icon( 'arrow-left', 'size-4' ); ?><span>Voltar ao site</span></a>
+			<div class="flex items-center gap-2">
+				<?php echo ga_lang_switcher( 'menu' ); ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn--ghost btn--sm"><?php echo ga_icon( 'arrow-left', 'size-4' ); ?><span><?php esc_html_e( 'Voltar ao site', 'getalive' ); ?></span></a>
+			</div>
 		</div>
 
 		<div class="relative mx-auto flex w-full max-w-[26rem] flex-1 flex-col justify-center py-12">
 			<div data-react="AuthApp" data-props="<?php echo esc_attr( wp_json_encode( $ga_props ) ); ?>">
-				<noscript><p class="notice notice--error">Ative o JavaScript para entrar ou criar sua conta.</p></noscript>
+				<noscript><p class="notice notice--error"><?php esc_html_e( 'Ative o JavaScript para entrar ou criar sua conta.', 'getalive' ); ?></p></noscript>
 			</div>
 		</div>
 
 		<p class="relative text-center text-xs leading-relaxed text-ink-500">
-			Protegido por limite de tentativas. Ao continuar, você concorda com a
-			<a class="text-ink-300 underline underline-offset-2 hover:text-white" href="<?php echo esc_url( ga_page_url( 'privacy' ) ); ?>">Política de Privacidade</a>.
+			<?php
+			echo sprintf(
+				/* translators: %s: link da Política de Privacidade */
+				esc_html__( 'Protegido por limite de tentativas. Ao continuar, você concorda com a %s.', 'getalive' ),
+				'<a class="text-ink-300 underline underline-offset-2 hover:text-white" href="' . esc_url( ga_page_url( 'privacy' ) ) . '">' . esc_html__( 'Política de Privacidade', 'getalive' ) . '</a>'
+			);
+			?>
 		</p>
 	</div>
 </div>

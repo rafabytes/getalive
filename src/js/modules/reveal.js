@@ -2,6 +2,8 @@
  * Revelações no scroll ([data-reveal], títulos [data-split]) e contadores ([data-count]).
  */
 
+import { locale } from '../lib/i18n';
+
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function countUp(el) {
@@ -9,7 +11,7 @@ function countUp(el) {
   if (!target || reduced) return;
   const start = performance.now();
   const duration = 1400;
-  const fmt = new Intl.NumberFormat('pt-BR');
+  const fmt = new Intl.NumberFormat(locale);
   const step = (now) => {
     const p = Math.min(1, (now - start) / duration);
     const eased = 1 - Math.pow(1 - p, 4);

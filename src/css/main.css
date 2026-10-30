@@ -369,6 +369,51 @@
     @apply flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-ink-200 transition hover:bg-white/5 hover:text-white;
   }
 
+  /* Seletor de idioma: lista suspensa (cabeçalho, login) e links lado a lado (menu mobile, rodapé) */
+  .lang-menu {
+    @apply relative;
+  }
+
+  .lang-menu__toggle {
+    @apply inline-flex h-10 items-center gap-1.5 rounded-full border border-white/10 px-3 font-mono text-xs font-medium tracking-wider text-ink-200 transition hover:border-white/25 hover:text-white;
+  }
+
+  .lang-menu__panel {
+    @apply invisible absolute right-0 top-[calc(100%+0.75rem)] z-10 w-48 origin-top-right scale-95 rounded-2xl border border-white/10 bg-ink-850/95 p-2 opacity-0 shadow-2xl backdrop-blur-xl transition duration-300 ease-expo;
+  }
+
+  .lang-menu.is-open .lang-menu__panel {
+    @apply visible scale-100 opacity-100;
+  }
+
+  .lang-menu__panel a {
+    @apply flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-ink-200 transition hover:bg-white/5 hover:text-white;
+  }
+
+  .lang-menu__panel a[aria-current] {
+    @apply text-white;
+  }
+
+  .lang-menu__code {
+    @apply w-6 font-mono text-[11px] text-ink-500;
+  }
+
+  .lang-menu__panel a[aria-current] .lang-menu__code {
+    @apply text-lime;
+  }
+
+  .lang-list {
+    @apply flex gap-1.5;
+  }
+
+  .lang-list a {
+    @apply inline-flex h-9 min-w-[2.75rem] items-center justify-center rounded-full border border-white/10 px-3 font-mono text-xs tracking-wider text-ink-300 transition hover:border-white/25 hover:text-white;
+  }
+
+  .lang-list a[aria-current] {
+    @apply border-lime/60 text-lime;
+  }
+
   /* Rodapé ------------------------------------------------------------ */
 
   .site-footer {

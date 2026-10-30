@@ -1,0 +1,78 @@
+{
+  "en": {
+    "tagline": "Windows Phone flat design: black background, one accent color and a wall of live tiles that flip on their own.",
+    "excerpt": "Free animated OBS overlay pack in Windows Phone flat design: black background, a solid accent color, flipping live tiles, thin lowercase titles and notifications that drop in from the top. Includes starting soon, gameplay, BRB and ending screens, Twitch chat, alerts and panels.",
+    "content": "<p class='lead'>Back to Windows Phone: black background, a solid accent color, a wall of live tiles that flip on their own to show phrases on the back, and thin lowercase titles.</p>\n<p>Metro is a complete scene collection for OBS Studio. Every screen shares the same animated background, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a single cut. It's a neutral look that fits any kind of stream.</p>\n<p>The chat sits in a Windows Phone on screen, in square bubbles with a little tail. Alerts drop in from the top like a notification: a full strip in the accent color with the name in big thin letters, stars lighting up (1 for a follow, up to 5 for a raid), little squares flying and a short synth jingle.</p>\n<p>The installer asks for <strong>your name and your username on each network</strong> and fills everything in. Afterwards, you can change the accent color (cobalt, lime, magenta or orange) in <code>config.js</code>.</p>\n<p><small>Theme inspired by an interface style, with no connection to Microsoft and no official logos or artwork.</small></p>",
+    "features": [
+      "Animated background: a wall of flipping live tiles and a panorama title sliding slowly",
+      "Four accent colors: cobalt, lime, magenta or orange",
+      "Installer that asks for your name and socials and fills everything in",
+      "Countdown on a colored tile that restarts whenever the scene goes live, with rotating phrases",
+      "“Away for” timer that earns a star every 2 minutes",
+      "Twitch chat in a Windows Phone on screen (no login), filtering out bots and commands",
+      "Alerts that drop in from the top like a notification, with stars, flying squares and a synth jingle",
+      "Works with StreamElements or another service's alerts URL",
+      "8 Twitch panels and a matching offline banner",
+      "Low-power mode: lower FPS, still background or effects off"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Metro.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Enter your name and your usernames on each network (Enter skips the ones you don't use).",
+      "Open OBS and choose Scene Collection → Metro.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a countdown on a colored tile and rotating phrases in the corner." },
+      { "title": "Game", "desc": "Full-screen game, webcam with an accent-colored border in the corner and the goal right below, and a bar with your socials." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam and the chat in a Windows Phone beside it." },
+      { "title": "React", "desc": "Big video, webcam and the chat in a Windows Phone beside it, with your socials and the goal below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer that earns a star every 2 minutes, plus the chat." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "El diseño plano de Windows Phone: fondo negro, un color de acento y una pared de mosaicos vivos que giran solos.",
+    "excerpt": "Pack de overlays animados gratis para OBS con el diseño plano de Windows Phone: fondo negro, un color de acento sólido, mosaicos vivos que giran, títulos finos en minúsculas y notificaciones que caen desde arriba. Incluye pantallas de inicio, juego, pausa y final, chat de Twitch, alertas y paneles.",
+    "content": "<p class='lead'>De vuelta a Windows Phone: fondo negro, un color de acento sólido, una pared de mosaicos vivos que giran solos para mostrar frases en el reverso y títulos finos en minúsculas.</p>\n<p>Metro es una colección de escenas completa para OBS Studio. Todas las pantallas comparten el mismo fondo animado, así que el paso entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin ningún corte. Es un estilo neutro que combina con cualquier tipo de stream.</p>\n<p>El chat va en un Windows Phone en pantalla, en globos cuadrados con “colita”. Las alertas caen desde arriba como una notificación: una franja entera en el color de acento con el nombre en letras finas y grandes, las estrellas encendiéndose (1 para un seguidor, hasta 5 para un raid), cuadraditos volando y una cortinilla corta de sintetizador.</p>\n<p>El instalador pregunta <strong>tu nombre y tu usuario en cada red</strong> y lo deja todo listo. Después puedes cambiar el color de acento (cobalto, lima, magenta o naranja) en <code>config.js</code>.</p>\n<p><small>Tema inspirado en un estilo de interfaz, sin relación con Microsoft y sin logos ni artes oficiales.</small></p>",
+    "features": [
+      "Fondo animado: pared de mosaicos vivos que giran y un título panorámico pasando despacio",
+      "Cuatro colores de acento: cobalto, lima, magenta o naranja",
+      "Instalador que pregunta tu nombre y tus redes y lo deja todo listo",
+      "Cuenta regresiva en un mosaico de color que se reinicia cada vez que la escena sale al aire, con frases rotando",
+      "Cronómetro de “ausente hace” que suma una estrella cada 2 minutos",
+      "Chat de Twitch en un Windows Phone en pantalla (sin iniciar sesión), con filtro de bots y comandos",
+      "Alertas que caen desde arriba como notificación, con estrellas, cuadraditos volando y cortinilla de sintetizador",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "8 paneles para Twitch y banner offline en el mismo estilo",
+      "Modo ahorro: menos FPS, fondo estático o efectos desactivados"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Metro.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Responde tu nombre y tus usuarios en las redes (Enter salta las que no usas).",
+      "Abre OBS y elige Colección de escenas → Metro.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: cuenta regresiva en un mosaico de color y frases rotando en la esquina." },
+      { "title": "Juego", "desc": "Juego a pantalla completa, webcam con borde del color de acento en la esquina y la meta justo debajo, y una barra con tus redes." },
+      { "title": "Charla", "desc": "Charla: webcam grande y el chat en un Windows Phone al lado." },
+      { "title": "React", "desc": "Video grande, webcam y el chat en un Windows Phone al lado, con tus redes y la meta abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” que suma una estrella cada 2 minutos, y el chat." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

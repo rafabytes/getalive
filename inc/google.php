@@ -15,16 +15,16 @@ defined( 'ABSPATH' ) || exit;
 function ga_google_profile( string $access_token ) {
 	$client_id = ga_option( 'google_client_id' );
 	if ( ! $client_id ) {
-		return new WP_Error( 'google_off', 'O login com Google não está configurado.' );
+		return new WP_Error( 'google_off', __( 'O login com Google não está configurado.', 'getalive' ) );
 	}
 
 	$info = wp_remote_get( 'https://oauth2.googleapis.com/tokeninfo?access_token=' . rawurlencode( $access_token ), [ 'timeout' => 10 ] );
 	if ( is_wp_error( $info ) || 200 !== wp_remote_retrieve_response_code( $info ) ) {
-		return new WP_Error( 'google_token', 'Não conseguimos confirmar seu login com o Google. Tente de novo.' );
+		return new WP_Error( 'google_token', __( 'Não conseguimos confirmar seu login com o Google. Tente de novo.', 'getalive' ) );
 	}
 	$info = json_decode( wp_remote_retrieve_body( $info ), true );
 	if ( ( $info['aud'] ?? '' ) !== $client_id && ( $info['azp'] ?? '' ) !== $client_id ) {
-		return new WP_Error( 'google_aud', 'Esse login do Google não pertence a este site.' );
+		return new WP_Error( 'google_aud', __( 'Esse login do Google não pertence a este site.', 'getalive' ) );
 	}
 
 	$res = wp_remote_get( 'https://openidconnect.googleapis.com/v1/userinfo', [
@@ -32,12 +32,12 @@ function ga_google_profile( string $access_token ) {
 		'headers' => [ 'Authorization' => 'Bearer ' . $access_token ],
 	] );
 	if ( is_wp_error( $res ) || 200 !== wp_remote_retrieve_response_code( $res ) ) {
-		return new WP_Error( 'google_profile', 'Não conseguimos ler seu perfil do Google.' );
+		return new WP_Error( 'google_profile', __( 'Não conseguimos ler seu perfil do Google.', 'getalive' ) );
 	}
 	$profile = json_decode( wp_remote_retrieve_body( $res ), true );
 
 	if ( empty( $profile['email'] ) || empty( $profile['email_verified'] ) ) {
-		return new WP_Error( 'google_email', 'Sua conta Google precisa ter um e-mail verificado.' );
+		return new WP_Error( 'google_email', __( 'Sua conta Google precisa ter um e-mail verificado.', 'getalive' ) );
 	}
 
 	return [
@@ -65,7 +65,7 @@ function ga_google_sign_in( string $access_token ) {
 
 	if ( ! $user_id ) {
 		if ( ! ga_registration_open() ) {
-			return new WP_Error( 'closed', 'Os cadastros estão fechados no momento.' );
+			return new WP_Error( 'closed', __( 'Os cadastros estão fechados no momento.', 'getalive' ) );
 		}
 		$name = $profile['name'] ?: ucfirst( strstr( $profile['email'], '@', true ) );
 		// Senha aleatória: a conta entra pelo Google, e pode definir uma senha depois.

@@ -6,6 +6,7 @@
 
 import { api, GA } from '../lib/api';
 import { toast } from './toast';
+import { __ } from '../lib/i18n';
 
 export function burst(button) {
   button.classList.remove('is-pop');
@@ -24,9 +25,9 @@ function paint(id, on) {
   document.querySelectorAll(`[data-favorite="${id}"]`).forEach((btn) => {
     btn.classList.toggle('is-on', on);
     btn.setAttribute('aria-pressed', String(on));
-    btn.setAttribute('aria-label', on ? 'Remover dos favoritos' : 'Favoritar');
+    btn.setAttribute('aria-label', on ? __('Remover dos favoritos') : __('Favoritar'));
     const label = btn.querySelector('.fav-btn__label');
-    if (label) label.textContent = on ? 'Favoritado' : 'Favoritar';
+    if (label) label.textContent = on ? __('Favoritado') : __('Favoritar');
   });
 }
 
@@ -37,7 +38,7 @@ export async function toggleFavorite(id, on) {
     const res = await api(`favorites/${id}`, { on });
     const counter = document.querySelector('[data-fav-count]');
     if (counter) counter.textContent = res.count;
-    toast(on ? 'Salvo nos favoritos' : 'Removido dos favoritos', on ? 'heart' : 'check');
+    toast(on ? __('Salvo nos favoritos') : __('Removido dos favoritos'), on ? 'heart' : 'check');
     return res.favorite;
   } catch (err) {
     paint(id, !on);

@@ -77,6 +77,10 @@ function ga_js_config(): array {
 			'templates' => ga_page_url( 'templates' ),
 		],
 		'googleClientId' => ga_option( 'google_client_id' ),
+		'lang'           => ga_lang(),
+		'locale'         => GA_LANGS[ ga_lang() ]['intl'],
+		'i18n'           => (object) ga_js_i18n(),
+		'langHomes'      => array_combine( array_keys( GA_LANGS ), array_map( fn( $code ) => ga_lang_url( $code, '' ), array_keys( GA_LANGS ) ) ),
 	];
 }
 

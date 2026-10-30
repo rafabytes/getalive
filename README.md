@@ -23,6 +23,24 @@ npm run build   # build de produção em dist/ (limpa dist e cache antes)
 
 Na ativação, o tema cria as páginas (`/entrar`, `/criar-conta`, `/conta`, `/solicitar`, `/sobre`, `/politica-de-privacidade`), os menus, liga o cadastro de usuários e troca os permalinks para `/%postname%/`.
 
+## Idiomas (português, inglês e espanhol)
+
+Português é o padrão, sem prefixo; inglês fica em `/en/` e espanhol em `/es/`, com slugs traduzidos nas páginas do tema (`/en/about/`, `/es/acerca-de/`). O seletor de idioma fica no cabeçalho, no menu mobile, no rodapé e na tela de login. Tudo fica em `inc/i18n.php`, sem plugin.
+
+| O que | Onde traduzir |
+|---|---|
+| Textos do código (PHP e JS) | Escritos em português com `__()`; traduções em `languages/en_US.l10n.php` e `languages/es_ES.l10n.php`. Texto novo no JS também entra em `ga_js_strings()` |
+| Menus, estilos, títulos de página, textos da home | Vêm do banco em português e passam pelo mesmo dicionário. A home também tem "Página inicial (English/Español)" no Personalizar |
+| Templates | `languages/templates/<slug>.json` (tagline, resumo, texto, recursos, requisitos, instalação e cenas, por idioma) |
+| Sobre e Política de Privacidade | `inc/content/about.<en/es>.html` e `privacy.<en/es>.html` |
+| Título e descrição para buscadores | `inc/seo.php` |
+
+Para saber o que falta traduzir (inclusive textos novos do banco e templates sem JSON):
+
+```bash
+php tools/i18n-check.php
+```
+
 ## Configuração (Configurações → get a live)
 
 - **Google Client ID**: crie um ID do cliente OAuth do tipo "Aplicativo da Web" no Google Cloud Console e adicione a URL do site em "Origens JavaScript autorizadas". Sem ele, o botão do Google fica escondido.

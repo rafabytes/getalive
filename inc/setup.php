@@ -6,7 +6,6 @@
 defined( 'ABSPATH' ) || exit;
 
 add_action( 'after_setup_theme', function () {
-	load_theme_textdomain( 'getalive', GA_DIR . '/languages' );
 
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -68,7 +67,7 @@ add_filter( 'excerpt_more', fn() => '…' );
  */
 add_action( 'wp_head', function () {
 	$title = wp_get_document_title();
-	$desc  = get_bloginfo( 'description' ) ?: 'Layouts de live animados para o OBS Studio. Baixe, instale em dois cliques e entre no ar.';
+	$desc  = ga_seo()['description'] ?? '' ?: __( 'Overlays animados grátis para OBS Studio. Baixe, instale em dois cliques e entre ao vivo.', 'getalive' );
 	$image = '';
 
 	if ( is_singular() ) {
@@ -108,21 +107,23 @@ add_action( 'wp_head', function () {
 function ga_default_menu_items( string $location ): array {
 	if ( 'footer' === $location ) {
 		return [
-			[ 'label' => 'Sobre', 'url' => ga_page_url( 'about' ) ],
-			[ 'label' => 'Privacidade', 'url' => ga_page_url( 'privacy' ) ],
-			[ 'label' => 'Solicitar template', 'url' => ga_page_url( 'request' ) ],
+			[ 'label' => __( 'Sobre', 'getalive' ), 'url' => ga_page_url( 'about' ) ],
+			[ 'label' => __( 'Privacidade', 'getalive' ), 'url' => ga_page_url( 'privacy' ) ],
+			[ 'label' => __( 'Solicitar template', 'getalive' ), 'url' => ga_page_url( 'request' ) ],
 		];
 	}
 	return [
-		[ 'label' => 'Templates', 'url' => ga_page_url( 'templates' ) ],
-		[ 'label' => 'Como instalar', 'url' => ga_page_url( 'install' ) ],
-		[ 'label' => 'Solicitar', 'url' => ga_page_url( 'request' ) ],
-		[ 'label' => 'Sobre', 'url' => ga_page_url( 'about' ) ],
+		[ 'label' => __( 'Templates', 'getalive' ), 'url' => ga_page_url( 'templates' ) ],
+		[ 'label' => __( 'Como instalar', 'getalive' ), 'url' => ga_page_url( 'install' ) ],
+		[ 'label' => __( 'Solicitar', 'getalive' ), 'url' => ga_page_url( 'request' ) ],
+		[ 'label' => __( 'Sobre', 'getalive' ), 'url' => ga_page_url( 'about' ) ],
 	];
 }
 
 /**
  * Itens de um local de menu como lista simples (label/url), para marcação própria.
+ * Os rótulos vêm do banco em português e são traduzidos pelo dicionário; links
+ * personalizados para o próprio site ganham o prefixo do idioma.
  */
 function ga_menu_items( string $location ): array {
 	$locations = get_nav_menu_locations();
@@ -131,7 +132,7 @@ function ga_menu_items( string $location ): array {
 	}
 	$items = wp_get_nav_menu_items( $locations[ $location ] ) ?: [];
 	return array_map(
-		fn( $item ) => [ 'label' => $item->title, 'url' => $item->url ],
+		fn( $item ) => [ 'label' => ga_t( $item->title ), 'url' => 'custom' === $item->type ? ga_lang_localize_custom_url( $item->url ) : $item->url ],
 		array_filter( $items, fn( $item ) => ! $item->menu_item_parent )
 	);
 }

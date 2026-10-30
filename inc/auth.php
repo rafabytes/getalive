@@ -85,16 +85,16 @@ function ga_register_user( string $name, string $email, string $password, array 
 	$email = sanitize_email( $email );
 
 	if ( mb_strlen( $name ) < 2 ) {
-		return new WP_Error( 'name', 'Conta pra gente como você se chama.', [ 'field' => 'name' ] );
+		return new WP_Error( 'name', __( 'Conta pra gente como você se chama.', 'getalive' ), [ 'field' => 'name' ] );
 	}
 	if ( ! is_email( $email ) ) {
-		return new WP_Error( 'email', 'Esse e-mail não parece válido.', [ 'field' => 'email' ] );
+		return new WP_Error( 'email', __( 'Esse e-mail não parece válido.', 'getalive' ), [ 'field' => 'email' ] );
 	}
 	if ( email_exists( $email ) ) {
-		return new WP_Error( 'email_exists', 'Já existe uma conta com esse e-mail. Que tal entrar?', [ 'field' => 'email' ] );
+		return new WP_Error( 'email_exists', __( 'Já existe uma conta com esse e-mail. Que tal entrar?', 'getalive' ), [ 'field' => 'email' ] );
 	}
 	if ( strlen( $password ) < 8 ) {
-		return new WP_Error( 'password', 'A senha precisa ter pelo menos 8 caracteres.', [ 'field' => 'password' ] );
+		return new WP_Error( 'password', __( 'A senha precisa ter pelo menos 8 caracteres.', 'getalive' ), [ 'field' => 'password' ] );
 	}
 
 	$parts   = explode( ' ', $name, 2 );
@@ -107,6 +107,8 @@ function ga_register_user( string $name, string $email, string $password, array 
 		'first_name'   => $parts[0],
 		'last_name'    => $parts[1] ?? '',
 		'role'         => get_option( 'default_role', 'subscriber' ),
+		// Quem se cadastra em inglês ou espanhol recebe os e-mails do WordPress nesse idioma.
+		'locale'       => ga_lang_is_default() ? '' : GA_LANGS[ ga_lang() ]['locale'],
 	] );
 
 	if ( is_wp_error( $user_id ) ) {

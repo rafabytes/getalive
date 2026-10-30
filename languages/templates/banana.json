@@ -1,0 +1,80 @@
+{
+  "en": {
+    "tagline": "The future is green and yellow: Sugarloaf Mountain with its cable car, a connected city and banana leaves swaying.",
+    "excerpt": "Free animated OBS overlay pack with Brazil's tropical vibe and homegrown tech in the spotlight: a green and yellow sunrise, a cable car, a circuit board with data pulses, a satellite and macaws. Includes starting soon, gameplay, BRB and ending screens, Twitch chat, alerts and panels.",
+    "content": "<p class='lead'>Tropical, high-tech Brazil in a single stream: a green and yellow sunrise, Sugarloaf Mountain with its cable car going back and forth, a connected city and banana leaves (bunch and all) swaying in the corners.</p>\n<p>Banana is a complete scene collection for OBS Studio. Every screen shares the same animated scenery, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a single cut.</p>\n<p>The ground is a circuit board with data pulses running to the city, the Brazilian satellite crosses the sky, macaws fly by and fireflies light up in the dark. None of it is an image: everything is drawn in code. Alerts sweep across the screen on a banner with green and yellow trim, light up stars, burst into confetti (and rain money on donations) and play a synth jingle.</p>\n<p>The installer asks for <strong>your name and your username on each network</strong> and fills everything in. Afterwards, you can change the time of day (sunrise, day or night with the Southern Cross) and tweak the text, schedule and goal in <code>config.js</code>.</p>",
+    "features": [
+      "Animated scenery: cable car, connected city, satellite, macaws, fireflies and banana leaves",
+      "Circuit board ground with data pulses running to the city",
+      "Three skies: sunrise, day or night with the Southern Cross",
+      "Installer that asks for your name and socials and fills everything in",
+      "Countdown that restarts whenever the scene goes live, with rotating tips",
+      "“Away for” timer that earns a star every 2 minutes",
+      "Twitch chat on a phone on screen (no login), filtering out bots and commands",
+      "Follower, sub, donation and raid alerts with stars, confetti and a synth jingle",
+      "Works with StreamElements or another service's alerts URL",
+      "8 Twitch panels and a matching offline banner",
+      "Low-power mode: lower FPS, still background or effects off"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Banana.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Enter your name and your usernames on each network (Enter skips the ones you don't use).",
+      "Open OBS and choose Scene Collection → Banana.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a loading screen with a countdown and rotating tips in the corner." },
+      { "title": "Game", "desc": "Full-screen game, webcam in the corner with the goal right below and a bar with your socials." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam and the chat on a phone beside it." },
+      { "title": "React", "desc": "Big video, webcam and a phone with the chat beside it, with your socials and the goal below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer that earns a star every 2 minutes, plus the chat." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "El futuro es verde y amarillo: el Pan de Azúcar con su teleférico, una ciudad conectada y hojas de banano meciéndose.",
+    "excerpt": "Pack de overlays animados gratis para OBS con el clima tropical de Brasil y la tecnología brasileña como protagonista: amanecer verde y amarillo, teleférico, placa de circuito con pulsos de datos, satélite y guacamayos. Incluye pantallas de inicio, juego, pausa y final, chat de Twitch, alertas y paneles.",
+    "content": "<p class='lead'>El Brasil tropical y tecnológico en un solo stream: amanecer verde y amarillo, el Pan de Azúcar con el teleférico yendo y viniendo, una ciudad conectada y hojas de banano (con racimo y todo) meciéndose en las esquinas.</p>\n<p>Banana es una colección de escenas completa para OBS Studio. Todas las pantallas comparten el mismo escenario animado, así que el paso entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin ningún corte.</p>\n<p>El suelo es una placa de circuito con pulsos de datos que corren hasta la ciudad, el satélite brasileño cruza el cielo, pasan guacamayos volando y las luciérnagas se encienden en la oscuridad. Nada es imagen: todo está dibujado con código. Las alertas cruzan la pantalla en una franja con ribetes verdes y amarillos, encienden estrellas, lanzan confeti (y llueve dinero en las donaciones) y suenan con una cortinilla de sintetizador.</p>\n<p>El instalador pregunta <strong>tu nombre y tu usuario en cada red</strong> y lo deja todo listo. Después puedes cambiar la hora del cielo (amanecer, día o noche con la Cruz del Sur) y ajustar textos, horario y meta en <code>config.js</code>.</p>",
+    "features": [
+      "Escenario animado: teleférico, ciudad conectada, satélite, guacamayos, luciérnagas y hojas de banano",
+      "Suelo de placa de circuito con pulsos de datos corriendo hasta la ciudad",
+      "Tres cielos: amanecer, día o noche con la Cruz del Sur",
+      "Instalador que pregunta tu nombre y tus redes y lo deja todo listo",
+      "Cuenta regresiva que se reinicia cada vez que la escena sale al aire, con consejos rotando",
+      "Cronómetro de “ausente hace” que suma una estrella cada 2 minutos",
+      "Chat de Twitch en un celular en pantalla (sin iniciar sesión), con filtro de bots y comandos",
+      "Alertas de seguidor, sub, donación y raid con estrellas, confeti y cortinilla de sintetizador",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "8 paneles para Twitch y banner offline en el mismo estilo",
+      "Modo ahorro: menos FPS, fondo estático o efectos desactivados"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Banana.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Responde tu nombre y tus usuarios en las redes (Enter salta las que no usas).",
+      "Abre OBS y elige Colección de escenas → Banana.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: pantalla de carga con cuenta regresiva y consejos rotando en la esquina." },
+      { "title": "Juego", "desc": "Juego a pantalla completa, webcam en la esquina con la meta justo debajo y una barra con tus redes." },
+      { "title": "Charla", "desc": "Charla: webcam grande y el chat en un celular al lado." },
+      { "title": "React", "desc": "Video grande, webcam y un celular con el chat al lado, con tus redes y la meta abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” que suma una estrella cada 2 minutos, y el chat." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

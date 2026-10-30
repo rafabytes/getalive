@@ -1,0 +1,80 @@
+{
+  "en": {
+    "tagline": "Sunset in Vice City: an art deco waterfront with neon, a Ferris wheel on the pier and swaying palm trees.",
+    "excerpt": "Free animated OBS overlay pack inspired by the look revealed so far for GTA VI: sunset, a waterfront with neon signs, a Ferris wheel, the sea reflecting the sky and “mission passed” style alerts with wanted stars. Includes starting soon, gameplay, BRB and ending screens, Twitch chat, alerts and panels.",
+    "content": "<p class='lead'>Welcome to Vice City: a gold-pink-purple sunset, an art deco waterfront with lit windows and neon signs, a Ferris wheel turning on the pier, the sea reflecting the sky and palm trees swaying on the sides.</p>\n<p>Vice is a complete scene collection for OBS Studio, inspired by the look revealed so far for GTA VI. Every screen shares the same animated scenery, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a single cut.</p>\n<p>In the Game scene, the webcam takes the minimap's spot and the goal becomes the health bar. Alerts arrive “mission passed” style: the name shows up big in the gradient, wanted stars light up (1 for a follow, up to 5 for a raid), neon confetti bursts out and a synth jingle plays.</p>\n<p>The installer asks for <strong>your name and your username on each network</strong> and fills everything in. Afterwards, you can change the sky (dusk, neon night or beach day) in <code>config.js</code>.</p>\n<p><small>Fan-made theme, with no connection to Rockstar Games or Take-Two. It uses no official logos, fonts or artwork: the city, palm trees and ornaments are drawn in code.</small></p>",
+    "features": [
+      "Animated scenery: neon waterfront, Ferris wheel, reflective sea, palm trees, birds and a plane",
+      "Three skies: dusk, neon night or beach day",
+      "Installer that asks for your name and socials and fills everything in",
+      "Webcam in the minimap's spot and the goal as a health bar in the Game scene",
+      "Countdown that restarts whenever the scene goes live, with rotating tips",
+      "“Away for” timer that earns a wanted star every 2 minutes",
+      "Twitch chat on a phone on screen (no login), filtering out bots and commands",
+      "“Mission passed” alerts with wanted stars, neon confetti and a synth jingle",
+      "Works with StreamElements or another service's alerts URL",
+      "8 Twitch panels and a matching offline banner",
+      "Low-power mode: lower FPS, still background or effects off"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Leonida.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Enter your name and your usernames on each network (Enter skips the ones you don't use).",
+      "Open OBS and choose Scene Collection → Leonida.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a loading screen with a countdown and rotating tips in the corner." },
+      { "title": "Game", "desc": "Full-screen game, webcam in the minimap's spot with the goal as a health bar, and your socials." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam and the chat on a phone beside it." },
+      { "title": "React", "desc": "Big video, webcam and a phone with the chat beside it, with your socials and the goal below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer that earns a wanted star every 2 minutes, plus the chat." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "Atardecer en Vice City: un malecón art déco con neón, una noria en el muelle y palmeras meciéndose.",
+    "excerpt": "Pack de overlays animados gratis para OBS inspirados en el estilo ya mostrado de GTA VI: atardecer, malecón con letreros de neón, noria, el mar reflejando el cielo y alertas al estilo “misión cumplida” con estrellas de búsqueda. Incluye pantallas de inicio, juego, pausa y final, chat de Twitch, alertas y paneles.",
+    "content": "<p class='lead'>Bienvenidos a Vice City: atardecer dorado, rosa y morado, un malecón art déco con ventanas encendidas y letreros de neón, una noria girando en el muelle, el mar reflejando el cielo y palmeras meciéndose a los lados.</p>\n<p>Vice es una colección de escenas completa para OBS Studio, inspirada en el estilo ya mostrado de GTA VI. Todas las pantallas comparten el mismo escenario animado, así que el paso entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin ningún corte.</p>\n<p>En la escena Juego, la webcam ocupa el lugar del minimapa y la meta se convierte en la barra de vida. Las alertas llegan al estilo “misión cumplida”: el nombre aparece en grande sobre el degradado, se encienden las estrellas de búsqueda (1 para un seguidor, hasta 5 para un raid), sale confeti de neón y suena una cortinilla de sintetizador.</p>\n<p>El instalador pregunta <strong>tu nombre y tu usuario en cada red</strong> y lo deja todo listo. Después puedes cambiar el cielo (atardecer, noche de neón o día de playa) en <code>config.js</code>.</p>\n<p><small>Tema hecho por fans, sin relación con Rockstar Games ni Take-Two. No usa logos, fuentes ni artes oficiales: la ciudad, las palmeras y los adornos están dibujados con código.</small></p>",
+    "features": [
+      "Escenario animado: malecón con neón, noria, mar con reflejo, palmeras, pájaros y un avión",
+      "Tres cielos: atardecer, noche de neón o día de playa",
+      "Instalador que pregunta tu nombre y tus redes y lo deja todo listo",
+      "Webcam en el lugar del minimapa y la meta como barra de vida en la escena Juego",
+      "Cuenta regresiva que se reinicia cada vez que la escena sale al aire, con consejos rotando",
+      "Cronómetro de “ausente hace” que suma una estrella de búsqueda cada 2 minutos",
+      "Chat de Twitch en un celular en pantalla (sin iniciar sesión), con filtro de bots y comandos",
+      "Alertas de “misión cumplida” con estrellas de búsqueda, confeti de neón y cortinilla de sintetizador",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "8 paneles para Twitch y banner offline en el mismo estilo",
+      "Modo ahorro: menos FPS, fondo estático o efectos desactivados"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Leonida.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Responde tu nombre y tus usuarios en las redes (Enter salta las que no usas).",
+      "Abre OBS y elige Colección de escenas → Leonida.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: pantalla de carga con cuenta regresiva y consejos rotando en la esquina." },
+      { "title": "Juego", "desc": "Juego a pantalla completa, webcam en el lugar del minimapa con la meta como barra de vida, y tus redes." },
+      { "title": "Charla", "desc": "Charla: webcam grande y el chat en un celular al lado." },
+      { "title": "React", "desc": "Video grande, webcam y un celular con el chat al lado, con tus redes y la meta abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” que suma una estrella de búsqueda cada 2 minutos, y el chat." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

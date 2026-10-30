@@ -7,11 +7,11 @@ defined( 'ABSPATH' ) || exit;
 
 function ga_account_tabs(): array {
 	return [
-		'favoritos'    => [ 'Favoritos', 'heart' ],
-		'downloads'    => [ 'Downloads', 'download' ],
-		'solicitacoes' => [ 'Solicitações', 'wand' ],
-		'perfil'       => [ 'Perfil', 'user' ],
-		'privacidade'  => [ 'Privacidade', 'shield' ],
+		'favoritos'    => [ __( 'Favoritos', 'getalive' ), 'heart' ],
+		'downloads'    => [ __( 'Downloads', 'getalive' ), 'download' ],
+		'solicitacoes' => [ __( 'Solicitações', 'getalive' ), 'wand' ],
+		'perfil'       => [ __( 'Perfil', 'getalive' ), 'user' ],
+		'privacidade'  => [ __( 'Privacidade', 'getalive' ), 'shield' ],
 	];
 }
 

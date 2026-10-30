@@ -1,12 +1,25 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import Icon, { GoogleLogo } from './Icon';
 import { api } from '../lib/api';
+import { __ } from '../lib/i18n';
 
 const COPY = {
-  login: { title: ['Bem-vindo', 'de volta.'], sub: 'Entre para baixar, favoritar e pedir templates.', cta: 'Entrar' },
-  register: { title: ['Crie sua', 'conta grátis.'], sub: 'Leva menos de um minuto. Só pedimos nome e e-mail.', cta: 'Criar conta' },
-  forgot: { title: ['Esqueceu', 'a senha?'], sub: 'Sem problema. Mandamos um link para você criar outra.', cta: 'Enviar link' },
+  login: { title: [__('Bem-vindo'), __('de volta.')], sub: __('Entre para baixar, favoritar e pedir templates.'), cta: __('Entrar') },
+  register: { title: [__('Crie sua'), __('conta grátis.')], sub: __('Leva menos de um minuto. Só pedimos nome e e-mail.'), cta: __('Criar conta') },
+  forgot: { title: [__('Esqueceu'), __('a senha?')], sub: __('Sem problema. Mandamos um link para você criar outra.'), cta: __('Enviar link') },
 };
+
+/** Texto com um elemento no lugar do %s (ex.: um link no meio da frase). */
+function withElement(text, element) {
+  const [before, after = ''] = text.split('%s');
+  return (
+    <>
+      {before}
+      {element}
+      {after}
+    </>
+  );
+}
 
 /* ------------------------------------------------------------------------ */
 /* Google Identity Services: carrega o script assim que a tela abre, para    */
@@ -24,7 +37,7 @@ function loadGis() {
     s.onload = resolve;
     s.onerror = () => {
       gisPromise = null;
-      reject(new Error('Não foi possível carregar o login do Google.'));
+      reject(new Error(__('Não foi possível carregar o login do Google.')));
     };
     document.head.append(s);
   });
@@ -47,11 +60,11 @@ function useGoogle(clientId, onToken, onError) {
           client_id: clientId,
           scope: 'openid email profile',
           callback: (res) => {
-            if (res.error) handlers.current.onError(res.error_description || 'Login com Google cancelado.');
+            if (res.error) handlers.current.onError(res.error_description || __('Login com Google cancelado.'));
             else handlers.current.onToken(res.access_token);
           },
           error_callback: (err) => {
-            if (err?.type !== 'popup_closed') handlers.current.onError('Não foi possível abrir o login do Google.');
+            if (err?.type !== 'popup_closed') handlers.current.onError(__('Não foi possível abrir o login do Google.'));
             else handlers.current.onError(null);
           },
         });
@@ -111,10 +124,10 @@ function strength(pw) {
 
 const STRENGTH = [
   { label: '', color: '' },
-  { label: 'Fraca', color: 'bg-live' },
-  { label: 'Razoável', color: 'bg-orange-400' },
-  { label: 'Boa', color: 'bg-signal-400' },
-  { label: 'Forte', color: 'bg-lime' },
+  { label: __('Senha fraca'), color: 'bg-live' },
+  { label: __('Senha razoável'), color: 'bg-orange-400' },
+  { label: __('Senha boa'), color: 'bg-signal-400' },
+  { label: __('Senha forte'), color: 'bg-lime' },
 ];
 
 function PasswordField({ value, showMeter, ...props }) {
@@ -131,7 +144,7 @@ function PasswordField({ value, showMeter, ...props }) {
             type="button"
             className="field__action"
             onClick={() => setVisible((v) => !v)}
-            aria-label={visible ? 'Esconder senha' : 'Mostrar senha'}
+            aria-label={visible ? __('Esconder senha') : __('Mostrar senha')}
             aria-pressed={visible}
           >
             <Icon name={visible ? 'eye-off' : 'eye'} className="size-5" />
@@ -146,8 +159,8 @@ function PasswordField({ value, showMeter, ...props }) {
             ))}
           </div>
           <p className="mt-1.5 text-xs text-ink-400">
-            Senha {STRENGTH[score].label.toLowerCase()}
-            {value.length < 8 && ` · faltam ${8 - value.length} caracteres`}
+            {STRENGTH[score].label}
+            {value.length < 8 && ` · ${8 - value.length === 1 ? __('falta 1 caractere') : __('faltam %d caracteres', 8 - value.length)}`}
           </p>
         </div>
       )}
@@ -227,7 +240,7 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
       setMessage(null);
       try {
         const res = await api('auth/google', { access_token: token, redirect_to: redirectTo });
-        finish(res, res.created ? 'Conta criada com o Google.' : 'Login feito com o Google.');
+        finish(res, res.created ? __('Conta criada com o Google.') : __('Login feito com o Google.'));
       } catch (err) {
         setMessage({ type: 'error', text: err.message });
         setBusy(false);
@@ -241,11 +254,11 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
 
   const validate = () => {
     const e = {};
-    if (mode === 'register' && values.name.trim().length < 2) e.name = 'Conta pra gente como você se chama.';
-    if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) e.email = 'Informe um e-mail válido.';
-    if (mode === 'login' && !values.password) e.password = 'Informe sua senha.';
-    if (mode === 'register' && values.password.length < 8) e.password = 'Use pelo menos 8 caracteres.';
-    if (mode === 'register' && !values.consent) e.consent = 'Para criar a conta, aceite a Política de Privacidade.';
+    if (mode === 'register' && values.name.trim().length < 2) e.name = __('Conta pra gente como você se chama.');
+    if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) e.email = __('Informe um e-mail válido.');
+    if (mode === 'login' && !values.password) e.password = __('Informe sua senha.');
+    if (mode === 'register' && values.password.length < 8) e.password = __('Use pelo menos 8 caracteres.');
+    if (mode === 'register' && !values.consent) e.consent = __('Para criar a conta, aceite a Política de Privacidade.');
     return e;
   };
 
@@ -269,7 +282,7 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
         return;
       }
       const res = await api(mode === 'login' ? 'auth/login' : 'auth/register', { ...values, redirect_to: redirectTo });
-      finish(res, mode === 'login' ? 'Login feito.' : 'Conta criada.');
+      finish(res, mode === 'login' ? __('Login feito.') : __('Conta criada.'));
     } catch (err) {
       if (err.field) {
         setErrors({ [err.field]: err.message });
@@ -289,9 +302,9 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
           <Icon name="check" className="relative size-9" strokeWidth="2.5" />
         </span>
         <h1 className="mt-8 font-display text-4xl font-semibold tracking-tight text-white">
-          {done.name ? `Oi, ${done.name}!` : 'Tudo certo!'}
+          {done.name ? __('Oi, %s!', done.name) : __('Tudo certo!')}
         </h1>
-        <p className="mt-2 text-ink-400">{done.text} Levando você de volta…</p>
+        <p className="mt-2 text-ink-400">{__('%s Levando você de volta…', done.text)}</p>
       </div>
     );
   }
@@ -302,13 +315,13 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
   return (
     <div>
       {mode !== 'forgot' && registrationOpen && (
-        <div className="auth-tabs mb-10" role="tablist" aria-label="Entrar ou criar conta">
+        <div className="auth-tabs mb-10" role="tablist" aria-label={__('Entrar ou criar conta')}>
           <span className="auth-tabs__pill" style={{ transform: mode === 'register' ? 'translateX(100%)' : 'none' }} aria-hidden="true" />
           <button type="button" role="tab" aria-selected={mode === 'login'} onClick={() => switchMode('login')}>
-            Entrar
+            {__('Entrar')}
           </button>
           <button type="button" role="tab" aria-selected={mode === 'register'} onClick={() => switchMode('register')}>
-            Criar conta
+            {__('Criar conta')}
           </button>
         </div>
       )}
@@ -316,7 +329,7 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
       <div key={mode} className="auth-form-enter">
         {mode === 'forgot' && (
           <button type="button" onClick={() => switchMode('login')} className="mb-8 inline-flex items-center gap-2 text-sm text-ink-400 transition hover:text-white">
-            <Icon name="arrow-left" className="size-4" /> Voltar para o login
+            <Icon name="arrow-left" className="size-4" /> {__('Voltar para o login')}
           </button>
         )}
 
@@ -338,18 +351,18 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
           <div className="mt-8">
             <button type="button" className="btn-google" onClick={() => (setBusy('google'), google.open())} disabled={!google.ready || busy}>
               {busy === 'google' ? <span className="spinner" /> : <GoogleLogo />}
-              <span>{mode === 'register' ? 'Criar conta com o Google' : 'Continuar com o Google'}</span>
+              <span>{mode === 'register' ? __('Criar conta com o Google') : __('Continuar com o Google')}</span>
             </button>
-            <p className="divider-or mt-8">ou com e-mail</p>
+            <p className="divider-or mt-8">{__('ou com e-mail')}</p>
           </div>
         )}
 
         <form onSubmit={submit} noValidate className={`grid gap-4 ${showGoogle ? 'mt-8' : 'mt-10'}`}>
           {mode === 'register' && (
-            <Field label="Seu nome" name="name" autoComplete="name" value={values.name} onChange={set('name')} error={errors.name} inputRef={firstField} required />
+            <Field label={__('Seu nome')} name="name" autoComplete="name" value={values.name} onChange={set('name')} error={errors.name} inputRef={firstField} required />
           )}
           <Field
-            label="E-mail"
+            label={__('E-mail')}
             name="email"
             type="email"
             autoComplete="email"
@@ -362,7 +375,7 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
           />
           {mode !== 'forgot' && (
             <PasswordField
-              label="Senha"
+              label={__('Senha')}
               name="password"
               autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
               value={values.password}
@@ -377,11 +390,12 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
             <>
               <input type="text" name="website" value={values.website} onChange={set('website')} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
               <Checkbox checked={values.consent} onChange={set('consent')} error={errors.consent}>
-                Li e aceito a{' '}
-                <a href={privacyUrl} target="_blank" rel="noopener">
-                  Política de Privacidade
-                </a>
-                . Meus dados são usados só para a conta funcionar.
+                {withElement(
+                  __('Li e aceito a %s. Meus dados são usados só para a conta funcionar.'),
+                  <a href={privacyUrl} target="_blank" rel="noopener">
+                    {__('Política de Privacidade')}
+                  </a>
+                )}
               </Checkbox>
             </>
           )}
@@ -389,10 +403,10 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
           {mode === 'login' && (
             <div className="flex items-center justify-between gap-4">
               <Checkbox checked={values.remember} onChange={set('remember')}>
-                Lembrar de mim
+                {__('Lembrar de mim')}
               </Checkbox>
               <button type="button" onClick={() => switchMode('forgot')} className="text-sm text-ink-300 underline-offset-4 transition hover:text-white hover:underline">
-                Esqueci a senha
+                {__('Esqueci a senha')}
               </button>
             </div>
           )}
@@ -408,17 +422,17 @@ export default function AuthApp({ mode: initialMode = 'login', redirectTo, googl
             {mode === 'login' ? (
               registrationOpen && (
                 <>
-                  Ainda não tem conta?{' '}
+                  {__('Ainda não tem conta?')}{' '}
                   <button type="button" onClick={() => switchMode('register')} className="font-medium text-white underline-offset-4 hover:underline">
-                    Crie grátis
+                    {__('Crie grátis')}
                   </button>
                 </>
               )
             ) : (
               <>
-                Já tem conta?{' '}
+                {__('Já tem conta?')}{' '}
                 <button type="button" onClick={() => switchMode('login')} className="font-medium text-white underline-offset-4 hover:underline">
-                  Entrar
+                  {__('Entrar')}
                 </button>
               </>
             )}

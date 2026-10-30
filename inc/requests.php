@@ -7,18 +7,21 @@ defined( 'ABSPATH' ) || exit;
 
 function ga_request_statuses(): array {
 	return [
-		'received'   => 'Recebida',
-		'reviewing'  => 'Em análise',
-		'production' => 'Em produção',
-		'published'  => 'Publicada',
-		'declined'   => 'Não vamos fazer',
+		'received'   => __( 'Recebida', 'getalive' ),
+		'reviewing'  => __( 'Em análise', 'getalive' ),
+		'production' => __( 'Em produção', 'getalive' ),
+		'published'  => __( 'Publicada', 'getalive' ),
+		'declined'   => __( 'Não vamos fazer', 'getalive' ),
 	];
 }
 
+/**
+ * Opções do formulário de pedido. Ficam gravadas no idioma em que a pessoa pediu.
+ */
 function ga_request_options(): array {
 	return [
-		'vibes'     => [ 'Retrô / pixel art', 'Minimalista', 'Neon / synthwave', 'Anime / kawaii', 'Aconchegante / lo-fi', 'Gamer / esports', 'Terror', 'Natureza', 'Corporativo / podcast' ],
-		'scenes'    => [ 'Começando', 'Jogo', 'Conversa', 'React', 'Já volto', 'Encerrando', 'Alertas', 'Chat na tela', 'Painéis da Twitch' ],
+		'vibes'     => array_map( 'ga_t', [ 'Retrô / pixel art', 'Minimalista', 'Neon / synthwave', 'Anime / kawaii', 'Aconchegante / lo-fi', 'Gamer / esports', 'Terror', 'Natureza', 'Corporativo / podcast' ] ),
+		'scenes'    => array_map( 'ga_t', [ 'Começando', 'Jogo', 'Conversa', 'React', 'Já volto', 'Encerrando', 'Alertas', 'Chat na tela', 'Painéis da Twitch' ] ),
 		'platforms' => [ 'Twitch', 'YouTube', 'Kick', 'TikTok' ],
 	];
 }

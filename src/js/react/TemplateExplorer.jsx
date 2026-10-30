@@ -1,10 +1,11 @@
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import Icon from './Icon';
 import TemplateCard from './TemplateCard';
+import { __, _n, locale } from '../lib/i18n';
 
 const SORTS = [
-  { key: 'order', label: 'Destaques' },
-  { key: 'popular', label: 'Populares' },
+  { key: 'order', label: __('Destaques') },
+  { key: 'popular', label: __('Populares') },
   { key: 'az', label: 'A–Z' },
 ];
 
@@ -56,7 +57,7 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
     const sorters = {
       order: (a, b) => a.rank - b.rank,
       popular: (a, b) => b.downloads - a.downloads,
-      az: (a, b) => a.title.localeCompare(b.title, 'pt-BR'),
+      az: (a, b) => a.title.localeCompare(b.title, locale),
     };
     return [...list].sort(sorters[sort]);
   }, [items, deferredQuery, style, sort, onlyFavs]);
@@ -76,14 +77,14 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
       <div className="explorer-bar">
         <div className="flex flex-col gap-2 lg:flex-row lg:items-center">
           <label className="relative flex-1">
-            <span className="sr-only">Buscar templates</span>
+            <span className="sr-only">{__('Buscar templates')}</span>
             <Icon name="search" className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-ink-400" />
             <input
               ref={searchRef}
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar por nome, estilo ou plataforma"
+              placeholder={__('Buscar por nome, estilo ou plataforma')}
               className="h-12 w-full rounded-full bg-white/[0.04] pl-12 pr-12 text-[15px] text-white outline-none ring-signal-400 transition placeholder:text-ink-500 focus:bg-white/[0.07] focus:ring-2 [&::-webkit-search-cancel-button]:hidden"
             />
             {query ? (
@@ -91,7 +92,7 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
                 type="button"
                 onClick={() => setQuery('')}
                 className="absolute right-2 top-1/2 inline-flex size-8 -translate-y-1/2 items-center justify-center rounded-full text-ink-400 hover:bg-white/10 hover:text-white"
-                aria-label="Limpar busca"
+                aria-label={__('Limpar busca')}
               >
                 <Icon name="close" className="size-4" />
               </button>
@@ -100,7 +101,7 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
             )}
           </label>
 
-          <div className="explorer-bar__sorts" role="group" aria-label="Ordenar">
+          <div className="explorer-bar__sorts" role="group" aria-label={__('Ordenar')}>
             {SORTS.map((s) => (
               <button
                 key={s.key}
@@ -120,7 +121,7 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
                 className={`ml-auto inline-flex h-10 shrink-0 items-center gap-2 rounded-full px-3 text-[13px] transition sm:px-4 sm:text-sm lg:ml-1 ${onlyFavs ? 'bg-live text-white' : 'text-ink-300 hover:text-white'}`}
               >
                 <Icon name="heart" className="size-4" fill={onlyFavs ? 'currentColor' : 'none'} />
-                <span className="max-sm:sr-only">Favoritos</span>
+                <span className="max-sm:sr-only">{__('Favoritos')}</span>
                 <span className="font-mono text-xs opacity-70">{favCount}</span>
               </button>
             )}
@@ -129,9 +130,9 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
       </div>
 
       {styles.length > 0 && (
-        <div className="-mx-1 mb-6 flex gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none]" role="group" aria-label="Estilos">
+        <div className="-mx-1 mb-6 flex gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none]" role="group" aria-label={__('Estilos')}>
           <button type="button" className="chip shrink-0" aria-pressed={!style} onClick={() => setStyle('')}>
-            Todos
+            {__('Todos')}
           </button>
           {styles.map((s) => (
             <button key={s.slug} type="button" className="chip shrink-0" aria-pressed={style === s.slug} onClick={() => setStyle(style === s.slug ? '' : s.slug)}>
@@ -142,10 +143,10 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
       )}
 
       <p className="mb-8 font-mono text-xs uppercase tracking-[0.16em] text-ink-500" aria-live="polite">
-        {results.length} {results.length === 1 ? 'template' : 'templates'}
+        {results.length} {_n('template', 'templates', results.length)}
         {filtered && (
           <button type="button" onClick={clear} className="ml-3 text-ink-300 underline underline-offset-4 hover:text-white">
-            limpar filtros
+            {__('limpar filtros')}
           </button>
         )}
       </p>
@@ -163,23 +164,19 @@ export default function TemplateExplorer({ items: initial = [], styles = [], sty
             <Icon name={onlyFavs ? 'heart' : 'search'} className="size-7" />
           </span>
           <h2 className="mt-6 font-display text-3xl font-semibold tracking-tight text-white">
-            {onlyFavs && !query ? 'Nenhum favorito ainda' : 'Nada encontrado'}
+            {onlyFavs && !query ? __('Nenhum favorito ainda') : __('Nada encontrado')}
           </h2>
           <p className="mt-2 max-w-sm text-ink-400">
-            {query ? (
-              <>
-                Não achamos templates para “{query}”. Que tal pedir um com essa cara?
-              </>
-            ) : (
-              'Tente outro filtro ou peça um template novo.'
-            )}
+            {query
+              ? __('Não achamos templates para “%s”. Que tal pedir um com essa cara?', query)
+              : __('Tente outro filtro ou peça um template novo.')}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button type="button" className="btn btn--outline" onClick={clear}>
-              <span>Limpar filtros</span>
+              <span>{__('Limpar filtros')}</span>
             </button>
             <a href={request} className="btn btn--primary">
-              <span>Solicitar template</span>
+              <span>{__('Solicitar template')}</span>
               <Icon name="arrow-right" className="btn__arrow" />
             </a>
           </div>
@@ -196,11 +193,11 @@ function SoonCard({ href }) {
         <span className="inline-flex size-14 items-center justify-center rounded-full border border-white/15 transition duration-500 ease-expo group-hover:rotate-90 group-hover:border-lime group-hover:bg-lime group-hover:text-ink-950">
           <Icon name="plus" className="size-6" />
         </span>
-        <span className="eyebrow">Próximo template</span>
+        <span className="eyebrow">{__('Próximo template')}</span>
       </span>
       <span className="mt-5 block">
-        <span className="tcard__title block">Pode ser o seu</span>
-        <span className="mt-1.5 block text-ink-400">Novos templates saem a partir dos pedidos. Conte a sua ideia.</span>
+        <span className="tcard__title block">{__('Pode ser o seu')}</span>
+        <span className="mt-1.5 block text-ink-400">{__('Novos templates saem a partir dos pedidos. Conte a sua ideia.')}</span>
       </span>
     </a>
   );

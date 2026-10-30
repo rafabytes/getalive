@@ -13,18 +13,18 @@ const GA_CONSENT_VERSION = 1;
 function ga_consent_categories(): array {
 	return [
 		'necessary' => [
-			'label'    => 'Necessários',
-			'desc'     => 'Mantêm você logado, guardam suas escolhas de privacidade e protegem os formulários. Não dá para desligar.',
+			'label'    => __( 'Necessários', 'getalive' ),
+			'desc'     => __( 'Mantêm você logado, guardam suas escolhas de privacidade e protegem os formulários. Não dá para desligar.', 'getalive' ),
 			'required' => true,
 		],
 		'analytics' => [
-			'label'    => 'Estatísticas',
-			'desc'     => 'Contam visitas e cliques de forma agregada para sabermos quais templates fazer a seguir.',
+			'label'    => __( 'Estatísticas', 'getalive' ),
+			'desc'     => __( 'Contam visitas e cliques de forma agregada para sabermos quais templates fazer a seguir.', 'getalive' ),
 			'required' => false,
 		],
 		'marketing' => [
-			'label'    => 'Marketing',
-			'desc'     => 'Permitem medir campanhas e mostrar novidades do get a live em outros sites.',
+			'label'    => __( 'Marketing', 'getalive' ),
+			'desc'     => __( 'Permitem medir campanhas e mostrar novidades do get a live em outros sites.', 'getalive' ),
 			'required' => false,
 		],
 	];
@@ -54,11 +54,11 @@ function ga_consent_banner(): void {
 		<div class="consent__card" role="dialog" aria-modal="false" aria-labelledby="consent-title" aria-describedby="consent-desc">
 			<div class="consent__head">
 				<span class="consent__icon"><?php echo ga_icon( 'cookie', 'size-5' ); ?></span>
-				<p id="consent-title" class="consent__title">Sua privacidade, suas regras</p>
+				<p id="consent-title" class="consent__title"><?php esc_html_e( 'Sua privacidade, suas regras', 'getalive' ); ?></p>
 			</div>
 			<p id="consent-desc" class="consent__text">
-				Usamos cookies necessários para o site funcionar e, com a sua permissão, cookies de estatística e marketing.
-				Você pode mudar isso quando quiser. <a href="<?php echo esc_url( $privacy ); ?>#cookies">Saiba mais</a><span class="sm:hidden"> ou <button type="button" data-consent-open>personalize</button></span>.
+				<?php esc_html_e( 'Usamos cookies necessários para o site funcionar e, com a sua permissão, cookies de estatística e marketing.', 'getalive' ); ?>
+				<?php esc_html_e( 'Você pode mudar isso quando quiser.', 'getalive' ); ?> <a href="<?php echo esc_url( $privacy ); ?>#cookies"><?php esc_html_e( 'Saiba mais', 'getalive' ); ?></a><span class="sm:hidden"> <?php esc_html_e( 'ou', 'getalive' ); ?> <button type="button" data-consent-open><?php esc_html_e( 'personalize', 'getalive' ); ?></button></span>.
 			</p>
 
 			<form class="consent__prefs" data-consent-prefs hidden>
@@ -77,10 +77,10 @@ function ga_consent_banner(): void {
 			</form>
 
 			<div class="consent__actions">
-				<button type="button" class="btn btn--ghost btn--sm" data-consent-action="customize">Personalizar</button>
-				<button type="button" class="btn btn--ghost btn--sm" data-consent-action="save" hidden>Salvar escolhas</button>
-				<button type="button" class="btn btn--outline btn--sm" data-consent-action="reject">Só necessários</button>
-				<button type="button" class="btn btn--primary btn--sm" data-consent-action="accept">Aceitar todos</button>
+				<button type="button" class="btn btn--ghost btn--sm" data-consent-action="customize"><?php esc_html_e( 'Personalizar', 'getalive' ); ?></button>
+				<button type="button" class="btn btn--ghost btn--sm" data-consent-action="save" hidden><?php esc_html_e( 'Salvar escolhas', 'getalive' ); ?></button>
+				<button type="button" class="btn btn--outline btn--sm" data-consent-action="reject"><?php esc_html_e( 'Só necessários', 'getalive' ); ?></button>
+				<button type="button" class="btn btn--primary btn--sm" data-consent-action="accept"><?php esc_html_e( 'Aceitar todos', 'getalive' ); ?></button>
 			</div>
 		</div>
 	</div>
@@ -97,19 +97,19 @@ add_shortcode( 'ga_contact_email', function () {
 	return '<a href="mailto:' . $email . '">' . $email . '</a>';
 } );
 add_shortcode( 'ga_cookie_preferences', function () {
-	return '<button type="button" class="btn btn--outline btn--sm" data-consent-open>' . ga_icon( 'cookie', 'size-4' ) . '<span>Gerenciar cookies</span></button>';
+	return '<button type="button" class="btn btn--outline btn--sm" data-consent-open>' . ga_icon( 'cookie', 'size-4' ) . '<span>' . esc_html__( 'Gerenciar cookies', 'getalive' ) . '</span></button>';
 } );
-add_shortcode( 'ga_policy_updated', fn() => esc_html( get_the_modified_date( 'j \d\e F \d\e Y' ) ) );
+add_shortcode( 'ga_policy_updated', fn() => esc_html( get_the_modified_date( ga_date_format() ) ) );
 add_shortcode( 'ga_cookie_table', function () {
 	$rows = [
-		[ 'wordpress_logged_in_*, wordpress_sec_*', 'Necessário', 'Mantém sua sessão de login', 'Até 14 dias' ],
-		[ 'wordpress_test_cookie', 'Necessário', 'Verifica se o navegador aceita cookies', 'Sessão' ],
-		[ 'ga_consent', 'Necessário', 'Guarda suas escolhas de cookies', '12 meses' ],
-		[ 'Cookies do Google (accounts.google.com)', 'Necessário, só se você usar "Entrar com Google"', 'Autenticação pela sua conta Google', 'Definido pelo Google' ],
-		[ 'Ferramentas de estatística', 'Estatísticas', 'Medição de audiência agregada, só após o seu aceite', 'Até 13 meses' ],
-		[ 'Ferramentas de marketing', 'Marketing', 'Medição de campanhas, só após o seu aceite', 'Até 13 meses' ],
+		[ 'wordpress_logged_in_*, wordpress_sec_*', __( 'Necessário', 'getalive' ), __( 'Mantém sua sessão de login', 'getalive' ), __( 'Até 14 dias', 'getalive' ) ],
+		[ 'wordpress_test_cookie', __( 'Necessário', 'getalive' ), __( 'Verifica se o navegador aceita cookies', 'getalive' ), __( 'Sessão', 'getalive' ) ],
+		[ 'ga_consent', __( 'Necessário', 'getalive' ), __( 'Guarda suas escolhas de cookies', 'getalive' ), __( '12 meses', 'getalive' ) ],
+		[ __( 'Cookies do Google (accounts.google.com)', 'getalive' ), __( 'Necessário, só se você usar "Entrar com Google"', 'getalive' ), __( 'Autenticação pela sua conta Google', 'getalive' ), __( 'Definido pelo Google', 'getalive' ) ],
+		[ __( 'Ferramentas de estatística', 'getalive' ), __( 'Estatísticas', 'getalive' ), __( 'Medição de audiência agregada, só após o seu aceite', 'getalive' ), __( 'Até 13 meses', 'getalive' ) ],
+		[ __( 'Ferramentas de marketing', 'getalive' ), __( 'Marketing', 'getalive' ), __( 'Medição de campanhas, só após o seu aceite', 'getalive' ), __( 'Até 13 meses', 'getalive' ) ],
 	];
-	$html = '<div class="table-wrap"><table><thead><tr><th>Cookie</th><th>Categoria</th><th>Para quê</th><th>Duração</th></tr></thead><tbody>';
+	$html = '<div class="table-wrap"><table><thead><tr><th>' . esc_html__( 'Cookie', 'getalive' ) . '</th><th>' . esc_html__( 'Categoria', 'getalive' ) . '</th><th>' . esc_html__( 'Para quê', 'getalive' ) . '</th><th>' . esc_html__( 'Duração', 'getalive' ) . '</th></tr></thead><tbody>';
 	foreach ( $rows as $row ) {
 		$html .= '<tr><td><code>' . esc_html( $row[0] ) . '</code></td><td>' . esc_html( $row[1] ) . '</td><td>' . esc_html( $row[2] ) . '</td><td>' . esc_html( $row[3] ) . '</td></tr>';
 	}

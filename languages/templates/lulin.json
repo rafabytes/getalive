@@ -1,0 +1,80 @@
+{
+  "en": {
+    "tagline": "Windows 98, WordArt and Comic Sans, with a wizard in a starry hat instead of the Word assistant.",
+    "excerpt": "Free animated OBS overlay pack with a retro tech vibe, a tribute to the Brazilian channel Tecnologia e Classe: a Windows 98 desktop, embossed gray windows, WordArt titles and the assistant wizard waving his wand. Includes starting soon, gameplay, BRB and ending screens, Twitch chat, alerts and panels.",
+    "content": "<p class='lead'>Looks like you got here early! A Windows 98 desktop with icons and a taskbar, embossed gray windows, WordArt titles, Comic Sans and an assistant wizard with a gray beard and a red hat and robe covered in stars.</p>\n<p>Lulin is a complete scene collection for OBS Studio, a tribute to the Brazilian channel Tecnologia e Classe. Every screen shares the same desktop, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a single cut. The Start button has a red star and the taskbar clock is real.</p>\n<p>In the alerts, the wizard pops up in a yellow balloon like the Office 97 assistant: the name comes in WordArt, red stars light up, sparkles fly from the wand (and it rains money on donations) and the “Valeu!” (“Thanks!”) and “Mais uma!” (“One more!”) buttons show up. The Twitch chat comes in a messenger window in the “so-and-so says:” style.</p>\n<p>The installer asks for <strong>your name and your username on each network</strong> and fills everything in. Afterwards, you can change the desktop (classic teal, Windows 95 sky or a starfield screensaver) in <code>config.js</code>.</p>\n<p><small>Fan and humor theme, with no connection to Microsoft or the channel it pays tribute to. It uses no official logos or artwork: the wizard, icons and windows are drawn in code.</small></p>",
+    "features": [
+      "Windows 98 desktop with icons, taskbar and a real clock",
+      "Animated assistant wizard who blinks and waves his wand",
+      "Three backgrounds: classic teal, Windows 95 sky or a starfield screensaver",
+      "Installer that asks for your name and socials and fills everything in",
+      "Countdown in a window, with the wizard giving tips in the corner",
+      "“Away for” timer that earns a red star every 2 minutes",
+      "Twitch chat in a messenger window (no login), filtering out bots and commands",
+      "Alerts with the wizard in an assistant balloon, WordArt and a synth jingle",
+      "Works with StreamElements or another service's alerts URL",
+      "8 Twitch panels and a matching offline banner",
+      "Low-power mode: lower FPS, still background or stars off"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Lulizard.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Enter your name and your usernames on each network (Enter skips the ones you don't use).",
+      "Open OBS and choose Scene Collection → Lulizard.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a countdown window and the wizard giving tips in the corner." },
+      { "title": "Game", "desc": "Full-screen game, webcam in a window in the corner with the goal below and a bar with your socials." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam and the chat in a messenger window beside it." },
+      { "title": "React", "desc": "Big video, webcam and the chat in windows beside it, with your socials and the goal below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer that earns a red star every 2 minutes, the wizard and the chat." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "Windows 98, WordArt y Comic Sans, con un mago de sombrero estrellado en lugar del asistente de Word.",
+    "excerpt": "Pack de overlays animados gratis para OBS con aire de tecnología retro, en homenaje al canal brasileño Tecnologia e Classe: escritorio de Windows 98, ventanas grises en relieve, títulos en WordArt y el mago asistente agitando la varita. Incluye pantallas de inicio, juego, pausa y final, chat de Twitch, alertas y paneles.",
+    "content": "<p class='lead'>¡Parece que llegaste temprano! Escritorio de Windows 98 con íconos y barra de tareas, ventanas grises en relieve, títulos en WordArt, Comic Sans y un mago asistente de barba canosa, con sombrero y manto rojos llenos de estrellas.</p>\n<p>Lulin es una colección de escenas completa para OBS Studio, en homenaje al canal brasileño Tecnologia e Classe. Todas las pantallas comparten el mismo escritorio, así que el paso entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin ningún corte. El botón Inicio tiene una estrella roja y el reloj de la barra de tareas es de verdad.</p>\n<p>En las alertas, el mago aparece en un globo amarillo como el asistente de Office 97: el nombre llega en WordArt, se encienden las estrellas rojas, salen chispitas de la varita (y llueve dinero en las donaciones) y aparecen los botones “Valeu!” (“¡Gracias!”) y “Mais uma!” (“¡Otra más!”). El chat de Twitch entra en una ventana de mensajería al estilo “fulano dice:”.</p>\n<p>El instalador pregunta <strong>tu nombre y tu usuario en cada red</strong> y lo deja todo listo. Después puedes cambiar el escritorio (verde azulado clásico, cielo de Windows 95 o protector de pantalla de estrellas) en <code>config.js</code>.</p>\n<p><small>Tema de fan y de humor, sin relación con Microsoft ni con el canal homenajeado. No usa logos ni artes oficiales: el mago, los íconos y las ventanas están dibujados con código.</small></p>",
+    "features": [
+      "Escritorio de Windows 98 con íconos, barra de tareas y reloj de verdad",
+      "Mago asistente animado que parpadea y agita la varita",
+      "Tres fondos: verde azulado clásico, cielo de Windows 95 o protector de pantalla de estrellas",
+      "Instalador que pregunta tu nombre y tus redes y lo deja todo listo",
+      "Cuenta regresiva en una ventana, con el mago dando consejos en la esquina",
+      "Cronómetro de “ausente hace” que suma una estrella roja cada 2 minutos",
+      "Chat de Twitch en una ventana de mensajería (sin iniciar sesión), con filtro de bots y comandos",
+      "Alertas con el mago en un globo de asistente, WordArt y cortinilla de sintetizador",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "8 paneles para Twitch y banner offline en el mismo estilo",
+      "Modo ahorro: menos FPS, fondo estático o estrellas desactivadas"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Lulizard.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Responde tu nombre y tus usuarios en las redes (Enter salta las que no usas).",
+      "Abre OBS y elige Colección de escenas → Lulizard.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: ventana de cuenta regresiva y el mago dando consejos en la esquina." },
+      { "title": "Juego", "desc": "Juego a pantalla completa, webcam en una ventana en la esquina con la meta abajo y una barra con tus redes." },
+      { "title": "Charla", "desc": "Charla: webcam grande y el chat en una ventana de mensajería al lado." },
+      { "title": "React", "desc": "Video grande, webcam y el chat en ventanas al lado, con tus redes y la meta abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” que suma una estrella roja cada 2 minutos, el mago y el chat." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

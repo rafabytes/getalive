@@ -39,7 +39,7 @@ function ga_set_favorite( int $post_id, bool $on, int $user_id = 0 ): bool {
  */
 function ga_favorite_button( int $post_id, string $variant = 'icon' ): string {
 	$on    = ga_is_favorite( $post_id );
-	$label = $on ? 'Remover dos favoritos' : 'Favoritar';
+	$label = $on ? __( 'Remover dos favoritos', 'getalive' ) : __( 'Favoritar', 'getalive' );
 	return sprintf(
 		'<button type="button" class="fav-btn fav-btn--%1$s%2$s" data-favorite="%3$d" aria-pressed="%4$s" aria-label="%5$s" data-login="%6$s">%7$s<span class="fav-btn__label">%8$s</span></button>',
 		esc_attr( $variant ),
@@ -49,6 +49,6 @@ function ga_favorite_button( int $post_id, string $variant = 'icon' ): string {
 		esc_attr( $label ),
 		esc_url( ga_login_url( get_permalink( $post_id ) ) ),
 		ga_icon( 'heart', 'fav-btn__icon' ),
-		$on ? 'Favoritado' : 'Favoritar'
+		esc_html( $on ? __( 'Favoritado', 'getalive' ) : __( 'Favoritar', 'getalive' ) )
 	);
 }
