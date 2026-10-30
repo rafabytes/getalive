@@ -25,7 +25,7 @@ function ga_home_sections(): array {
 			'hero_price'   => [ 'Preço', 'text', 'R$0' ],
 		] ],
 		'catalog' => [ 'Catálogo', [
-			'catalog_title_1' => [ 'Título: linha 1', 'text', 'Escolha o overlay' ],
+			'catalog_title_1' => [ 'Título: linha 1', 'text', 'Escolha a cena' ],
 			'catalog_title_2' => [ 'Título: linha 2', 'text', '*da sua live.*' ],
 			'catalog_cta'     => [ 'Botão', 'text', 'Ver todos os overlays' ],
 		] ],

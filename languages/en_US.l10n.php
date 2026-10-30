@@ -184,7 +184,7 @@ return [
 		'Enviada em %s' => 'Sent on %s',
 		'Enviar link' => 'Send link',
 		'Enviar pedido' => 'Send request',
-		'Escolha o overlay' => 'Pick the overlay',
+		'Escolha a cena' => 'Pick the overlay',
 		'Escolha o seu, entre na sua conta e baixe o ZIP. Extraia numa pasta fixa, como Documentos\\Temas OBS.' => 'Pick yours, log in and download the ZIP. Extract it to a permanent folder, like Documents\\OBS Themes.',
 		'Escolha quantos quiser.' => 'Pick as many as you like.',
 		'Escolher um template' => 'Pick a template',

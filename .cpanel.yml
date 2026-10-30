@@ -18,4 +18,4 @@ deployment:
     - find $DEPLOYPATH -type d -exec chmod 755 {} +
     - find $DEPLOYPATH -type f -exec chmod 644 {} +
     - php tools/regenerate-images.php || true
-    - uapi NginxCaching clear_cache || true
+    - /usr/local/cpanel/bin/uapi NginxCaching clear_cache || true
