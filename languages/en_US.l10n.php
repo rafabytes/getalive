@@ -418,6 +418,8 @@ return [
 		'Retrô' => 'Retro',
 		'Retrô / pixel art' => 'Retro / pixel art',
 		'Romântico' => 'Romantic',
+		'Kawaii' => 'Kawaii',
+		'Pastel' => 'Pastel',
 		'Saiba mais' => 'Learn more',
 		'Sair' => 'Log out',
 		'Salvar alterações' => 'Save changes',

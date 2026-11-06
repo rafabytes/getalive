@@ -1,0 +1,80 @@
+{
+  "en": {
+    "tagline": "A kawaii pastel café: sweets with little faces, kitties napping on the counter and a webcam with a kitty peeking over it.",
+    "excerpt": "Free animated OBS overlay pack styled as a kawaii café: strawberry, matcha and vanilla pastels, chocolate outlines and dripping frosting, cute sticker titles, two kitties napping on the counter and little hearts floating up the screen. Includes starting soon, gameplay, BRB and ending screens, Twitch chat, alerts and panels.",
+    "content": "<p class='lead'>Grab your cup: a cozy pastel café with smiling jars on the shelves, swaying lamps, bunting and a counter full of sweets, where two kitties, a caramel one and a grey one, nap while swishing their tails.</p>\n<p>Cafe Cuties is a complete scene collection for OBS Studio. Every screen shares the same animated background, so switching between <strong>Starting</strong>, <strong>Game</strong>, <strong>Just Chatting</strong>, <strong>React</strong>, <strong>Be Right Back</strong> and <strong>Ending</strong> happens without a single cut.</p>\n<p>Cards look like cookies with a chocolate outline and dripping strawberry frosting, the webcam has a kitty peeking over the top and a bow in the corner, and the chat shows up on a pink phone with cat ears, in pastel bubbles. Alerts pop up at the top of the screen with a kitty on top: the name in big sticker letters, little hearts lighting up (1 for a follow, up to 5 for a raid), hearts and sparkles flying and a music box chime.</p>\n<p>The installer asks for <strong>your name and your username on each network</strong> and fills everything in. Afterwards, you can switch the look (strawberry, matcha or night, with the moon in the window and fairy lights on) in <code>config.js</code>.</p>",
+    "features": [
+      "Animated kawaii café background: napping kitties, a steaming cup, bunting and floating hearts",
+      "Three looks: strawberry (pink wall), matcha (green wall) or night (moon in the window and fairy lights on)",
+      "Installer that asks for your name and socials and fills everything in",
+      "Webcam with a kitty peeking over the top and a bow in the corner",
+      "Countdown on a frosted card that restarts whenever the scene goes live, with rotating “tips”",
+      "“Away for” timer that earns a little heart every 2 minutes",
+      "Twitch chat on a phone with cat ears (no login), filtering out bots and commands",
+      "Alerts with a kitty, little hearts, flying sparkles and a music box chime",
+      "Works with StreamElements or another service's alerts URL",
+      "8 Twitch panels and a matching offline banner",
+      "Low-power mode: lower FPS, still background or effects off"
+    ],
+    "requirements": [
+      "Windows 10 or 11",
+      "OBS Studio 30 or newer",
+      "Webcam (optional)",
+      "Twitch account for live chat (optional)"
+    ],
+    "install": [
+      "Extract the ZIP to a permanent folder, like Documents\\OBS Themes\\Cafe.",
+      "Close OBS and double-click INSTALAR.bat.",
+      "Enter your name and your usernames on each network (Enter skips the ones you don't use).",
+      "Open OBS and choose Scene Collection → Cafe.",
+      "In the Jogo (Game) scene, pick your webcam in the Câmera source."
+    ],
+    "scenes": [
+      { "title": "Starting", "desc": "Before the stream: a card with a countdown, a spinning donut and “tips” in the corner." },
+      { "title": "Game", "desc": "Full-screen game, webcam in a little frame with a kitty peeking in the corner, the goal right below and a bar with your socials." },
+      { "title": "Just Chatting", "desc": "Chatting: a big webcam with a bow and a peeking kitty, and the chat on a phone with cat ears." },
+      { "title": "React", "desc": "Big video, webcam and the phone with the chat beside it, with your socials and the goal below." },
+      { "title": "Be Right Back", "desc": "Breaks: an “away for” timer that earns a little heart every 2 minutes, plus the chat." },
+      { "title": "Ending", "desc": "End of stream: a thank-you and the schedule for the next one." }
+    ]
+  },
+  "es": {
+    "tagline": "Una cafetería kawaii en tonos pastel: dulces con carita, gatitos durmiendo en la barra y una webcam con un gatito asomándose.",
+    "excerpt": "Pack de overlays animados gratis para OBS con estilo de cafetería kawaii: tonos pastel de fresa, matcha y vainilla, contorno de chocolate y glaseado chorreando, títulos tipo pegatina, dos gatitos durmiendo en la barra y corazoncitos subiendo por la pantalla. Incluye pantallas de inicio, juego, pausa y final, chat de Twitch, alertas y paneles.",
+    "content": "<p class='lead'>Toma tu taza: una cafetería adorable en tonos pastel, con frascos con carita en los estantes, lámparas meciéndose, banderines y una barra llena de dulces, donde dos gatitos, uno caramelo y uno gris, duermen moviendo la cola.</p>\n<p>Cafe Cuties es una colección de escenas completa para OBS Studio. Todas las pantallas comparten el mismo fondo animado, así que el paso entre <strong>Empezando</strong>, <strong>Juego</strong>, <strong>Charla</strong>, <strong>React</strong>, <strong>Vuelvo enseguida</strong> y <strong>Terminando</strong> ocurre sin ningún corte.</p>\n<p>Las tarjetas parecen galletas con contorno de chocolate y glaseado de fresa chorreando, la webcam tiene un gatito asomándose por encima y un lacito en la esquina, y el chat aparece en un celular rosa con orejas de gato, en burbujitas pastel. Las alertas saltan en lo alto de la pantalla con un gatito encima: el nombre en grandes letras de pegatina, los corazoncitos encendiéndose (1 para un seguidor, hasta 5 para un raid), corazones y destellos volando y una campanita de caja de música.</p>\n<p>El instalador pregunta <strong>tu nombre y tu usuario en cada red</strong> y lo deja todo listo. Después puedes cambiar el estilo (fresa, matcha o noche, con la luna en la ventana y lucecitas encendidas) en <code>config.js</code>.</p>",
+    "features": [
+      "Fondo animado de cafetería kawaii: gatitos durmiendo, taza humeante, banderines y corazones flotando",
+      "Tres estilos: fresa (pared rosa), matcha (pared verde) o noche (luna en la ventana y lucecitas encendidas)",
+      "Instalador que pregunta tu nombre y tus redes y lo deja todo listo",
+      "Webcam con un gatito asomándose por encima y un lacito en la esquina",
+      "Cuenta regresiva en una tarjeta glaseada que se reinicia cada vez que la escena sale al aire, con “consejos” rotando",
+      "Cronómetro de “ausente hace” que suma un corazoncito cada 2 minutos",
+      "Chat de Twitch en un celular con orejas de gato (sin iniciar sesión), con filtro de bots y comandos",
+      "Alertas con gatito, corazoncitos, destellos volando y campanita de caja de música",
+      "Integración con StreamElements o la URL de alertas de otro servicio",
+      "8 paneles para Twitch y banner offline en el mismo estilo",
+      "Modo ahorro: menos FPS, fondo estático o efectos desactivados"
+    ],
+    "requirements": [
+      "Windows 10 u 11",
+      "OBS Studio 30 o más reciente",
+      "Webcam (opcional)",
+      "Cuenta de Twitch para el chat en vivo (opcional)"
+    ],
+    "install": [
+      "Extrae el ZIP en una carpeta fija, como Documentos\\Temas OBS\\Cafe.",
+      "Cierra OBS y haz doble clic en INSTALAR.bat.",
+      "Responde tu nombre y tus usuarios en las redes (Enter salta las que no usas).",
+      "Abre OBS y elige Colección de escenas → Cafe.",
+      "En la escena Jogo (Juego), elige tu webcam en la fuente Câmera."
+    ],
+    "scenes": [
+      { "title": "Empezando", "desc": "Antes del stream: una tarjeta con cuenta regresiva, una dona girando y “consejos” en la esquina." },
+      { "title": "Juego", "desc": "Juego a pantalla completa, webcam en un marquito con un gatito asomándose en la esquina, la meta justo debajo y una barra con tus redes." },
+      { "title": "Charla", "desc": "Charla: webcam grande con lacito y gatito asomándose, y el chat en un celular con orejas de gato." },
+      { "title": "React", "desc": "Video grande, webcam y el celular con el chat al lado, con tus redes y la meta abajo." },
+      { "title": "Vuelvo enseguida", "desc": "Pausas: cronómetro de “ausente hace” que suma un corazoncito cada 2 minutos, y el chat." },
+      { "title": "Terminando", "desc": "Fin del stream: agradecimiento y el horario del próximo." }
+    ]
+  }
+}

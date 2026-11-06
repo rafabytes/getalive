@@ -1,0 +1,51 @@
+{
+  "slug": "cafe",
+  "title": "Cafe Cuties",
+  "source": "B:/obs-templates/cafe",
+  "tagline": "Uma cafeteria kawaii em tons pastel: doces com carinha, gatinhos dormindo no balcão e webcam com um gatinho espiando.",
+  "excerpt": "Overlays completos para live com cara de cafeteria kawaii: tons pastel de morango, matcha e baunilha, contorno de chocolate e cobertura escorrendo, títulos-adesivo fofos, dois gatinhos dormindo no balcão e coraçõezinhos subindo pela tela. Inclui chat e painéis para a Twitch.",
+  "version": "1.0",
+  "resolution": "1920×1080",
+  "obs_version": "30",
+  "accent": "#ff5c9a",
+  "featured": true,
+  "styles": ["Kawaii", "Pastel", "Colorido"],
+  "platforms": ["twitch", "youtube", "kick"],
+  "content": "<p class=\"lead\">Pega sua xícara: uma cafeteria fofinha em tons pastel, com potinhos de carinha nas prateleiras, luminárias balançando, bandeirinhas e um balcão cheio de doces, onde dois gatinhos, um caramelo e um cinzinha, dormem mexendo o rabo.</p>\n<p>O Cafe Cuties é uma coleção de cenas completa para o OBS Studio. Todas as telas dividem o mesmo fundo animado, então a passagem entre <strong>Começando</strong>, <strong>Jogo</strong>, <strong>Conversa</strong>, <strong>React</strong>, <strong>Já volto</strong> e <strong>Encerrando</strong> acontece sem nenhum corte.</p>\n<p>Os cartões parecem biscoitos com contorno de chocolate e cobertura de morango escorrendo, a webcam tem um gatinho espiando por cima e um lacinho no canto, e o chat aparece num celular de capinha rosa com orelhas de gato, em balõezinhos pastel. Os alertas pulam no alto da tela com um gatinho em cima: o nome grandão em letra-adesivo, os coraçõezinhos acendendo (1 para seguidor, até 5 para raid), corações e brilhinhos voando e um sininho de caixinha de música.</p>\n<p>O instalador pergunta <strong>seu nome e seus usuários em cada rede</strong> e já deixa tudo preenchido. Depois, dá para trocar o visual (morango, matcha ou noite, com lua na janela e luzinhas acesas) no <code>config.js</code>.</p>",
+  "features": [
+    "Fundo animado de cafeteria kawaii: gatinhos dormindo, xícara soltando vapor, bandeirinhas e corações subindo",
+    "Três visuais: morango (parede rosa), matcha (parede verdinha) ou noite (lua na janela e luzinhas acesas)",
+    "Instalador que pergunta seu nome e suas redes e já preenche tudo",
+    "Webcam com gatinho espiando por cima e lacinho no canto",
+    "Contagem regressiva num cartão com cobertura que recomeça sempre que a cena entra no ar, com \"dicas\" girando",
+    "Cronômetro de \"ausente há\" que ganha um coraçãozinho a cada 2 minutos",
+    "Chat da Twitch num celular de capinha com orelhas de gato (sem login), com filtro de bots e comandos",
+    "Alertas com gatinho, coraçõezinhos, brilhinhos voando e sininho de caixinha de música",
+    "Integração com StreamElements ou URL de alertas de outro serviço",
+    "8 painéis para a Twitch e banner offline no mesmo estilo",
+    "Modo econômico: menos FPS, fundo parado ou efeitos desligados"
+  ],
+  "requirements": [
+    "Windows 10 ou 11",
+    "OBS Studio 30 ou mais novo",
+    "Webcam (opcional)",
+    "Conta na Twitch para o chat ao vivo (opcional)"
+  ],
+  "install": [
+    "Extraia o ZIP numa pasta fixa, como Documentos\\Temas OBS\\Cafe.",
+    "Feche o OBS e dê dois cliques em INSTALAR.bat.",
+    "Responda seu nome e seus usuários nas redes (Enter pula as que você não usa).",
+    "Abra o OBS e escolha Coleção de cenas → Cafe.",
+    "Na cena Jogo, escolha sua webcam na fonte Câmera."
+  ],
+  "scenes": [
+    { "title": "Começando", "image": "previews/1-comecando.jpg", "desc": "Antes da live: cartão com contagem regressiva, uma rosquinha girando e \"dicas\" no canto." },
+    { "title": "Jogo", "image": "previews/2-jogo.jpg", "desc": "Jogo em tela cheia, webcam numa moldurinha com gatinho espiando no canto, a meta logo embaixo e uma barra com suas redes." },
+    { "title": "Conversa", "image": "previews/3-conversa.jpg", "desc": "Bate-papo: webcam grande com lacinho e gatinho espiando, e o chat num celular de orelhinhas." },
+    { "title": "React", "image": "previews/4-react.jpg", "desc": "Vídeo grande, webcam e o celular com o chat ao lado, e suas redes e a meta embaixo." },
+    { "title": "Já volto", "image": "previews/5-ja-volto.jpg", "desc": "Pausas: cronômetro de \"ausente há\" que ganha um coraçãozinho a cada 2 minutos, e o chat." },
+    { "title": "Encerrando", "image": "previews/6-encerrando.jpg", "desc": "Fim da live: agradecimento e a agenda da próxima." }
+  ],
+  "thumbnail": "previews/1-comecando.jpg",
+  "zip": "dist/*.zip"
+}
