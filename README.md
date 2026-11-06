@@ -19,7 +19,7 @@ npm run build   # build de produção em dist/ (limpa dist e cache antes)
 | `src/js/main.js` | Swup + módulos por página (`src/js/modules/`) |
 | `src/js/react/` | Ilhas React: `TemplateExplorer`, `AuthApp`, `RequestForm` (`<div data-react="Nome">`) |
 | `src/css/` | Tailwind (`main.css`) e estilo do `wp-login.php` (`login.css`) |
-| `tools/` | Importador de templates |
+| `tools/` | Importador de templates e exportar/importar pacotes |
 
 Na ativação, o tema cria as páginas (`/entrar`, `/criar-conta`, `/conta`, `/solicitar`, `/sobre`, `/politica-de-privacidade`), os menus, liga o cadastro de usuários e troca os permalinks para `/%postname%/`.
 
@@ -59,6 +59,27 @@ php tools/import-template.php tools/templates/vapo.json
 ```
 
 O manifesto aponta para a pasta de origem, as imagens das cenas e o ZIP (`dist/*.zip`, usa o mais recente). Rodar de novo atualiza o mesmo post e só reenvia o que mudou.
+
+### Levar templates para a produção (sem migrar o banco)
+
+Em **Templates → Exportar / Importar** (só administradores):
+
+1. **No site local**, marque os templates e clique em **Baixar pacote**. O `.zip` leva textos, detalhes, estilos, cenas, imagens e o ZIP de download.
+2. **Na produção**, envie o pacote em **Revisar pacote**. A tela mostra o que cada template vai virar (novo ou atualização, imagens novas, ZIP novo) e avisa se a cópia da produção foi editada depois da exportação. Desmarque o que não quiser e clique em **Importar selecionados**.
+
+Só os templates marcados são criados ou atualizados, casando pelo slug. Nada mais muda: usuários, páginas, menus, configurações e os outros templates ficam como estão. Num template que já existe são mantidos a ordem, a data de publicação, o autor, o contador de downloads e o produto do WooCommerce. Imagens com o mesmo conteúdo são reaproveitadas, sem duplicar na biblioteca.
+
+Pacote maior que o limite de envio do servidor: suba por FTP ou pelo Gerenciador de Arquivos para `wp-content/uploads/getalive-private/import/` (pasta protegida) e escolha-o na lista.
+
+Pela linha de comando (no servidor, com `WP_PATH` apontando para o WordPress, como no `.cpanel.yml`):
+
+```bash
+php tools/export-templates.php cafe ratimbum            # ou --since=2026-11-01, ou --all; --out=pasta
+php tools/import-package.php getalive-cafe-*.zip        # mostra o que vai acontecer, sem mudar nada
+php tools/import-package.php getalive-cafe-*.zip --yes  # importa (pode limitar a slugs: ... cafe --yes)
+```
+
+O código fica em `inc/transfer.php`.
 
 ## Templates pagos (preparado, desligado)
 

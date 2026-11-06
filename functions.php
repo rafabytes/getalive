@@ -30,6 +30,7 @@ foreach ( [
 	'consent',
 	'settings',
 	'premium',
+	'transfer',
 	'install',
 	'home',
 	'seo',
