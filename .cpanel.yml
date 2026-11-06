@@ -10,9 +10,9 @@
 deployment:
   tasks:
     - export PATH=/usr/local/bin:/usr/bin:/bin
-    - export DEPLOYPATH=/home1/rafaby42/public_html/getalive/wp-content/themes/getalive-theme/
-    - export WP_PATH=/home1/rafaby42/public_html/getalive
-    - export WP_HOME=https://rafabytes.com
+    - export DEPLOYPATH=/home3/rafa3782/getalive.appmaster.com.br/wp-content/themes/getalive-theme/
+    - export WP_PATH=/home3/rafa3782/getalive.appmaster.com.br
+    - export WP_HOME=https://getalive.appmaster.com.br
     - mkdir -p $DEPLOYPATH
     - rsync -a --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='.postcssrc' --exclude='node_modules' --exclude='.parcel-cache' --exclude='src' --exclude='tools' --exclude='package.json' --exclude='package-lock.json' --exclude='tailwind.config.js' --exclude='README.md' ./ $DEPLOYPATH
     - find $DEPLOYPATH -type d -exec chmod 755 {} +
